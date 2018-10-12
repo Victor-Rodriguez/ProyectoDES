@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/AdminTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml">
+
+    <ui:define name="titulo">
+        Nuevo Proveedor
+    </ui:define>
+
+    <ui:define name="tipo">
+        Administrador
+    </ui:define>
+
+    <ui:define name="tablas">
+        <li><h:link outcome="/index" value="Articulos"/></li>
+        <li><h:link outcome="/administrador/listarProveedor" value="Proveedores"/></li>
+        <li><h:link outcome="/administrador/listaMarcas" value="Marcas"/></li>
+        <li><h:link outcome="/administrador/listaPromociones" value="Promociones"/></li>
+        <li><h:link outcome="/administrador/listarEmpleado" value="Empleados"/></li>
+    </ui:define>
+
+    <ui:define name="formularios">
+        <li><h:link outcome="/administrador/nuevoProveedor" value="Nuevo proveedores"/></li>
+        <li><h:link outcome="/administrador/nuevaMarca" value="Nueva Marca"/></li>
+        <li><h:link outcome="/administrador/nuevaPromocion" value="Nueva promocion"/></li>
+        <li><h:link outcome="/administrador/nuevoEmpleado" value="Nuevo Empleado"/></li>
+    </ui:define>
+    
+    <ui:define name="content">
+        <div class="row">
+            <div class="col col-md-6" style="margin-left: 25%;">
+                <h:panelGroup layout="block" class="alert alert-danger"
+                              rendered="#{not empty facesContext.messageList}">
+                    <h:messages />
+                </h:panelGroup>
+
+                <h:form>
+                    <div class="form-group">
+                        <h:outputLabel value="IdProveedor:" for="idProveedor" />
+                        <h:inputText id="idProveedor"
+                                     class="form-control"
+                                     value="#{proveedorBean.proveedor.idProveedor}"
+                                     title="IdProveedor" required="true" 
+                                     readonly="#{not facesContext.postback or facesContext.renderResponse}">
+                        </h:inputText>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel value="Nombre:" for="nombre" />
+                        <h:inputText id="nombre"
+                                     class="form-control"
+                                     value="#{proveedorBean.proveedor.nombre}" 
+                                     title="Nombre" required="true" 
+                                     requiredMessage="El nombre es obligatorio"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel value="Correo:" for="correo" />
+                        <h:inputText id="correo"
+                                     class="form-control"
+                                     value="#{proveedorBean.proveedor.correo}" 
+                                     title="Correo" required="true" 
+                                     requiredMessage="El correo es obligatorio"
+                                     validatorMessage="Correo con formato incorrecto">
+                            <f:validateRegex pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" />
+                        </h:inputText>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel value="Direccion:" for="direccion" />
+                        <h:inputText id="direccion"
+                                     class="form-control"
+                                     value="#{proveedorBean.proveedor.direccion}" 
+                                     title="Direccion" required="true" 
+                                     requiredMessage="La dirección es obligatoria"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel value="Estado:" for="estado" />
+                        <h:inputText id="estado" 
+                                     class="form-control"
+                                     value="#{proveedorBean.proveedor.estado}" 
+                                     title="Estado" required="true" 
+                                     requiredMessage="The Estado field is required."/>
+                    </div>
+
+
+                    <h:commandButton value="Insertar" class="btn btn-success"
+                                     action="#{proveedorBean.modificarProveedor()}"/>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/AdminTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml">
+
+    <ui:define name="titulo">
+        Lista de Empleados
+    </ui:define>
+
+    <ui:define name="tipo">
+        Administrador
+    </ui:define> 
+
+    <ui:define name="tablas">
+        <li><h:link outcome="" value="Articulos"/></li>
+        <li><h:link outcome="/administrador/listarProveedor" value="Proveedores"/></li>
+        <li><h:link outcome="/administrador/listaMarcas" value="Marcas"/></li>
+        <li><h:link outcome="/administrador/listaPromociones" value="Promociones"/></li>
+        <li><h:link outcome="/administrador/listarEmpleado" value="Empleados"/></li>
+    </ui:define>
+
+    <ui:define name="formularios">
+        <li><h:link outcome="/administrador/nuevoProveedor" value="Nuevo proveedores"/></li>
+        <li><h:link outcome="/administrador/nuevaMarca" value="Nueva Marca"/></li>
+        <li><h:link outcome="/administrador/nuevaPromocion" value="Nueva promocion"/></li>
+        <li><h:link outcome="/administrador/nuevoEmpleado" value="Nuevo Empleado"/></li>
+    </ui:define>
+    
+    <ui:define name="content">
+        <div class="row">
+            <div class="col-md-10">
+                <h:link outcome="/administrador/nuevoEmpleado" value="Nuevo Empleado" class="btn btn-success "/>
+                <h:form prependId="false">
+                    <h:dataTable value="#{empleadoBean.listarEmpleado}" var="item" 
+                                 id="tabla" class="table table-bordered">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="ID"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEmpleado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nombres"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombres}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Apellidos"/>
+                            </f:facet>
+                            <h:outputText value="#{item.apellidos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Dui"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dui}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Usuario"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idUsuario.nombreUsuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Correo"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idUsuario.correo}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#tabla").dataTable();
+            });
+        </script>
+    </ui:define>
+
+</ui:composition>

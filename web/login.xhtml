@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Inicio de sesion</title>
+        <meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		
+		<meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin"/>
+		<meta name="author" content="Pike Web Development - https://www.pikephp.com"/>
+
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="assets/images/favicon.ico"/>
+
+		<!-- Switchery css -->
+		<link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
+		
+		<!-- Bootstrap CSS -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		
+		<!-- Font Awesome CSS -->
+		<link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+		
+		<!-- Custom CSS -->
+		<link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+		
+		<script src="assets/js/modernizr.min.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/moment.min.js"></script>
+
+		<!-- BEGIN CSS for this page -->
+		<style>
+		.parsley-error {
+			border-color: #ff5d48 !important;
+		}
+		.parsley-errors-list.filled {
+			display: block;
+		}
+		.parsley-errors-list {
+			display: none;
+			margin: 0;
+			padding: 0;
+		}
+		.parsley-errors-list > li {
+			font-size: 12px;
+			list-style: none;
+			color: #ff5d48;
+			margin-top: 5px;
+		}
+		.form-section {
+			padding-left: 15px;
+			border-left: 2px solid #FF851B;
+			display: none;
+		}
+		.form-section.current {
+			display: inherit;
+		}
+		</style>
+		<!-- END CSS for this page -->
+    </h:head>
+    <h:body>
+        <div class="content-page">
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-5">						
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h3><i class="fa fa-check-square-o"></i> Inicio de sesion</h3>
+                                    <i></i><i></i> <i></i>
+                                    <h:panelGroup layout="block" class="alert alert-danger" 
+                                          rendered="#{not empty facesContext.messageList}">
+                                        <h:messages/>
+                                    </h:panelGroup>
+                                </div>
+
+                                <div class="card-body">
+
+                                    <h:form >
+                                        <div class="form-group">
+                                            <label for="correo">Correo</label>
+                                            <h:inputText value="#{loginBean.correo}" class="form-control"
+                                                         required="true" requiredMessage="Debes ingresar tu correo de usuario"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="clave">Password:</label>
+                                            <h:inputSecret value="#{loginBean.clave}" class="form-control"
+                                                       required="true" requiredMessage="Debes ingresar tu contraseña"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <h:commandButton class="btn btn-lg btn-primary btn-block" 
+                                                             value="Iniciar sesión"  action="#{loginBean.iniciarSesion()}"/>
+                                        </div>
+                                        <div>
+                                            <h:link value="Registrarme" outcome="/registrar"/>
+                                        </div>
+                                    </h:form>
+
+                                </div>														
+                            </div><!-- end card-->					
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </h:body>
+</html>
+
