@@ -30,11 +30,11 @@ public class MarcaModel {
         }
     }
     
-    public MarcaEntity obtenerMarca(String id){
+    public MarcaEntity obtenerMarca(int id){
         return em.find(MarcaEntity.class, id);
     }
     
-    public int modificarEmpleado(MarcaEntity marca){
+    public int modificarMarca(MarcaEntity marca){
         try {
             em.merge(marca);
             em.flush();

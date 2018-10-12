@@ -44,34 +44,36 @@
                 <div class="collapse navbar-collapse" id="#navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right main-nav">
                         <link href="#" />
-                        <li class="dropdown dropdown-toggle"><a href="#">Empleado<span><i class="fa fa-angle-down"></i></span></a>
+                        <li class="dropdown dropdown-toggle"><a href="#" data-toggle="dropdown">Empleado<span><i class="fa fa-angle-down"></i></span></a>
                             <ul class="dropdown-menu">
-                                <link href="#" />
-                                <link href="#" />
+                                <h:link outcome="/administrador/listarEmpleado" value="Lista empleados" />
+                                <h:link  outcome="/administrador/nuevoEmpleado" value="Nuevo empleado"/>
                             </ul>
                         </li>
-                        <li class="dropdown dropdown-toggle"><a href="#">Proveedor<span><i class="fa fa-angle-down"></i></span></a>
+                        <li class="dropdown dropdown-toggle"><a href="#" data-toggle="dropdown">Proveedor<span><i class="fa fa-angle-down"></i></span></a>
                             <ul class="dropdown-menu">
-                                <link href="#" />
-                                <link href="#" />                                
+                                <h:link outcome="/administrador/listarProveedor" value="Lista proveedores"  />
+                                <h:link  outcome="/administrador/nuevoProveedor" value="Nuevo proveedor"/>                               
                             </ul>
                         </li>
-                        <li class="dropdown dropdown-toggle"><a href="#">Marcas<span><i class="fa fa-angle-down"></i></span></a>
+                        <li class="dropdown dropdown-toggle"><a href="#" data-toggle="dropdown">Marcas<span><i class="fa fa-angle-down"></i></span></a>
                             <ul class="dropdown-menu">
-                                <link href="#" />
-                                <link href="#" />                             
+                                <h:link outcome="/administrador/listaMarcas" value="Lista marca" />
+                                <h:link  outcome="/administrador/nuevaMarca" value="Nuevo marca"/>                          
                             </ul>
                         </li>
-                        <li class="dropdown dropdown-toggle"><a href="#">Artículos<span><i class="fa fa-angle-down"></i></span></a>
+                        <li class="dropdown dropdown-toggle"><a href="#" data-toggle="dropdown">Artículos<span><i class="fa fa-angle-down"></i></span></a>
                             <ul class="dropdown-menu">
-                                <link href="#" />                             
+                                <h:link outcome="/administrador/index" value="Lista articulos" />                            
                             </ul>
                         </li>
-                        <li class="dropdown dropdown-toggle"><a href="#">Promociones<span><i class="fa fa-angle-down"></i></span></a>
+                        <li class="dropdown dropdown-toggle"><a href="#" data-toggle="dropdown">Promociones<span><i class="fa fa-angle-down"></i></span></a>
                             <ul class="dropdown-menu">
-                                <link href="#" />
-                                <link href="#" />                               
-                            </ul>
+                                <h:link outcome="/administrador/listaPromociones" value="Lista promociones" />
+                              
+                                <h:link  outcome="/administrador/nuevaPromocion" value="Nueva promocion"/>
+                            </ul>                            
+                            
                         </li>
                         <li class="dropdown dropdown-toggle"><a href="#" data-toggle="dropdown">Cuenta <span><i class="fa fa-angle-down"></i></span></a>
                             <ul class="dropdown-menu">

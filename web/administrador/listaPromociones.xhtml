@@ -2,33 +2,30 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="./../WEB-INF/AdminTemplate.xhtml"
-                xmlns:h="http://xmlns.jcp.org/jsf/html">
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml">
 
     <ui:define name="titulo">
         Marcas
     </ui:define>
 
-    <ui:define name="tipo">
-        Administrador
-    </ui:define>
-
-    <ui:define name="tablas">
-        <li><h:link outcome="/index" value="Articulos"/></li>
-        <li><h:link outcome="/administrador/listarProveedor" value="Proveedores"/></li>
-        <li><h:link outcome="/administrador/listaMarcas" value="Marcas"/></li>
-        <li><h:link outcome="/administrador/listaPromociones" value="Promociones"/></li>
-        <li><h:link outcome="/administrador/listarEmpleado" value="Empleados"/></li>
-    </ui:define>
-
-    <ui:define name="formularios">
-        <li><h:link outcome="/administrador/nuevoProveedor" value="Nuevo proveedores"/></li>
-        <li><h:link outcome="/administrador/nuevaMarca" value="Nueva Marca"/></li>
-        <li><h:link outcome="/administrador/nuevaPromocion" value="Nueva promocion"/></li>
-        <li><h:link outcome="/administrador/nuevoEmpleado" value="Nuevo Empleado"/></li>
-    </ui:define>
-
     <ui:define name="content">
-        content
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Lista de promociones</h2>
+
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <h:link outcome="/administrador/nuevaPromocion" value="Nuevo Promoción" class="btn btn-success "/>
+        <section class="contact-section">
+            
+            <div class="container">
+                
+            </div>
+        </section>
     </ui:define>
 
 </ui:composition>

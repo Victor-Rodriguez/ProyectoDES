@@ -2,33 +2,34 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="./../WEB-INF/AdminTemplate.xhtml"
-                xmlns:h="http://xmlns.jcp.org/jsf/html">
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="titulo">
         Marcas
     </ui:define>
 
-    <ui:define name="tipo">
-        Administrador
-    </ui:define>
-
-    <ui:define name="tablas">
-        <li><h:link outcome="/index" value="Articulos"/></li>
-        <li><h:link outcome="/administrador/listarProveedor" value="Proveedores"/></li>
-        <li><h:link outcome="/administrador/listaMarcas" value="Marcas"/></li>
-        <li><h:link outcome="/administrador/listaPromociones" value="Promociones"/></li>
-        <li><h:link outcome="/administrador/listarEmpleado" value="Empleados"/></li>
-    </ui:define>
-
-    <ui:define name="formularios">
-        <li><h:link outcome="/administrador/nuevoProveedor" value="Nuevo proveedores"/></li>
-        <li><h:link outcome="/administrador/nuevaMarca" value="Nueva Marca"/></li>
-        <li><h:link outcome="/administrador/nuevaPromocion" value="Nueva promocion"/></li>
-        <li><h:link outcome="/administrador/nuevoEmpleado" value="Nuevo Empleado"/></li>
-    </ui:define>
-
     <ui:define name="content">
-        content
+        <div class="row">
+            <div class="col col-md-6" style="margin-left: 25%;">
+                <h:panelGroup layout="block" class="alert alert-danger"
+                              rendered="#{not empty facesContext.messageList}">
+                    <h:messages />
+                </h:panelGroup>
+                            
+                <h:form>
+                    <div class="form-group">
+                        <h:outputLabel value="Marca:" for="marca" />
+                        <h:inputText id="marca" value="#{marcaBean.marca.marca}" class="form-control"
+                                     title="Marca" required="true" requiredMessage="El nombre de la marca es obligatorio."/>
+                    </div>
+                    <h:commandButton action="#{marcaBean.insertarMarca()}" class="btn btn-success"
+                                     value="Insertar"/>
+                </h:form>
+
+            </div>
+        </div>
     </ui:define>
 
 </ui:composition>

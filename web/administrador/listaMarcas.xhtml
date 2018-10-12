@@ -10,37 +10,27 @@
         Marcas
     </ui:define>
 
-    <ui:define name="tipo">
-        Administrador
-    </ui:define>
-
-    <ui:define name="tablas">
-        <li><h:link outcome="/index" value="Articulos"/></li>
-        <li><h:link outcome="/administrador/listarProveedor" value="Proveedores"/></li>
-        <li><h:link outcome="/administrador/listaMarcas" value="Marcas"/></li>
-        <li><h:link outcome="/administrador/listaPromociones" value="Promociones"/></li>
-        <li><h:link outcome="/administrador/listarEmpleado" value="Empleados"/></li>
-    </ui:define>
-
-    <ui:define name="formularios">
-        <li><h:link outcome="/administrador/nuevoProveedor" value="Nuevo proveedores"/></li>
-        <li><h:link outcome="/administrador/nuevaMarca" value="Nueva Marca"/></li>
-        <li><h:link outcome="/administrador/nuevaPromocion" value="Nueva promocion"/></li>
-        <li><h:link outcome="/administrador/nuevoEmpleado" value="Nuevo Empleado"/></li>
-    </ui:define>
-
     <ui:define name="content">
-        <div class="row">
-            <div class="col-md-10">
-                <h:link outcome="/administrador/nuevaMarca" value="Nuevo Marca" class="btn btn-success "/>  <br/><hr/>
-               
-
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Lista de marcas</h2>
+                        
+                    </div>
+                </div>
+            </div>
+        <hr/>
+            <h:link outcome="/administrador/nuevaMarca" class="btn btn-success" value="Nueva marca"/>
+         
+        <section class="contact-section">
+            
+            <div class="container">
                 <h:form prependId="false">
-                        <h:dataTable value="#{marcaBean.listarMarca}" var="item"
-                                     id="tabla" class="table table-bordered table-hover">
+                        <h:dataTable value="#{marcaBean.listarMarca}" class="table table-bordered table-hover table-striped" 
+                                     var="item" id="tabla">
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText value="Id"/>
+                                    <h:outputText value="ID"/>
                                 </f:facet>
                                 <h:outputText value="#{item.idMarca}"/>
                             </h:column>
@@ -50,32 +40,25 @@
                                 </f:facet>
                                 <h:outputText value="#{item.marca}"/>
                             </h:column>
-                            <h:column>
+                            <h:column >
                                 <f:facet name="header">
-                                    <h:outputText value="Img"/>
+                                    <h:outputText value="Operaciones"/>
                                 </f:facet>
-                                <h:outputText value="#{item.img}"/>
+                                <h:commandLink action="#{marcaBean.obtenerMarca()}" class="btn btn-success"
+                                                 value="Modificar">
+                                    <i class="glyphicon glyphicon-edit"/>
+                                    <f:param name="codigo" value="#{item.idMarca}"/>
+                                </h:commandLink>
                             </h:column>
                         </h:dataTable>
                     </h:form>
-               
-                <script>
-            $(document).ready(function(){
+            </div>
+        </section>
+        <script>
+            $(document).ready(function () {
                 $("#tabla").dataTable();
             });
-            
-            function confirmar(){
-                return confirm("realmente deseas eliminar este editorial?");
-            }
         </script>
-
-               
-            </div>
-        </div>
-        
-        
-        
-        
     </ui:define>
 
 </ui:composition>

@@ -6,9 +6,7 @@
 package sv.edu.udb.www.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,22 +14,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
  *
- * @author Rodriguez
+ * @author Usuario
  */
 @Entity
 @Table(name = "marca")
 @NamedQueries({
     @NamedQuery(name = "MarcaEntity.findAll", query = "SELECT m FROM MarcaEntity m")
     , @NamedQuery(name = "MarcaEntity.findByIdMarca", query = "SELECT m FROM MarcaEntity m WHERE m.idMarca = :idMarca")
-    , @NamedQuery(name = "MarcaEntity.findByMarca", query = "SELECT m FROM MarcaEntity m WHERE m.marca = :marca")
-    , @NamedQuery(name = "MarcaEntity.findByImg", query = "SELECT m FROM MarcaEntity m WHERE m.img = :img")})
+    , @NamedQuery(name = "MarcaEntity.findByMarca", query = "SELECT m FROM MarcaEntity m WHERE m.marca = :marca")})
 public class MarcaEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,12 +40,6 @@ public class MarcaEntity implements Serializable {
     @NotNull
     @Size(min = 1, max = 100)
     private String marca;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 100)
-    private String img;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMarca")
-    private Collection<ArticuloEntity> articuloEntityCollection;
 
     public MarcaEntity() {
     }
@@ -58,10 +48,9 @@ public class MarcaEntity implements Serializable {
         this.idMarca = idMarca;
     }
 
-    public MarcaEntity(Integer idMarca, String marca, String img) {
+    public MarcaEntity(Integer idMarca, String marca) {
         this.idMarca = idMarca;
         this.marca = marca;
-        this.img = img;
     }
 
     public Integer getIdMarca() {
@@ -78,22 +67,6 @@ public class MarcaEntity implements Serializable {
 
     public void setMarca(String marca) {
         this.marca = marca;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
-    public Collection<ArticuloEntity> getArticuloEntityCollection() {
-        return articuloEntityCollection;
-    }
-
-    public void setArticuloEntityCollection(Collection<ArticuloEntity> articuloEntityCollection) {
-        this.articuloEntityCollection = articuloEntityCollection;
     }
 
     @Override

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/AdminTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="titulo">
+        Marcas
+    </ui:define>
+
+    <ui:define name="content">
+        <section class="contact-section">
+            <div class="container" style="-webkit-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
+                 -moz-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
+                 box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75); padding:1%;max-width: 700px;margin-top: -100px;background-color: white;">
+
+                <h:panelGroup layout="block" class="alert alert-danger"
+                              rendered="#{not empty facesContext.messageList}">
+                    <h:messages/>
+                </h:panelGroup>
+
+                <div class="contact-form mt-50">
+                    <div class="row">
+                        <div class="col-md-6">
+                            
+                                <h:form>
+                                    <div class="form-group">
+                                        <h:outputLabel value="ID:" for="id" />
+                                        <h:inputText id="id" value="#{marcaBean.marca.idMarca}" class="form-control"
+                                                     title="idMarca" required="true" requiredMessage="El id de la marca es obligatorio."
+                                                     readonly="#{not facesContext.postback or facesContext.renderResponse}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Marca:" for="marca" />
+                                        <h:inputText id="marca" value="#{marcaBean.marca.marca}" class="form-control"
+                                                     title="Marca" required="true" requiredMessage="El nombre de la marca es obligatorio."/>
+                                    </div>
+                                    <h:commandButton action="#{marcaBean.modificarMarca()}" class="btn btn-success"
+                                                     value="Modificar"/>
+                                </h:form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </ui:define>
+
+</ui:composition>

@@ -10,24 +10,18 @@
 		<meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin"/>
 		<meta name="author" content="Pike Web Development - https://www.pikephp.com"/>
 
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="assets/images/favicon.ico"/>
-
-		<!-- Switchery css -->
-		<link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
-		
-		<!-- Bootstrap CSS -->
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-		
-		<!-- Font Awesome CSS -->
-		<link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-		
-		<!-- Custom CSS -->
-		<link href="assets/css/style.css" rel="stylesheet" type="text/css" />
-		
-		<script src="assets/js/modernizr.min.js"></script>
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/moment.min.js"></script>
+		<h:outputStylesheet name="css/mobile-menu.css"/>
+                <h:outputStylesheet name="fonts/flaticon/flaticon.css"/>
+                <h:outputStylesheet name="css/bootstrap.min.css" />
+                <h:outputStylesheet name="css/style.css"/>
+                <h:outputStylesheet name="css/alertify.core.css" />
+                <h:outputStylesheet name="css/alertify.default.css" />
+                <h:outputStylesheet name="css/dataTables.bootstrap.min.css" />
+                <h:outputScript name="js/jquery-1.12.0.min.js"/>
+                <h:outputScript name="js/bootstrap.min.js"/>
+                <h:outputScript name="js/alertify.js"/>
+                <h:outputScript name="js/jquery.dataTables.min.js"/>
+                <h:outputScript name="js/dataTables.bootstrap.min.js"/>
 
 		<!-- BEGIN CSS for this page -->
 		<style>
@@ -64,11 +58,10 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-5">						
-                            <div class="card mb-3">
+                        <div class="col-sm-5" style="margin-left: 30%; margin-top: 10%">						
+                            <div class="card mb-3" >
                                 <div class="card-header">
-                                    <h3><i class="fa fa-check-square-o"></i> Inicio de sesion</h3>
+                                    <h3><i class="fa fa-check-square-o"></i> Inicio de sesión</h3>
                                     <i></i><i></i> <i></i>
                                     <h:panelGroup layout="block" class="alert alert-danger" 
                                           rendered="#{not empty facesContext.messageList}">
