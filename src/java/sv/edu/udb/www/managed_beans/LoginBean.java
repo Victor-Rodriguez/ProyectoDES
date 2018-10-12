@@ -95,4 +95,13 @@ public class LoginBean {
         JsfUtils.addFlashMessage("exito", "usuario insertado exitosamente");
         return "/login?faces-redirect=true";
     }
+    public String insertarUsuario2(){
+        usuario.setIdTipo(new TipoUsuarioEntity(2));
+        if(usuarioModel.insertarUsuario(usuario)==0){
+            JsfUtils.addErrorMessage("codigoUsuario", "Ya existe un usuario con ese codigo");
+            return null;
+        }
+        JsfUtils.addFlashMessage("exito", "usuario insertado exitosamente");
+        return "/administrador/listarEmpleado?faces-redirect=true";
+    }
 }

@@ -38,6 +38,7 @@ public class ProveedorBean {
     }
     
     public String insertarProveedor(){
+        proveedor.setEstado(true);
         if(proveedorModel.insertarProveedor(proveedor) == 0){
             JsfUtils.addErrorMessage("idProveedor", "Ya existe un proveedor con este ID");
             return null;
@@ -47,12 +48,13 @@ public class ProveedorBean {
     }
     
     public String obtenerProveedor(){
-        int id = Integer.parseInt(JsfUtils.getRequest().getParameter("id").toString());
+        String id = JsfUtils.getRequest().getParameter("id");
         proveedor = proveedorModel.obtenerProveedor(id);
         return "/administrador/modificarProveedor";
     }
     
     public String modificarProveedor(){
+        
         if(proveedorModel.modificarProveedor(proveedor)== 0){
             JsfUtils.addErrorMessage("idProveedor", "No se pudo modificar");
             return null;

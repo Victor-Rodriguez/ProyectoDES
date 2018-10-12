@@ -19,7 +19,7 @@ import sv.edu.udb.www.entities.EmpleadoEntity;
 @Stateless
 public class EmpleadoModel {
 
-    @PersistenceContext(unitName = "Proyecto_DESPU")
+    @PersistenceContext(unitName = "ProyectoDESPU")
     private EntityManager em;
 
     public List<EmpleadoEntity> listarEmpleado(){

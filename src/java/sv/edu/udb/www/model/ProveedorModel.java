@@ -12,8 +12,10 @@ import sv.edu.udb.www.entities.ProveedorEntity;
 @Stateless
 public class ProveedorModel {
 
-    @PersistenceContext(unitName = "Proyecto_DESPU")
+    @PersistenceContext(unitName = "ProyectoDESPU")
     private EntityManager em;
+
+    
 
     public List<ProveedorEntity> listarProveedor(){
         Query query = em.createNamedQuery("ProveedorEntity.findAll");
@@ -30,7 +32,7 @@ public class ProveedorModel {
         }
     }
     
-    public ProveedorEntity obtenerProveedor(int id){
+    public ProveedorEntity obtenerProveedor(String id){
         return em.find(ProveedorEntity.class, id);
     }
     
@@ -42,5 +44,9 @@ public class ProveedorModel {
         } catch (Exception e) {
             return 0;
         }
+    }
+
+    public void persist(Object object) {
+        em.persist(object);
     }
 }
