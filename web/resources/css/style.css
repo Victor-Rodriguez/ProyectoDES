@@ -1045,7 +1045,6 @@ Shortcode Content
  *----------------------------------------------- */
 
 .single-page-title {
-    background  : url(../img/img-page-title.jpg) no-repeat bottom;
     background-size       : cover;
     width                 : 100%;
     background-attachment : fixed;

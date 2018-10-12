@@ -7,36 +7,35 @@
                 xmlns="http://www.w3.org/1999/xhtml">
 
     <ui:define name="titulo">
-        Lista de Categorías
+        Lista de Rubros
     </ui:define>
 
     <ui:define name="content">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Lista de Categorías</h2>
+                    <h2>Lista de Rubros</h2>
                 </div>
             </div>
         </div>
 
-
         <section class="contact-section">
             <div class="container">
-                <h:link outcome="/empleado/nuevaCategoria" value="Nueva Categoría" class="btn btn-success"/><br><hr></hr></br>
+                <h:link outcome="/empleado/nuevoRubro" value="Nuevo Rubro" class="btn btn-success"/><br><hr></hr></br>
                 <h:form prependId="false">
-                    <h:dataTable value="#{categoriaBean.listarCategoria}" var="item"
+                    <h:dataTable value="#{rubroBean.listaRubros}" var="item"
                                  id="tabla" class="table table-bordered">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="ID"/>
                             </f:facet>
-                            <h:outputText value="#{item.idCategoria}"/>
+                            <h:outputText value="#{item.idRubro}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="Categoría"/>
+                                <h:outputText value="Rubro"/>
                             </f:facet>
-                            <h:outputText value="#{item.categoria}"/>
+                            <h:outputText value="#{item.rubro}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
@@ -45,15 +44,15 @@
                             <h:outputText value="#{item.descripcion}"/>
                         </h:column>
                         <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Operaciones"/>
-                        </f:facet>
-                            <h:commandLink class="btn btn-primary" action="#{categoriaBean.obtenerCategoria()}">
-                            <i class="glyphicon glyphicon-edit"></i>
-                            <f:param name="id" value="#{item.idCategoria}"/>
-                        </h:commandLink>
-               
-                    </h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Operaciones"/>
+                            </f:facet>
+                            <h:commandLink class="btn btn-primary" action="#{rubroBean.obtenerRubro()}">
+                                <i class="glyphicon glyphicon-edit"></i>
+                                <f:param name="id" value="#{item.idRubro}"/>
+                            </h:commandLink>
+
+                        </h:column>
                     </h:dataTable>
                 </h:form>
             </div>

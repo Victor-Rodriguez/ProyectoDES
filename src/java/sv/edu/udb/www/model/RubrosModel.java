@@ -49,19 +49,4 @@ public class RubrosModel {
         return em.find(RubroEntity.class, id);
     }
     
-    public int eliminarRubro(int id){
-        try {
-            RubroEntity rubto = em.find(RubroEntity.class, id);
-            
-            if(rubto != null){
-                em.remove(rubto);
-                em.flush();
-                return 1;
-            }
-            
-            return 0;  
-        } catch (Exception e) {
-            return  0;
-        }
-    }
 }

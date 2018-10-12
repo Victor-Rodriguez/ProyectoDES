@@ -21,27 +21,38 @@
                     <h:messages/>
                 </h:panelGroup>
 
-                <div class="contact-form mt-40">
+                <div class="contact-form mt-50">
                     <div class="row">
                         <div class="col-md-6" style="margin-left: 25%;">
                             <h:form prependId="false">
+                                <div class="form-group">
+                                    <h:outputLabel value="ID" for="idCategoria" />
+                                    <h:inputText id="idCategoria" class="form-control"
+                                                 value="#{categoriaBean.categoria.idCategoria}" 
+                                                 title="IdCategoria" required="true" 
+                                                 requiredMessage="The IdCategoria field is required."
+                                                 readonly="#{not facesContext.postback or facesContext.renderResponse}">
+                                    </h:inputText>
+                                </div>
+
                                 <div class="form-group">
                                     <h:outputLabel value="Categoría" for="categoria" />
                                     <h:inputText id="categoria" class="form-control"
                                                  value="#{categoriaBean.categoria.categoria}" 
                                                  title="Categoria" required="true" 
-                                                 requiredMessage="Nombre de categoría obligatorio"/>
+                                                 requiredMessage="The Categoria field is required."/>
                                 </div>
 
                                 <div class="form-group">
                                     <h:outputLabel value="Descripción" for="descripcion" />
-                                    <h:inputText id="descripcion" class="form-control"
+                                    <h:inputText id="descripcion" class="form-control" 
                                                  value="#{categoriaBean.categoria.descripcion}" 
-                                                 title="Descripcion" required="true"
-                                                 requiredMessage="Descripción obligatoria"/>
+                                                 title="Descripcion" />
+                                    
                                 </div>
+                                
                                 <h:commandButton class="btn btn-success" 
-                                                 value="Registrar" action="#{categoriaBean.insertarCategoria()}"/>
+                                                 value="Editar" action="#{categoriaBean.modificarCategoria()}"/>
                             </h:form>
                         </div>
                     </div>

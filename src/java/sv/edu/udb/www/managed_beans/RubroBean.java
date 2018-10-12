@@ -36,54 +36,27 @@ public class RubroBean {
         this.rubro = rubro;
     }
     
-    
-    
     public String insertarRubro(){
-        if(rubrosModel.insertarRubro(rubro)==0){
-            JsfUtils.addErrorMessage("rubro", "Ya existe un Rubro con ese nombre");
+        if(rubrosModel.insertarRubro(rubro) == 0){
+            JsfUtils.addErrorMessage("idRubro", "Ya existe un rubro con este nombre");
             return null;
         }
-        
         JsfUtils.addFlashMessage("exito", "Rubro insertado exitosamente");
-        
-        return "/rubros/listaRubros?faces-redirect=true";
-    }
-    
-    public String eliminarRubro(){
-        int id = Integer.parseInt(JsfUtils.getRequest().getParameter("codigo"));
-        
-        if(rubrosModel.eliminarRubro(id)>0){
-            JsfUtils.addFlashMessage("exito", "Rubro eliminado exitosamente");
-        }
-        else{
-            JsfUtils.addFlashMessage("fracaso", "No se puede eliminar este Rubro");
-        }
-        
-        return null;
+        return "/empleado/listarRubro?faces-redirecttrue";
     }
     
     public String obtenerRubro(){
-        
-        int codigo = Integer.parseInt(JsfUtils.getRequest().getParameter("codigo"));
-        
-        
-        rubro = rubrosModel.obtenerRubro(codigo);
-        
-        return "/rubros/modificarRubro";
+        int id = Integer.parseInt(JsfUtils.getRequest().getParameter("id").toString());
+        rubro = rubrosModel.obtenerRubro(id);
+        return "/empleado/modificarRubro";
     }
     
     public String modificarRubro(){
-        
-        if(rubrosModel.modificarRubro(rubro)==0){
-            
-                JsfUtils.addErrorMessage("rubro", "Este Rubro ya existe.");
+        if(rubrosModel.modificarRubro(rubro) == 0){
+            JsfUtils.addErrorMessage("idRubro", "No se pudo modificar");
             return null;
         }
-        
-        JsfUtils.addFlashMessage("exito", "Rubro modificardo exitosamente");
-       
-        
-        return "/rubros/listaRubros?faces-redirect=true";
+        JsfUtils.addFlashMessage("exito", "Rubro modificado exitosamente");
+        return "/empleado/listarRubro?faces-redirect=true";
     }
-    
 }

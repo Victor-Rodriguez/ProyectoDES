@@ -7,7 +7,7 @@
                 xmlns="http://www.w3.org/1999/xhtml">
 
     <ui:define name="titulo">
-        Nueva Categoría
+        Nueva Sub-categoría
     </ui:define>
 
     <ui:define name="content">
@@ -26,26 +26,38 @@
                         <div class="col-md-6" style="margin-left: 25%;">
                             <h:form prependId="false">
                                 <div class="form-group">
-                                    <h:outputLabel value="Categoría" for="categoria" />
-                                    <h:inputText id="categoria" class="form-control"
-                                                 value="#{categoriaBean.categoria.categoria}" 
-                                                 title="Categoria" required="true" 
-                                                 requiredMessage="Nombre de categoría obligatorio"/>
+                                     <h:outputLabel value="Sub-categoría" for="subcategoria" />
+                                    <h:inputText id="subcategoria" class="form-control"
+                                                 value="#{subCategoriaBean.subCate.subcategoria}" 
+                                                 title="Subcategoria" required="true" 
+                                                 requiredMessage="El nombre de la Sub-categoría es obligatorio"/>
                                 </div>
 
                                 <div class="form-group">
-                                    <h:outputLabel value="Descripción" for="descripcion" />
+                                     <h:outputLabel value="Descripción" for="descripcion" />
                                     <h:inputText id="descripcion" class="form-control"
-                                                 value="#{categoriaBean.categoria.descripcion}" 
-                                                 title="Descripcion" required="true"
+                                                 value="#{subCategoriaBean.subCate.descripcion}" 
+                                                 title="Descripcion" required="true" 
                                                  requiredMessage="Descripción obligatoria"/>
                                 </div>
-                                <h:commandButton class="btn btn-success" 
-                                                 value="Registrar" action="#{categoriaBean.insertarCategoria()}"/>
-                            </h:form>
+
+                                <div class="form-group">
+                                     <h:outputLabel value="IdCategoria:" for="idCategoria" />
+                                    <h:selectOneMenu id="idCategoria" class="form-control"
+                                                     value="#{subCategoriaBean.subCate.idCategoria}" 
+                                                     title="IdCategoria">
+
+                                        <f:selectItems value="#{subCategoriaBean.listaCategoria}" var="categoria"
+                                                       itemValue="#{categoria}"
+                                                       itemLabel="#{categoria.categoria}"/>
+                                    </h:selectOneMenu>
+                                </div>
+
+                                <h:commandButton value="Insertar" class="btn btn-success"
+                                                 action="#{subCategoriaBean.insertarSubCategoria()}"/>
+                            </h:form>          
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
