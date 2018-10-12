@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package sv.edu.udb.www.converters;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.component.UIComponent;
@@ -25,27 +26,26 @@ public class CategoriaConverter implements Converter {
 
     CategoriaModel categoriaModel = lookupCategoriasModelBean();
 
-    
-    
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-             if (value == null || value.isEmpty()) {
+        if (value == null || value.isEmpty()) {
             return null;
         }
         int id = Integer.parseInt(value);
-        return categoriaModel.obtenerCategoria(id); 
+        return categoriaModel.obtenerCategoria(id);
     }
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
-         if(value == null){
+        if (value == null) {
             return "";
         }
-        if(value instanceof CategoriaEntity){
+        if (value instanceof CategoriaEntity) {
             ((CategoriaEntity) value).getIdCategoria().toString();
         }
         return "";
     }
+
     private CategoriaModel lookupCategoriasModelBean() {
         try {
             Context c = new InitialContext();
@@ -55,5 +55,5 @@ public class CategoriaConverter implements Converter {
             throw new RuntimeException(ne);
         }
     }
-    
+
 }
