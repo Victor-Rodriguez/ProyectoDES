@@ -7,6 +7,7 @@ import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import sv.edu.udb.www.entities.EmpleadoEntity;
 import sv.edu.udb.www.model.EmpleadoModel;
+import sv.edu.udb.www.utils.JsfUtils;
 
 
 @Named(value = "empleadoBean")
@@ -36,5 +37,15 @@ public class EmpleadoBean {
         this.empleado = empleado;
     }
     
-    
+    public String insertarEmpleado(){
+        //System.out.println("HOLAHOLAHOLA"+marca.getMarca());
+        if(empleadoModel.insertarEmpleado(empleado)==0){
+            JsfUtils.addErrorMessage("empleado", "Ya existe un empleado con ese codigo");
+            return null;
+        }
+        
+        JsfUtils.addFlashMessage("exito", "Empleado insertada exitosamente");
+        
+        return "/administrador/listarEmpleado?faces-redirect=true";
+    }
 }

@@ -1,6 +1,7 @@
 
 package sv.edu.udb.www.model;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -39,6 +40,10 @@ public class UsuarioModel {
     public UsuarioEntity obtenerUsuario(int id){
         return em.find(UsuarioEntity.class, id);
     }
-
+    
+    public List<UsuarioEntity> listarUltimoEmpleado(){
+        Query query = em.createNamedQuery("UsuarioEntity.ultimo");
+        return query.setFirstResult(1).getResultList();
+    }
     
 }
