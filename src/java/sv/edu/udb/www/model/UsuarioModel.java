@@ -36,5 +36,9 @@ public class UsuarioModel {
         }
     }
 
+    public UsuarioEntity obtenerUsuario(int id){
+        return em.find(UsuarioEntity.class, id);
+    }
+
     
 }
