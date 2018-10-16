@@ -33,7 +33,7 @@ public class SubcategoriaConverter implements Converter{
             return "";
         }
         if(value instanceof SubCategoriaEntity){
-            return ((SubCategoriaEntity) value).getIdCategoria().toString();
+            return ((SubCategoriaEntity) value).getIdSubcategoria().toString();
         }
         return "";
     }

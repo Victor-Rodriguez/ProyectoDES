@@ -23,6 +23,4 @@ public class TallaModel {
     public TallaEntity obtenerTalla(int id){
         return em.find(TallaEntity.class, id);
     }
-
-    
 }

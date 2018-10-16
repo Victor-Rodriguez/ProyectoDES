@@ -22,6 +22,9 @@ public class MarcaBean {
     
     public MarcaBean() {
     }
+    public List<MarcaEntity> getListaMarca() {
+    return marcaModel.listarMarca();
+  }
 
     public MarcaEntity getMarca() {
         return marca;

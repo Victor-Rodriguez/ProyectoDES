@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/EmpleadoTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml">
+  <ui:define name="titulo">
+    Nuevo Articulo
+  </ui:define>
+  <ui:define name="content">
+    <section class="contact-section">
+      <div class="container" style="-webkit-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
+           -moz-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
+           box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75); padding:1%;max-width: 700px;margin-top: -100px;background-color: white;">
+        <h:panelGroup layout="block" class="alert alert-danger"
+                      rendered="#{not empty facesContext.messageList}">
+          <h:messages/>
+        </h:panelGroup>
+        <div class="contact-form mt-40">
+          <div class="row">
+            <div class="col-md-6" style="margin-left: 25%;">
+              <h:form prependId="false">
+                <div class="form-group">
+                  <h:outputLabel value="IdArticulo:" for="idArticulo" />
+                  <h:inputText   class="form-control"  id="idArticulo" value="#{articuloBean.articulo.idArticulo}" title="IdArticulo" required="true" requiredMessage="The IdArticulo field is required."/>
+                </div>
+                <div class="form-group">
+                  <h:outputLabel value="Articulo:" for="articulo" />
+                  <h:inputText class="form-control" id="articulo" value="#{articuloBean.articulo.articulo}" title="Articulo" required="true" requiredMessage="The Articulo field is required."/>
+                </div>
+                <div class="form-group">
+                  <h:outputLabel value="Cantidad:" for="cantidad" />
+                  <h:inputText class="form-control"  id="cantidad" value="#{articuloBean.articulo.cantidad}" title="Cantidad" required="true" requiredMessage="The Cantidad field is required."/>
+                </div>
+                <div class="form-group">
+                  <h:outputLabel value="Estilo:" for="estilo" />
+                  <h:inputText class="form-control"  id="estilo" value="#{articuloBean.articulo.estilo}" title="Estilo" required="true" requiredMessage="The Estilo field is required."/>
+                </div>
+                <div class="form-group">
+                  <h:outputLabel value="Precio:" for="precio" />
+                  <h:inputText  class="form-control"  id="precio" value="#{articuloBean.articulo.precio}" title="Precio" required="true" requiredMessage="The Precio field is required."/>
+                </div>
+                <div class="form-group">
+                  <h:outputLabel value="Descripcion:" for="descripcion" />
+                  <h:inputText class="form-control"  id="descripcion" value="#{articuloBean.articulo.descripcion}" title="Descripcion" required="true" requiredMessage="The Descripcion field is required."/>
+                </div>
+                <div class="form-group">
+                  <h:outputLabel value="Subrubro:" for="idSubrubro" />
+                  <h:selectOneMenu class="form-control"  id="idSubrubro" value="#{articuloBean.articulo.idSubrubro}" title="IdSubrubro">
+                    <f:selectItems value="#{subRubroBean.listaSubRubro}" var="subRubro" itemValue="#{subRubro}" 
+                                   itemLabel="#{subRubro.subrubro}"/>
+                  </h:selectOneMenu>
+                </div>
+                
+                <div class="form-group">    
+                  <h:outputLabel value="Subcategoria:" for="idSubcategoria" />
+                  <h:selectOneMenu class="form-control"   id="idSubcategoria" value="#{articuloBean.articulo.idSubcategoria}" title="IdSubcategoria" >
+                    <f:selectItems value="#{subCategoriaBean.listaSubCategoria}" var="subCategoria" itemValue="#{subCategoria}"
+                                   itemLabel="#{subCategoria.subcategoria}"/>
+                    </h:selectOneMenu>
+                </div>
+                
+                <div class="form-group">
+                  <h:outputLabel value="Marca:" for="idMarca" />
+                  <h:selectOneMenu class="form-control"  id="idMarca" value="#{articuloBean.articulo.idMarca}" title="IdMarca">
+                    <!-- TODO: update below reference to list of available items-->
+                    <f:selectItems value="#{marcaBean.listaMarca}" var="marca" itemValue="#{marca}" 
+                                   itemLabel="#{marca.marca}"/>
+                  </h:selectOneMenu>
+                </div>
+                <div class="form-group">
+                  <h:outputLabel value="Talla:" for="idTalla" />
+                  <h:selectOneMenu  class="form-control" id="idTalla" value="#{articuloBean.articulo.idTalla}" title="IdTalla" >
+                    <f:selectItems value="#{tallaBean.listarTalla }" var="talla" itemValue="#{talla}" 
+                                   itemLabel="#{talla.talla}"/>
+                  </h:selectOneMenu>
+                </div>
+                <div class="form-group">
+                  <h:outputLabel value="Proveedor:" for="idProveedor" />
+                  <h:selectOneMenu class="form-control"  id="idProveedor" value="#{articuloBean.articulo.idProveedor}" title="IdProveedor">
+                    <f:selectItems value="#{proveedorBean.listarProveedor}" var="proveedor" 
+                                   itemValue="#{proveedor}" itemLabel="#{proveedor.nombre}"/>
+                  </h:selectOneMenu>
+                </div>
+                <h:commandButton class="btn btn-success" 
+                                 value="Registrar" action="#{articuloBean.insertarArticulo()}"/>
+              </h:form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </ui:define>
+</ui:composition>

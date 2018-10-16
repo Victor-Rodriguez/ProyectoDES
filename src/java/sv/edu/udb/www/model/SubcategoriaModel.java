@@ -1,6 +1,4 @@
-
 package sv.edu.udb.www.model;
-
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -8,19 +6,14 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import sv.edu.udb.www.entities.SubCategoriaEntity;
 import sv.edu.udb.www.utils.JsfUtils;
-
-
 @Stateless
 public class SubcategoriaModel {
-
     @PersistenceContext(unitName = "ProyectoDESPU")
     private EntityManager em;
-
     public List<SubCategoriaEntity> listaSubCategorias(){
         Query query = em.createNamedQuery("SubCategoriaEntity.findAll");
         return query.getResultList();
     }
-    
     public int insertarSubCategoria(SubCategoriaEntity subC){
         try {
             em.persist(subC);

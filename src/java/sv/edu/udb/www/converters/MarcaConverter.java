@@ -1,6 +1,4 @@
-
 package sv.edu.udb.www.converters;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.component.UIComponent;
