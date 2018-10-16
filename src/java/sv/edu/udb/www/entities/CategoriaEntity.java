@@ -6,8 +6,9 @@
 package sv.edu.udb.www.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,8 +46,8 @@ public class CategoriaEntity implements Serializable {
     private String categoria;
     @Size(max = 100)
     private String descripcion;
-    @OneToMany(mappedBy = "idCategoria")
-    private Collection<SubCategoriaEntity> subCategoriaEntityCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCategoria")
+    private List<SubCategoriaEntity> subCategoriaEntityList;
 
     public CategoriaEntity() {
     }
@@ -84,12 +85,12 @@ public class CategoriaEntity implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Collection<SubCategoriaEntity> getSubCategoriaEntityCollection() {
-        return subCategoriaEntityCollection;
+    public List<SubCategoriaEntity> getSubCategoriaEntityList() {
+        return subCategoriaEntityList;
     }
 
-    public void setSubCategoriaEntityCollection(Collection<SubCategoriaEntity> subCategoriaEntityCollection) {
-        this.subCategoriaEntityCollection = subCategoriaEntityCollection;
+    public void setSubCategoriaEntityList(List<SubCategoriaEntity> subCategoriaEntityList) {
+        this.subCategoriaEntityList = subCategoriaEntityList;
     }
 
     @Override

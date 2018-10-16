@@ -7,7 +7,7 @@ package sv.edu.udb.www.entities;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -65,9 +65,9 @@ public class ArticuloEntity implements Serializable {
     @Size(min = 1, max = 200)
     private String descripcion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idArticulo")
-    private Collection<PromocionEntity> promocionEntityCollection;
+    private List<PromocionEntity> promocionEntityList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idArticulo")
-    private Collection<ImagenEntity> imagenEntityCollection;
+    private List<ImagenEntity> imagenEntityList;
     @JoinColumn(name = "id_subrubro", referencedColumnName = "id_subrubro")
     @ManyToOne(optional = false)
     private SubRubroEntity idSubrubro;
@@ -84,7 +84,7 @@ public class ArticuloEntity implements Serializable {
     @ManyToOne(optional = false)
     private ProveedorEntity idProveedor;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idArticulo")
-    private Collection<VentaEntity> ventaEntityCollection;
+    private List<VentaEntity> ventaEntityList;
 
     public ArticuloEntity() {
     }
@@ -150,20 +150,20 @@ public class ArticuloEntity implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Collection<PromocionEntity> getPromocionEntityCollection() {
-        return promocionEntityCollection;
+    public List<PromocionEntity> getPromocionEntityList() {
+        return promocionEntityList;
     }
 
-    public void setPromocionEntityCollection(Collection<PromocionEntity> promocionEntityCollection) {
-        this.promocionEntityCollection = promocionEntityCollection;
+    public void setPromocionEntityList(List<PromocionEntity> promocionEntityList) {
+        this.promocionEntityList = promocionEntityList;
     }
 
-    public Collection<ImagenEntity> getImagenEntityCollection() {
-        return imagenEntityCollection;
+    public List<ImagenEntity> getImagenEntityList() {
+        return imagenEntityList;
     }
 
-    public void setImagenEntityCollection(Collection<ImagenEntity> imagenEntityCollection) {
-        this.imagenEntityCollection = imagenEntityCollection;
+    public void setImagenEntityList(List<ImagenEntity> imagenEntityList) {
+        this.imagenEntityList = imagenEntityList;
     }
 
     public SubRubroEntity getIdSubrubro() {
@@ -206,12 +206,12 @@ public class ArticuloEntity implements Serializable {
         this.idProveedor = idProveedor;
     }
 
-    public Collection<VentaEntity> getVentaEntityCollection() {
-        return ventaEntityCollection;
+    public List<VentaEntity> getVentaEntityList() {
+        return ventaEntityList;
     }
 
-    public void setVentaEntityCollection(Collection<VentaEntity> ventaEntityCollection) {
-        this.ventaEntityCollection = ventaEntityCollection;
+    public void setVentaEntityList(List<VentaEntity> ventaEntityList) {
+        this.ventaEntityList = ventaEntityList;
     }
 
     @Override

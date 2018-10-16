@@ -6,7 +6,7 @@
 package sv.edu.udb.www.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -49,7 +49,7 @@ public class SubRubroEntity implements Serializable {
     @Size(max = 100)
     private String descripcion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idSubrubro")
-    private Collection<ArticuloEntity> articuloEntityCollection;
+    private List<ArticuloEntity> articuloEntityList;
     @JoinColumn(name = "id_rubro", referencedColumnName = "id_rubro")
     @ManyToOne(optional = false)
     private RubroEntity idRubro;
@@ -90,12 +90,12 @@ public class SubRubroEntity implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Collection<ArticuloEntity> getArticuloEntityCollection() {
-        return articuloEntityCollection;
+    public List<ArticuloEntity> getArticuloEntityList() {
+        return articuloEntityList;
     }
 
-    public void setArticuloEntityCollection(Collection<ArticuloEntity> articuloEntityCollection) {
-        this.articuloEntityCollection = articuloEntityCollection;
+    public void setArticuloEntityList(List<ArticuloEntity> articuloEntityList) {
+        this.articuloEntityList = articuloEntityList;
     }
 
     public RubroEntity getIdRubro() {

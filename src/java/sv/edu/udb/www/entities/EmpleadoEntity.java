@@ -6,7 +6,7 @@
 package sv.edu.udb.www.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -59,7 +59,7 @@ public class EmpleadoEntity implements Serializable {
     @ManyToOne(optional = false)
     private UsuarioEntity idUsuario;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEmpleado")
-    private Collection<VentaEntity> ventaEntityCollection;
+    private List<VentaEntity> ventaEntityList;
 
     public EmpleadoEntity() {
     }
@@ -115,12 +115,12 @@ public class EmpleadoEntity implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public Collection<VentaEntity> getVentaEntityCollection() {
-        return ventaEntityCollection;
+    public List<VentaEntity> getVentaEntityList() {
+        return ventaEntityList;
     }
 
-    public void setVentaEntityCollection(Collection<VentaEntity> ventaEntityCollection) {
-        this.ventaEntityCollection = ventaEntityCollection;
+    public void setVentaEntityList(List<VentaEntity> ventaEntityList) {
+        this.ventaEntityList = ventaEntityList;
     }
 
     @Override

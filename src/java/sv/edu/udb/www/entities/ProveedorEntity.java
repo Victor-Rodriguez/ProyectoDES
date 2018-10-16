@@ -6,7 +6,7 @@
 package sv.edu.udb.www.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -57,7 +57,7 @@ public class ProveedorEntity implements Serializable {
     @NotNull
     private boolean estado;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProveedor")
-    private Collection<ArticuloEntity> articuloEntityCollection;
+    private List<ArticuloEntity> articuloEntityList;
 
     public ProveedorEntity() {
     }
@@ -114,12 +114,12 @@ public class ProveedorEntity implements Serializable {
         this.estado = estado;
     }
 
-    public Collection<ArticuloEntity> getArticuloEntityCollection() {
-        return articuloEntityCollection;
+    public List<ArticuloEntity> getArticuloEntityList() {
+        return articuloEntityList;
     }
 
-    public void setArticuloEntityCollection(Collection<ArticuloEntity> articuloEntityCollection) {
-        this.articuloEntityCollection = articuloEntityCollection;
+    public void setArticuloEntityList(List<ArticuloEntity> articuloEntityList) {
+        this.articuloEntityList = articuloEntityList;
     }
 
     @Override

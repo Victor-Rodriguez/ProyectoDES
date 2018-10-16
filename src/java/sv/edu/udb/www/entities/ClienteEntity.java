@@ -6,7 +6,7 @@
 package sv.edu.udb.www.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -76,7 +76,7 @@ public class ClienteEntity implements Serializable {
     @Column(name = "id_confirmar")
     private String idConfirmar;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCliente")
-    private Collection<FacturaEntity> facturaEntityCollection;
+    private List<FacturaEntity> facturaEntityList;
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
     @ManyToOne(optional = false)
     private UsuarioEntity idUsuario;
@@ -163,12 +163,12 @@ public class ClienteEntity implements Serializable {
         this.idConfirmar = idConfirmar;
     }
 
-    public Collection<FacturaEntity> getFacturaEntityCollection() {
-        return facturaEntityCollection;
+    public List<FacturaEntity> getFacturaEntityList() {
+        return facturaEntityList;
     }
 
-    public void setFacturaEntityCollection(Collection<FacturaEntity> facturaEntityCollection) {
-        this.facturaEntityCollection = facturaEntityCollection;
+    public void setFacturaEntityList(List<FacturaEntity> facturaEntityList) {
+        this.facturaEntityList = facturaEntityList;
     }
 
     public UsuarioEntity getIdUsuario() {

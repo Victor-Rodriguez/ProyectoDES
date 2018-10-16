@@ -6,7 +6,7 @@
 package sv.edu.udb.www.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -31,8 +31,6 @@ import javax.validation.constraints.Size;
 @Table(name = "usuarios")
 @NamedQueries({
     @NamedQuery(name = "UsuarioEntity.findAll", query = "SELECT u FROM UsuarioEntity u")
-     ,@NamedQuery(name = "UsuarioEntity.ultimo", query = "SELECT u FROM UsuarioEntity u order by u.idUsuario DESC")
-    ,@NamedQuery(name = "UsuarioEntity.checkLogin", query = "SELECT u FROM UsuarioEntity u WHERE u.correo=:usuario AND u.clave=:clave")
     , @NamedQuery(name = "UsuarioEntity.findByIdUsuario", query = "SELECT u FROM UsuarioEntity u WHERE u.idUsuario = :idUsuario")
     , @NamedQuery(name = "UsuarioEntity.findByNombreUsuario", query = "SELECT u FROM UsuarioEntity u WHERE u.nombreUsuario = :nombreUsuario")
     , @NamedQuery(name = "UsuarioEntity.findByCorreo", query = "SELECT u FROM UsuarioEntity u WHERE u.correo = :correo")
@@ -59,12 +57,12 @@ public class UsuarioEntity implements Serializable {
     @Size(min = 1, max = 64)
     private String clave;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUsuario")
-    private Collection<EmpleadoEntity> empleadoEntityCollection;
+    private List<EmpleadoEntity> empleadoEntityList;
     @JoinColumn(name = "id_tipo", referencedColumnName = "id_tipo")
     @ManyToOne(optional = false)
     private TipoUsuarioEntity idTipo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUsuario")
-    private Collection<ClienteEntity> clienteEntityCollection;
+    private List<ClienteEntity> clienteEntityList;
 
     public UsuarioEntity() {
     }
@@ -112,12 +110,12 @@ public class UsuarioEntity implements Serializable {
         this.clave = clave;
     }
 
-    public Collection<EmpleadoEntity> getEmpleadoEntityCollection() {
-        return empleadoEntityCollection;
+    public List<EmpleadoEntity> getEmpleadoEntityList() {
+        return empleadoEntityList;
     }
 
-    public void setEmpleadoEntityCollection(Collection<EmpleadoEntity> empleadoEntityCollection) {
-        this.empleadoEntityCollection = empleadoEntityCollection;
+    public void setEmpleadoEntityList(List<EmpleadoEntity> empleadoEntityList) {
+        this.empleadoEntityList = empleadoEntityList;
     }
 
     public TipoUsuarioEntity getIdTipo() {
@@ -128,12 +126,12 @@ public class UsuarioEntity implements Serializable {
         this.idTipo = idTipo;
     }
 
-    public Collection<ClienteEntity> getClienteEntityCollection() {
-        return clienteEntityCollection;
+    public List<ClienteEntity> getClienteEntityList() {
+        return clienteEntityList;
     }
 
-    public void setClienteEntityCollection(Collection<ClienteEntity> clienteEntityCollection) {
-        this.clienteEntityCollection = clienteEntityCollection;
+    public void setClienteEntityList(List<ClienteEntity> clienteEntityList) {
+        this.clienteEntityList = clienteEntityList;
     }
 
     @Override
