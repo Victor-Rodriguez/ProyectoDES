@@ -5,9 +5,11 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns="http://www.w3.org/1999/xhtml">
+
   <ui:define name="titulo">
-    Nuevo Sub Rubro
+    Nueva Sub-categoría
   </ui:define>
+
   <ui:define name="content">
     <section class="contact-section">
       <div class="container" style="-webkit-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
@@ -18,10 +20,21 @@
                       rendered="#{not empty facesContext.messageList}">
           <h:messages/>
         </h:panelGroup>
+
         <div class="contact-form mt-40">
           <div class="row">
             <div class="col-md-6" style="margin-left: 25%;">
               <h:form prependId="false">
+                <div class="form-group">
+                  <h:outputLabel value="idSubrubro" for="idSubrubro" />
+                  <h:inputText id="idSubrubro" class="form-control"
+                               value="#{subRubroBean.subRubro.idSubrubro}" 
+                               title="idSubrubro" required="true" 
+                               requiredMessage="The idSubrubro field is required."
+                               readonly="#{not facesContext.postback or facesContext.renderResponse}">
+                  </h:inputText>
+                </div>
+
                 <div class="form-group">
                   <h:outputLabel value="Subrubro:" for="subrubro" />
                   <h:inputText id="subrubro" class="form-control"
@@ -43,12 +56,14 @@
                     <f:selectItems value="#{subRubroBean.listaRubro}" var="rubro" itemValue="#{rubro}" itemLabel="#{rubro.rubro}" />
                   </h:selectOneMenu>
                 </div>
-                <h:commandButton class="btn btn-success" value="Registrar" action="#{subRubroBean.insertarSubRubro()}"/>
-              </h:form>
+                <h:commandButton value="Editar" class="btn btn-success"
+                                 action="#{subRubroBean.modificarSubRubro()}"/>
+              </h:form>          
             </div>
           </div>
         </div>
       </div>
     </section>
   </ui:define>
+
 </ui:composition>

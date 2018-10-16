@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/EmpleadoTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml">
+
+    <ui:define name="titulo">
+        Lista de Sub-categorías
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Lista de Sub-categorías</h2>
+                </div>
+            </div>
+        </div>
+
+        <section class="contact-section">
+            <div class="container">
+                <h:link outcome="/empleado/nuevaSubR" value="Nueva Sub Rubro" class="btn btn-success"/><br><hr></hr></br>
+                <h:form prependId="false">
+                    <h:dataTable   class="table table-bordered" value="#{subRubroBean.listaSubRubro}" var="item">
+                            <h:column>
+                              <f:facet name="header">
+                                <h:outputText value="IdSubrubro"/>
+                              </f:facet>
+                              <h:outputText value="#{item.idSubrubro}"/>
+                            </h:column>
+                            <h:column>
+                              <f:facet name="header">
+                                <h:outputText value="Subrubro"/>
+                              </f:facet>
+                              <h:outputText value="#{item.subrubro}"/>
+                            </h:column>
+                            <h:column>
+                              <f:facet name="header">
+                                <h:outputText value="Descripcion"/>
+                              </f:facet>
+                              <h:outputText value="#{item.descripcion}"/>
+                            </h:column>
+                            <h:column>
+                              <f:facet name="header">
+                                <h:outputText value="Rubro"/>
+                              </f:facet>
+                              <h:outputText value="#{item.idRubro.rubro}"/>
+                            </h:column>
+                           
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Operaciones"/>
+                            </f:facet>
+                          <h:commandLink  value="Editar" class="btn btn-primary" action="#{subRubroBean.obtenerSubRubro()}">
+                                <i class="glyphicon glyphicon-edit"></i>
+                                <f:param name="id" value="#{item.idSubrubro}"/>
+                            </h:commandLink>
+
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+            </div>
+        </section>
+        <script>
+            $(document).ready(function () {
+                $("#tabla").dataTable();
+            });
+        </script>
+    </ui:define>
+
+</ui:composition>
