@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import sv.edu.udb.www.entities.SubCategoriaEntity;
+import sv.edu.udb.www.utils.JsfUtils;
 
 
 @Stateless
@@ -26,6 +27,7 @@ public class SubcategoriaModel {
             em.flush();
             return 1;
         } catch (Exception e) {
+            JsfUtils.addErrorMessage("idSubcategoria", e.toString());
             return 0;
         }
     }
