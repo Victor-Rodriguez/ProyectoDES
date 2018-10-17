@@ -24,69 +24,50 @@
     </h:head>
 
     <h:body>
-        
-        <nav class="navbar m-menu navbar-collapse">
+        <div id="header">
+            <!-- container -->
             <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <link href="#" />
-                </div>
+                <!-- row -->
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-3">
+                        <div class="header-logo">
+                            <a href="#" class="logo" style="color: white;">
+                                <ui:insert name="tipoUsuario">Tipo</ui:insert>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /LOGO -->
 
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="#navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right main-nav">
-                        <link href="#" />
-                        <li class="dropdown dropdown-toggle"><a href="#" data-toggle="dropdown">Empleado<span><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="dropdown-menu">
-                                <h:link outcome="/administrador/listarEmpleado" value="Lista empleados" />
-                                <h:link  outcome="/administrador/nuevoEmpleado" value="Nuevo empleado"/>
-                            </ul>
-                        </li>
-                        <li class="dropdown dropdown-toggle"><a href="#" data-toggle="dropdown">Proveedor<span><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="dropdown-menu">
-                                <h:link outcome="/administrador/listarProveedor" value="Lista proveedores"  />
-                                <h:link  outcome="/administrador/nuevoProveedor" value="Nuevo proveedor"/>                               
-                            </ul>
-                        </li>
-                        <li class="dropdown dropdown-toggle"><a href="#" data-toggle="dropdown">Marcas<span><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="dropdown-menu">
-                                <h:link outcome="/administrador/listaMarcas" value="Lista marca" />
-                                <h:link  outcome="/administrador/nuevaMarca" value="Nuevo marca"/>                          
-                            </ul>
-                        </li>
-                        <li class="dropdown dropdown-toggle"><a href="#" data-toggle="dropdown">Artículos<span><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="dropdown-menu">
-                                <h:link outcome="/administrador/index" value="Lista articulos" />                            
-                            </ul>
-                        </li>
-                        <li class="dropdown dropdown-toggle"><a href="#" data-toggle="dropdown">Promociones<span><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="dropdown-menu">
-                                <h:link outcome="/administrador/listaPromociones" value="Lista promociones" />
-                              
-                                <h:link  outcome="/administrador/nuevaPromocion" value="Nueva promocion"/>
-                            </ul>                            
-                            
-                        </li>
-                        <li class="dropdown dropdown-toggle"><a href="#" data-toggle="dropdown">Cuenta <span><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="dropdown-menu">
-                                <li><h:form><h:commandLink value="Salir" action="#{loginBean.cerrarSesion()}" style="text-decoration: none;"/></h:form></li>                                
-                            </ul>
-                        </li>
-                    </ul>
+
 
                 </div>
-                <!-- .navbar-collapse -->
+                <!-- row -->
             </div>
-            <!-- .container -->
+            <!-- container -->
+        </div>
+        
+        <nav id="navigation" class="navbar m-menu navbar-collapse">
+            <!-- container -->
+            <div class="container">
+                <!-- responsive-nav -->
+                <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                    <!-- NAV -->
+                    <ul class="nav navbar-nav navbar-right main-nav">
+                        <li><h:link outcome="/administrador/listarEmpleado">Empleados</h:link></li>
+                        <li><h:link outcome="/administrador/listarProveedor">Proveedores</h:link></li>
+                        <li><h:link outcome="/administrador/listaMarcas">Marcas</h:link></li>
+                        <li><h:link outcome="/administrador/listaPromociones">Promociones</h:link></li>
+                        <li style="margin-top: 20px;"><h:form><h:commandLink value="Salir" action="#{loginBean.cerrarSesion()}" style="text-decoration: none;"/></h:form></li>   
+                    </ul>
+                    <!-- /NAV -->
+                </div>
+                <!-- /responsive-nav -->
+            </div>
+            <!-- /container -->
         </nav>
+        <br><br></br></br>
 
         <section class="case-studies">
             <div class="container">

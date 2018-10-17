@@ -6,64 +6,69 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns="http://www.w3.org/1999/xhtml">
 
-  <ui:define name="titulo">
-    Nueva Sub-categoría
-  </ui:define>
+    <ui:define name="tipoUsuario">
+        Empleado
+    </ui:define>
+    <ui:define name="titulo">
+        Editar Sub-categoría
+    </ui:define>
 
-  <ui:define name="content">
-    <section class="contact-section">
-      <div class="container" style="-webkit-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
-           -moz-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
-           box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75); padding:1%;max-width: 700px;margin-top: -100px;background-color: white;">
+    <ui:define name="content">
+        <br><br><br></br></br></br>
+        <section class="contact-section">
+            <div class="container" style="-webkit-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
+                 -moz-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
+                 box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75); padding:1%;max-width: 700px;margin-top: -100px;background-color: white;">
 
-        <h:panelGroup layout="block" class="alert alert-danger"
-                      rendered="#{not empty facesContext.messageList}">
-          <h:messages/>
-        </h:panelGroup>
+                <h:panelGroup layout="block" class="alert alert-danger"
+                              rendered="#{not empty facesContext.messageList}">
+                    <h:messages/>
+                </h:panelGroup>
 
-        <div class="contact-form mt-40">
-          <div class="row">
-            <div class="col-md-6" style="margin-left: 25%;">
-              <h:form prependId="false">
-                <div class="form-group">
-                  <h:outputLabel value="idSubrubro" for="idSubrubro" />
-                  <h:inputText id="idSubrubro" class="form-control"
-                               value="#{subRubroBean.subRubro.idSubrubro}" 
-                               title="idSubrubro" required="true" 
-                               requiredMessage="The idSubrubro field is required."
-                               readonly="#{not facesContext.postback or facesContext.renderResponse}">
-                  </h:inputText>
-                </div>
+                <div class="contact-form mt-40">
+                    <div class="row">
+                        <div class="col-md-6" style="margin-left: 25%;">
+                            <h:form prependId="false">
+                                <h2 style="text-align: center;">Editar Sub-rubro</h2>
+                                <div class="form-group">
+                                    <h:outputLabel value="idSubrubro" for="idSubrubro" />
+                                    <h:inputText id="idSubrubro" class="form-control"
+                                                 value="#{subRubroBean.subRubro.idSubrubro}" 
+                                                 title="idSubrubro" required="true" 
+                                                 requiredMessage="The idSubrubro field is required."
+                                                 readonly="#{not facesContext.postback or facesContext.renderResponse}">
+                                    </h:inputText>
+                                </div>
 
-                <div class="form-group">
-                  <h:outputLabel value="Subrubro:" for="subrubro" />
-                  <h:inputText id="subrubro" class="form-control"
-                               value="#{subRubroBean.subRubro.subrubro}"
-                               title="Subrubro" required="true" 
-                               requiredMessage="El nombre del sub rubro es necesario."/>
+                                <div class="form-group">
+                                    <h:outputLabel value="Subrubro:" for="subrubro" />
+                                    <h:inputText id="subrubro" class="form-control"
+                                                 value="#{subRubroBean.subRubro.subrubro}"
+                                                 title="Subrubro" required="true" 
+                                                 requiredMessage="El nombre del sub rubro es necesario."/>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel value="Descripcion:" for="descripcion" />
+                                    <h:inputText id="descripcion" class="form-control" 
+                                                 value="#{subRubroBean.subRubro.descripcion}" 
+                                                 title="Descripcion" required="true" 
+                                                 requiredMessage="La descripcion del sub rubro es necesario."/>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel value="Rubro:" for="idRubro" />
+                                    <h:selectOneMenu class="form-control"  id="idRubro" title="IdRubro" 
+                                                     value="#{subRubroBean.subRubro.idRubro}" >
+                                        <f:selectItems value="#{subRubroBean.listaRubro}" var="rubro" itemValue="#{rubro}" itemLabel="#{rubro.rubro}" />
+                                    </h:selectOneMenu>
+                                </div>
+                                <h:commandButton value="Editar" class="btn btn-success"
+                                                 action="#{subRubroBean.modificarSubRubro()}"/>
+                            </h:form>          
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                  <h:outputLabel value="Descripcion:" for="descripcion" />
-                  <h:inputText id="descripcion" class="form-control" 
-                               value="#{subRubroBean.subRubro.descripcion}" 
-                               title="Descripcion" required="true" 
-                               requiredMessage="La descripcion del sub rubro es necesario."/>
-                </div>
-                <div class="form-group">
-                  <h:outputLabel value="Rubro:" for="idRubro" />
-                  <h:selectOneMenu class="form-control"  id="idRubro" title="IdRubro" 
-                                   value="#{subRubroBean.subRubro.idRubro}" >
-                    <f:selectItems value="#{subRubroBean.listaRubro}" var="rubro" itemValue="#{rubro}" itemLabel="#{rubro.rubro}" />
-                  </h:selectOneMenu>
-                </div>
-                <h:commandButton value="Editar" class="btn btn-success"
-                                 action="#{subRubroBean.modificarSubRubro()}"/>
-              </h:form>          
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </ui:define>
+        </section>
+    </ui:define>
 
 </ui:composition>

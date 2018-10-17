@@ -5,6 +5,9 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns="http://www.w3.org/1999/xhtml">
+    <ui:define name="tipoUsuario">
+        Empleado
+    </ui:define>
     <ui:define name="titulo">
         Lista de Artículos
     </ui:define>
@@ -12,19 +15,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                       <h2>Lista de Arituclos</h2>
+                       <h2>Lista de Artículos</h2>
                 </div>
             </div>
         </div>
         <section class="contact-section">
             <div class="container">
-                <h:link outcome="/empleado/nuevoArticulo" value="Nuevo Articulo" class="btn btn-success"/><br><hr></hr></br>
+                <h:link outcome="/empleado/nuevoArticulo" value="Nuevo Artículo" class="btn btn-success"/><br><hr></hr></br>
                 <h:form prependId="false">
                     <h:dataTable value="#{articuloBean.listaArticulos}" var="item"
                                  id="tabla" class="table table-bordered">
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="IdArticulo"/>
+                                            <h:outputText value="ID"/>
                                         </f:facet>
                                         <h:outputText value="#{item.idArticulo}"/>
                                     </h:column>
@@ -54,7 +57,7 @@
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="Descripcion"/>
+                                            <h:outputText value="Descripción"/>
                                         </f:facet>
                                         <h:outputText value="#{item.descripcion}"/>
                                     </h:column>

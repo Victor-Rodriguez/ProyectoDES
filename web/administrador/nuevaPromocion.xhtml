@@ -5,20 +5,34 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns="http://www.w3.org/1999/xhtml">
 
+    <ui:define name="tipoUsuario">
+        Administrador
+    </ui:define>
     <ui:define name="titulo">
-        Marcas
+       Nueva Promoción
     </ui:define>
 
     <ui:define name="content">
-        <div class="row">
-            <div class="col col-md-6" style="margin-left: 25%;">
+        <br><br><br></br></br></br>
+        <section class="contact-section">
+            <div class="container" style="-webkit-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
+                 -moz-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
+                 box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75); padding:1%;max-width: 700px;margin-top: -100px;background-color: white;">
+                     
                 <h:panelGroup layout="block" class="alert alert-danger"
                               rendered="#{not empty facesContext.messageList}">
                     <h:messages />
                 </h:panelGroup>
-        
+                
+                <div class="contact-form mt-40" >
+                    <div class="row">
+                        <div class="col-md-6" style="margin-left: 25%;">
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </ui:define>
 
 </ui:composition>

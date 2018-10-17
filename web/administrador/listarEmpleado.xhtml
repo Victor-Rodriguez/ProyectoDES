@@ -6,6 +6,9 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns="http://www.w3.org/1999/xhtml">
 
+    <ui:define name="tipoUsuario">
+        Administrador
+    </ui:define>
     <ui:define name="titulo">
         Lista de Empleados
     </ui:define>
@@ -19,11 +22,10 @@
                 </div>
             </div>
         </div>
-        <hr/>
-        <h:link outcome="/administrador/nuevoEmpleado" value="Nuevo Empleado" class="btn btn-success "/>
+        
         <section class="contact-section">
-            
             <div class="container">
+                <h:link outcome="/administrador/nuevoEmpleado" value="Nuevo Empleado" class="btn btn-success "/><br><hr></hr></br>
                 <h:form prependId="false">
                     <h:dataTable value="#{empleadoBean.listarEmpleado}" var="item" 
                                  id="tabla" class="table table-bordered">

@@ -6,6 +6,9 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns="http://www.w3.org/1999/xhtml">
 
+    <ui:define name="tipoUsuario">
+        Empleado
+    </ui:define>
     <ui:define name="titulo">
         Lista de Sub-categorías
     </ui:define>
@@ -21,7 +24,7 @@
 
         <section class="contact-section">
             <div class="container">
-                <h:link outcome="/empleado/nuevaSubC" value="Nueva Categoría" class="btn btn-success"/><br><hr></hr></br>
+                <h:link outcome="/empleado/nuevaSubC" value="Nueva Sub-categoría" class="btn btn-success"/><br><hr></hr></br>
                 <h:form prependId="false">
                     <h:dataTable value="#{subCategoriaBean.listaSubCategoria}" var="item"
                                  id="tabla" class="table table-bordered">

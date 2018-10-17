@@ -6,8 +6,11 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+    <ui:define name="tipoUsuario">
+        Administrador
+    </ui:define>
     <ui:define name="titulo">
-        Marcas
+       Lista Marcas
     </ui:define>
 
     <ui:define name="content">
@@ -19,12 +22,11 @@
                     </div>
                 </div>
             </div>
-        <hr/>
-            <h:link outcome="/administrador/nuevaMarca" class="btn btn-success" value="Nueva marca"/>
+            
          
         <section class="contact-section">
-            
             <div class="container">
+                <h:link outcome="/administrador/nuevaMarca" class="btn btn-success" value="Nueva marca"/><br><hr></hr></br>
                 <h:form prependId="false">
                         <h:dataTable value="#{marcaBean.listarMarca}" class="table table-bordered table-hover table-striped" 
                                      var="item" id="tabla">
@@ -44,8 +46,7 @@
                                 <f:facet name="header">
                                     <h:outputText value="Operaciones"/>
                                 </f:facet>
-                                <h:commandLink action="#{marcaBean.obtenerMarca()}" class="btn btn-success"
-                                                 value="Modificar">
+                                <h:commandLink action="#{marcaBean.obtenerMarca()}" class="btn btn-primary">
                                     <i class="glyphicon glyphicon-edit"/>
                                     <f:param name="codigo" value="#{item.idMarca}"/>
                                 </h:commandLink>

@@ -6,27 +6,30 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns="http://www.w3.org/1999/xhtml">
 
+    <ui:define name="tipoUsuario">
+        Empleado
+    </ui:define>
     <ui:define name="titulo">
-        Lista de Sub-categorías
+        Lista de Sub-rubros
     </ui:define>
 
     <ui:define name="content">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Lista de Sub-categorías</h2>
+                    <h2>Lista de Sub-rubros</h2>
                 </div>
             </div>
         </div>
 
         <section class="contact-section">
             <div class="container">
-                <h:link outcome="/empleado/nuevaSubR" value="Nueva Sub Rubro" class="btn btn-success"/><br><hr></hr></br>
+                <h:link outcome="/empleado/nuevaSubR" value="Nuevo Sub-rubro" class="btn btn-success"/><br><hr></hr></br>
                 <h:form prependId="false">
                     <h:dataTable   class="table table-bordered" value="#{subRubroBean.listaSubRubro}" var="item">
                             <h:column>
                               <f:facet name="header">
-                                <h:outputText value="IdSubrubro"/>
+                                <h:outputText value="ID"/>
                               </f:facet>
                               <h:outputText value="#{item.idSubrubro}"/>
                             </h:column>
@@ -38,7 +41,7 @@
                             </h:column>
                             <h:column>
                               <f:facet name="header">
-                                <h:outputText value="Descripcion"/>
+                                <h:outputText value="Descripción"/>
                               </f:facet>
                               <h:outputText value="#{item.descripcion}"/>
                             </h:column>

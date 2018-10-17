@@ -5,8 +5,11 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns="http://www.w3.org/1999/xhtml">
 
+    <ui:define name="tipoUsuario">
+        Administrador
+    </ui:define>
     <ui:define name="titulo">
-        Marcas
+       Lista Promociones
     </ui:define>
 
     <ui:define name="content">
@@ -14,16 +17,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>Lista de promociones</h2>
-
                 </div>
             </div>
         </div>
-        <hr/>
-        <h:link outcome="/administrador/nuevaPromocion" value="Nuevo Promoción" class="btn btn-success "/>
+        
         <section class="contact-section">
-            
             <div class="container">
-                
+                <h:link outcome="/administrador/nuevaPromocion" value="Nueva Promoción" class="btn btn-success "/><br><hr></hr></br>
             </div>
         </section>
     </ui:define>

@@ -6,11 +6,16 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns="http://www.w3.org/1999/xhtml">
 
-    <ui:define name="titulo">
-        Nueva Categoría
+    <ui:define name="tipoUsuario">
+        Empleado
     </ui:define>
-
+    <ui:define name="titulo">
+        nueva Categoría
+    </ui:define>
+    
+    
     <ui:define name="content">
+        <br><br><br></br></br></br>
         <section class="contact-section">
             <div class="container" style="-webkit-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
                  -moz-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
@@ -21,10 +26,11 @@
                     <h:messages/>
                 </h:panelGroup>
 
-                <div class="contact-form mt-40">
+                <div class="contact-form mt-40" >
                     <div class="row">
                         <div class="col-md-6" style="margin-left: 25%;">
                             <h:form prependId="false">
+                                <h2 style="text-align: center;">Nueva Categoría</h2>
                                 <div class="form-group">
                                     <h:outputLabel value="Categoría" for="categoria" />
                                     <h:inputText id="categoria" class="form-control"

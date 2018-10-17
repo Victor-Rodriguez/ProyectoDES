@@ -24,64 +24,51 @@
     </h:head>
 
     <h:body>
-        
-        <nav class="navbar m-menu navbar-collapse">
+        <div id="header">
+            <!-- container -->
             <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <link href="#"/>
-                </div>
+                <!-- row -->
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-3">
+                        <div class="header-logo">
+                            <a href="#" class="logo" style="color: white;">
+                                <ui:insert name="tipoUsuario">Tipo</ui:insert>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /LOGO -->
 
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="#navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right main-nav">
-                        <link href="#"/>
-                        <li class="dropdown dropdown-toggle"><a href="#">Artículos<span><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="dropdown-menu">
-                                <link href="#"/>
-                                <link href="#"/> 
-                            </ul>
-                        </li>
-                        <li class="dropdown dropdown-toggle"><a href="#">Categoría<span><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="dropdown-menu">
-                                <link href="#"/>
-                                <link href="#"/>                                
-                            </ul>
-                        </li>
-                        <li class="dropdown dropdown-toggle"><a href="#">Sub-categoría<span><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="dropdown-menu">
-                                <link href="#"/>
-                                <link href="#"/>                                
-                            </ul>
-                        </li>
- 
-                        <li class="dropdown dropdown-toggle"><a href="#">Rubro<span><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="dropdown-menu">
-                                <link href="#"/>
-                                <link href="#"/>                                
-                            </ul>
-                        </li>
-                        <li class="dropdown dropdown-toggle"><a href="#" data-toggle="dropdown">Cuenta <span><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="dropdown-menu">
-                                <li><h:form><h:commandLink value="Salir" action="#{loginBean.cerrarSesion()}" style="text-decoration: none;"/></h:form></li>                                
-                            </ul>
-                        </li>
-                    </ul>
+
 
                 </div>
-                <!-- .navbar-collapse -->
+                <!-- row -->
             </div>
-            <!-- .container -->
-        </nav>
+            <!-- container -->
+        </div>
 
+        <nav id="navigation" class="navbar m-menu navbar-collapse">
+            <!-- container -->
+            <div class="container">
+                <!-- responsive-nav -->
+                <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                    <!-- NAV -->
+                    <ul class="nav navbar-nav navbar-right main-nav">
+                        <li><h:link outcome="/empleado/listarArticulo">Artículos</h:link></li>
+                        <li><h:link outcome="/empleado/listarCategoria">Categorías</h:link></li>
+                        <li><h:link outcome="/empleado/listarSubcategoria">Sub-categorías</h:link></li>
+                        <li><h:link outcome="/empleado/listarRubro">Rubros</h:link></li>
+                        <li><h:link outcome="/empleado/listarSubRubro">Sub-rubros</h:link></li>
+                        <li style="margin-top: 20px;"><h:form><h:commandLink value="Salir" action="#{loginBean.cerrarSesion()}" style="text-decoration: none;"/></h:form></li>   
+                    </ul>
+                    <!-- /NAV -->
+                </div>
+                <!-- /responsive-nav -->
+            </div>
+            <!-- /container -->
+        </nav>
+        <br><br></br></br>
         <section class="case-studies">
             <div class="container">
                 <div id="content" class="center_content">
