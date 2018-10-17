@@ -9,7 +9,7 @@
         Empleado
     </ui:define>
     <ui:define name="titulo">
-        Nuevo Articulo
+        Modificar Articulo
     </ui:define>
     <br><br></br></br>
     <ui:define name="content">
@@ -50,7 +50,7 @@
                                                  validatorMessage="La cantidad debe ser mayor a 0"
                                                  converterMessage="La Cantidad debe ser un número">
 
-                                        <f:validateLongRange minimum="0" />
+                                        <f:validateLongRange minimum="1" />
                                     </h:inputText>
                                 </div>
                                 <div class="form-group">
@@ -113,7 +113,7 @@
                                     </h:selectOneMenu>
                                 </div>
                                 <h:commandButton class="btn btn-success" 
-                                                 value="Registrar" action="#{articuloBean.insertarArticulo()}"/>
+                                                 value="Guardar" action="#{articuloBean.modificarArticulo()}"/>
                             </h:form>
                         </div>
                     </div>

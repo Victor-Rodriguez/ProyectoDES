@@ -37,7 +37,7 @@ public class TallaBean {
         this.talla = talla;
     }
     public String obtenerTalla(){
-        int id = Integer.parseInt(JsfUtils.getRequest().getParameter("id").toString());
+        int id = Integer.parseInt(JsfUtils.getRequest().getParameter("id"));
         talla = tallaModel.obtenerTalla(id);
         return "/empleado/modificarTalla";
     }

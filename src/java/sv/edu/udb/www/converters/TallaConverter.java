@@ -33,7 +33,7 @@ public class TallaConverter implements Converter{
             return "";
         }
         if (value instanceof TallaEntity) {
-            ((TallaEntity) value).getIdTalla().toString();
+            return ((TallaEntity) value).getIdTalla().toString();
         }
         return "";
     }

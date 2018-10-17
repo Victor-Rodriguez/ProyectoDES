@@ -30,10 +30,15 @@ public class ArticuloBean {
   private CategoriaModel categoriaModel;
   @EJB
   private ProveedorModel proveedorModel;
+  @EJB
   private SubRubroModel subRubroModel;
+  @EJB
   private SubcategoriaModel subCategoriaModel;
+  @EJB
   private MarcaModel marcaModel;
+  @EJB
   private TallaModel tallaModel;
+  
   private List<ArticuloEntity> listaArticulos;
 
   private ArticuloEntity articulo = new ArticuloEntity();
@@ -81,7 +86,7 @@ public class ArticuloBean {
 
    public String insertarArticulo() {
     if (articuloModel.insertarArticulo(articulo)== 0) {
-      JsfUtils.addErrorMessage("articulo", "Ya existe otro articulo con este nombre");
+      JsfUtils.addErrorMessage("articulo", "Ya existe otro articulo con este nombre o código");
       return null;
     }
     JsfUtils.addFlashMessage("exito", "Articulo insertada exitosamente");

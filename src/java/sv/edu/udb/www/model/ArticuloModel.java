@@ -20,7 +20,6 @@ public class ArticuloModel {
             em.flush();
             return 1;
         } catch (Exception e) {
-             JsfUtils.addErrorMessage("idArticulo", e.toString());
             return 0;
         }
     }

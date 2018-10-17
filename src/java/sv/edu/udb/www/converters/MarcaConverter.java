@@ -31,7 +31,7 @@ public class MarcaConverter implements Converter{
             return "";
         }
         if (value instanceof MarcaEntity) {
-            ((MarcaEntity) value).getIdMarca().toString();
+            return ((MarcaEntity) value).getIdMarca().toString();
         }
         return "";
     }

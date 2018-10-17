@@ -64,9 +64,9 @@ public class ArticuloEntity implements Serializable {
     @NotNull
     @Size(min = 1, max = 200)
     private String descripcion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idArticulo")
+    @OneToMany( mappedBy = "idArticulo")
     private List<PromocionEntity> promocionEntityList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idArticulo")
+    @OneToMany( mappedBy = "idArticulo")
     private List<ImagenEntity> imagenEntityList;
     @JoinColumn(name = "id_subrubro", referencedColumnName = "id_subrubro")
     @ManyToOne(optional = false)
@@ -83,7 +83,7 @@ public class ArticuloEntity implements Serializable {
     @JoinColumn(name = "id_proveedor", referencedColumnName = "id_proveedor")
     @ManyToOne(optional = false)
     private ProveedorEntity idProveedor;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idArticulo")
+    @OneToMany( mappedBy = "idArticulo")
     private List<VentaEntity> ventaEntityList;
 
     public ArticuloEntity() {
