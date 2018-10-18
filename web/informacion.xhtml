@@ -3,195 +3,195 @@
 <html lang="es"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-	<head>
-		<meta charset="utf-8"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>Información</title>		
-		<!-- Bootstrap -->
-                <link href="resources/estilos/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-		<!-- Slick -->
-                <link href="resources/estilos/css/slick.css" rel="stylesheet" type="text/css"/>
-                <link href="resources/estilos/css/slick-theme.css" rel="stylesheet" type="text/css"/>		
-		<!-- nouislider -->
-                <link href="resources/estilos/css/nouislider.min.css" rel="stylesheet" type="text/css"/>
-		<!-- Font Awesome Icon -->
-                <link href="resources/estilos/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-		<!-- Custom stlylesheet -->
-                <link href="resources/estilos/css/style.css" rel="stylesheet" type="text/css"/>
-                            
-		
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Información</title>		
+        <!-- Bootstrap -->
+        <link href="resources/estilos/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <!-- Slick -->
+        <link href="resources/estilos/css/slick.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/estilos/css/slick-theme.css" rel="stylesheet" type="text/css"/>		
+        <!-- nouislider -->
+        <link href="resources/estilos/css/nouislider.min.css" rel="stylesheet" type="text/css"/>
+        <!-- Font Awesome Icon -->
+        <link href="resources/estilos/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <!-- Custom stlylesheet -->
+        <link href="resources/estilos/css/style.css" rel="stylesheet" type="text/css"/>
+
+
     </head>
-	<h:body>
-		<!-- HEADER -->
-		<header>
-			<!-- MAIN HEADER -->
-			<div id="header">
-				<!-- container -->
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<!-- LOGO -->
-						<div class="col-md-3">
-							<div class="header-logo">
-								<a href="#" class="logo">
-                                                                    <h2 class="badge-light">Información</h2>
-								</a>
-							</div>
-						</div>
-						<!-- /LOGO -->
+    <h:body>
+        <!-- HEADER -->
+        <header>
+            <!-- MAIN HEADER -->
+            <div id="header">
+                <!-- container -->
+                <div class="container">
+                    <!-- row -->
+                    <div class="row">
+                        <!-- LOGO -->
+                        <div class="col-md-3">
+                            <div class="header-logo">
+                                <a href="#" class="logo">
+                                    <h2 class="badge-light" style="color: white;">Información</h2>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- /LOGO -->
 
-					
 
-						
-					</div>
-					<!-- row -->
-				</div>
-				<!-- container -->
-			</div>
-			<!-- /MAIN HEADER -->
-		</header>
-		<!-- /HEADER -->
 
-		<!-- NAVIGATION -->
-		<nav id="navigation">
-			<!-- container -->
-			<div class="container">
-				<!-- responsive-nav -->
-				<div id="responsive-nav">
-					<!-- NAV -->
-					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="#">Uso de iformación </a></li>
-						<li><a href="#">Políticas de devolución</a></li>
-						<li><a href="#">Termino y condiciones</a></li>
-					</ul>
-					<!-- /NAV -->
-				</div>
-				<!-- /responsive-nav -->
-			</div>
-			<!-- /container -->
-		</nav>
-		<!-- /NAVIGATION -->
 
-		<!-- SECTION -->
-		<div class="section">
-			<!-- container -->
-			<div class="container">
-                            <h3>Uso de información</h3>
-                            <br/>
-                            <h5>- Los datos almacenados como caché y otros serán exclusivamente para proporcionar una buena experiencia de usuario.</h5>
-                            <h5>- Ningún dato, información, preferencia del usuario será vendido o utilizado fuera de la plataforma ecommerce.</h5>
-                            <h5>- Los datos como tarjetas de crédito, cuentas bancarías están asegurados por un sistema de encriptación de información.</h5>
-                            <h5>- El nombre, apellido y residencia sólo serán usado con el fin de entregar los productos.</h5>
-                            <h5>- Nunca se proporcionará información de los clientes a compañías de terceros.</h5>
-                            <h5>- Las cookies serán usadas para recopilar perfiles de usuarios dentro de la plataforma.</h5>
-                            <h5>- Pueden omitir el uso de cookies o publicidad dentro de la plataforma con extensiones de terceros.</h5>
-                            <h5>- El uso de tarjetas y pago electrónicos están certificados con protocolos de seguridad.</h5>
-                            <h5>- La información proporcionada de cuentas bancarias será usada sólo al momento de las compras.</h5>                            
-                            <h5>- Todos las datos de información están sujetas a cambios sin previo aviso, se reserva el hecho de cambios y modificaciones en el uso de información.</h5>
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /SECTION -->
+                    </div>
+                    <!-- row -->
+                </div>
+                <!-- container -->
+            </div>
+            <!-- /MAIN HEADER -->
+        </header>
+        <!-- /HEADER -->
 
-		<br/><br/><br/><br/><br/><br/>
+        <!-- NAVIGATION -->
+        <nav id="navigation">
+            <!-- container -->
+            <div class="container">
+                <!-- responsive-nav -->
+                <div id="responsive-nav">
+                    <!-- NAV -->
+                    <ul class="main-nav nav navbar-nav">
+                        <li><h:link outcome="devolucion">Políticas de devolución</h:link></li>
+                        <li class="active"><h:link outcome="informacion">Uso de información</h:link></li>
+                        <li><h:link outcome="login">Iniciar Sesión</h:link></li>
+                    </ul>
+                    <!-- /NAV -->
+                </div>
+                <!-- /responsive-nav -->
+            </div>
+            <!-- /container -->
+        </nav>
+        <!-- /NAVIGATION -->
 
-		<!-- FOOTER -->
-		<footer id="footer">
-			<!-- top footer -->
-			<div class="section">
-				<!-- container -->
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Ubicación</h3>
-								<p>Calle Plan del Pino, Cantón Venecia, Soyapango, San Salvador.</p>
-								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>Soyapango, San Salvador.</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+503 2999-9999</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>grupoPILET@gmail.com</a></li>
-								</ul>
-							</div>
-						</div>
+        <!-- SECTION -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <h3>Uso de información</h3>
+                <br/>
+                <h5>- Los datos almacenados como caché y otros serán exclusivamente para proporcionar una buena experiencia de usuario.</h5>
+                <h5>- Ningún dato, información, preferencia del usuario será vendido o utilizado fuera de la plataforma ecommerce.</h5>
+                <h5>- Los datos como tarjetas de crédito, cuentas bancarías están asegurados por un sistema de encriptación de información.</h5>
+                <h5>- El nombre, apellido y residencia sólo serán usado con el fin de entregar los productos.</h5>
+                <h5>- Nunca se proporcionará información de los clientes a compañías de terceros.</h5>
+                <h5>- Las cookies serán usadas para recopilar perfiles de usuarios dentro de la plataforma.</h5>
+                <h5>- Pueden omitir el uso de cookies o publicidad dentro de la plataforma con extensiones de terceros.</h5>
+                <h5>- El uso de tarjetas y pago electrónicos están certificados con protocolos de seguridad.</h5>
+                <h5>- La información proporcionada de cuentas bancarias será usada sólo al momento de las compras.</h5>                            
+                <h5>- Todos las datos de información están sujetas a cambios sin previo aviso, se reserva el hecho de cambios y modificaciones en el uso de información.</h5>
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /SECTION -->
 
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Categorías</h3>
-								<ul class="footer-links">
-									<li><a href="#">Hombre</a></li>
-									<li><a href="#">Mujer</a></li>
-									<li><a href="#">Accesorios</a></li>
-								</ul>
-							</div>
-						</div>
+        <br/><br/><br/><br/><br/><br/>
 
-						<div class="clearfix visible-xs"></div>
+        <!-- FOOTER -->
+        <footer id="footer">
+            <!-- top footer -->
+            <div class="section">
+                <!-- container -->
+                <div class="container">
+                    <!-- row -->
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6">
+                            <div class="footer">
+                                <h3 class="footer-title">Ubicación</h3>
+                                <p>Calle Plan del Pino, Cantón Venecia, Soyapango, San Salvador.</p>
+                                <ul class="footer-links">
+                                    <li><a href="#"><i class="fa fa-map-marker"></i>Soyapango, San Salvador.</a></li>
+                                    <li><a href="#"><i class="fa fa-phone"></i>+503 2999-9999</a></li>
+                                    <li><a href="#"><i class="fa fa-envelope-o"></i>grupoPILET@gmail.com</a></li>
+                                </ul>
+                            </div>
+                        </div>
 
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Información</h3>
-								<ul class="footer-links">
-									<li><a href="#">Políticas de devolución</a></li>
-									<li><a href="#">Uso de información.</a></li>
-								</ul>
-							</div>
-						</div>
+                        <div class="col-md-3 col-xs-6">
+                            <div class="footer">
+                                <h3 class="footer-title">Categorías</h3>
+                                <ul class="footer-links">
+                                    <li><a href="#">Hombre</a></li>
+                                    <li><a href="#">Mujer</a></li>
+                                    <li><a href="#">Accesorios</a></li>
+                                </ul>
+                            </div>
+                        </div>
 
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Servicios</h3>
-								<ul class="footer-links">
-									<li><a href="#">Iniciar sesión</a></li>
-									<li><a href="#">Crear cuenta</a></li>									
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- /row -->
-				</div>
-				<!-- /container -->
-			</div>
-			<!-- /top footer -->
+                        <div class="clearfix visible-xs"></div>
 
-			<!-- bottom footer -->
-			<div id="bottom-footer" class="section">
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<div class="col-md-12 text-center">
-							<ul class="footer-payments">
-								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-							</ul>
-							<span class="copyright">
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script> | PILET 2018
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							</span>
-						</div>
-					</div>
-						<!-- /row -->
-				</div>
-				<!-- /container -->
-			</div>
-			<!-- /bottom footer -->
-		</footer>
-		<!-- /FOOTER -->
+                        <div class="col-md-3 col-xs-6">
+                            <div class="footer">
+                                <h3 class="footer-title">Información</h3>
+                                <ul class="footer-links">
+                                    <li class="active"><h:link outcome="devolucion">Políticas de devolución</h:link></li>
+                                    <li><h:link outcome="informacion">Uso de información</h:link></li>
+                                </ul>
+                            </div>
+                        </div>
 
-		<!-- jQuery  -->                       
-                <script src="resources/estilos/js/jquery.min.js" type="text/javascript"></script>
-                <script src="resources/estilos/js/bootstrap.min.js" type="text/javascript"></script>
-                <script src="resources/estilos/js/slick.min.js" type="text/javascript"></script>
-                <script src="resources/estilos/js/nouislider.min.js" type="text/javascript"></script>
-                <script src="resources/estilos/js/jquery.zoom.min.js" type="text/javascript"></script>
-                <script src="resources/estilos/js/main.js" type="text/javascript"></script>               
+                        <div class="col-md-3 col-xs-6">
+                            <div class="footer">
+                                <h3 class="footer-title">Servicios</h3>
+                                <ul class="footer-links">
+                                    <li><h:link outcome="login">Iniciar Sesión</h:link></li>
+                                    <li><h:link outcome="registrar">Crear Cuenta</h:link></li>									
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /container -->
+            </div>
+            <!-- /top footer -->
 
-	</h:body>
+            <!-- bottom footer -->
+            <div id="bottom-footer" class="section">
+                <div class="container">
+                    <!-- row -->
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <ul class="footer-payments">
+                                <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                                <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                                <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                                <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                                <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                                <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                            </ul>
+                            <span class="copyright">
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> | PILET 2018
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </span>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /container -->
+            </div>
+            <!-- /bottom footer -->
+        </footer>
+        <!-- /FOOTER -->
+
+        <!-- jQuery  -->                       
+        <script src="resources/estilos/js/jquery.min.js" type="text/javascript"></script>
+        <script src="resources/estilos/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="resources/estilos/js/slick.min.js" type="text/javascript"></script>
+        <script src="resources/estilos/js/nouislider.min.js" type="text/javascript"></script>
+        <script src="resources/estilos/js/jquery.zoom.min.js" type="text/javascript"></script>
+        <script src="resources/estilos/js/main.js" type="text/javascript"></script>               
+
+    </h:body>
 </html>

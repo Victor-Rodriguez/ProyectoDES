@@ -3,73 +3,108 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Inicio de sesion</title>
+        <title>Inicio de sesión</title>
         <meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		
-		<meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin"/>
-		<meta name="author" content="Pike Web Development - https://www.pikephp.com"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-		<h:outputStylesheet name="css/mobile-menu.css"/>
-                <h:outputStylesheet name="fonts/flaticon/flaticon.css"/>
-                <h:outputStylesheet name="css/bootstrap.min.css" />
-                <h:outputStylesheet name="css/style.css"/>
-                <h:outputStylesheet name="css/alertify.core.css" />
-                <h:outputStylesheet name="css/alertify.default.css" />
-                <h:outputStylesheet name="css/dataTables.bootstrap.min.css" />
-                <h:outputScript name="js/jquery-1.12.0.min.js"/>
-                <h:outputScript name="js/bootstrap.min.js"/>
-                <h:outputScript name="js/alertify.js"/>
-                <h:outputScript name="js/jquery.dataTables.min.js"/>
-                <h:outputScript name="js/dataTables.bootstrap.min.js"/>
+        <meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin"/>
+        <meta name="author" content="Pike Web Development - https://www.pikephp.com"/>
+        <link href="resources/estilos/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/estilos/css/style.css" rel="stylesheet" type="text/css"/>
 
-		<!-- BEGIN CSS for this page -->
-		<style>
-		.parsley-error {
-			border-color: #ff5d48 !important;
-		}
-		.parsley-errors-list.filled {
-			display: block;
-		}
-		.parsley-errors-list {
-			display: none;
-			margin: 0;
-			padding: 0;
-		}
-		.parsley-errors-list > li {
-			font-size: 12px;
-			list-style: none;
-			color: #ff5d48;
-			margin-top: 5px;
-		}
-		.form-section {
-			padding-left: 15px;
-			border-left: 2px solid #FF851B;
-			display: none;
-		}
-		.form-section.current {
-			display: inherit;
-		}
-		</style>
-		<!-- END CSS for this page -->
+        <h:outputStylesheet name="css/mobile-menu.css"/>
+        <link href="resources/estilos/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <h:outputStylesheet name="css/bootstrap.min.css" />
+        <h:outputStylesheet name="css/style.css"/>
+        <h:outputStylesheet name="css/alertify.core.css" />
+        <h:outputStylesheet name="css/alertify.default.css" />
+        <h:outputStylesheet name="css/dataTables.bootstrap.min.css" />
+        <h:outputScript name="js/jquery-1.12.0.min.js"/>
+        <h:outputScript name="js/bootstrap.min.js"/>
+        <h:outputScript name="js/alertify.js"/>
+        <h:outputScript name="js/jquery.dataTables.min.js"/>
+        <h:outputScript name="js/dataTables.bootstrap.min.js"/>
+
+        <!-- BEGIN CSS for this page -->
+        <style>
+            .parsley-error {
+                border-color: #ff5d48 !important;
+            }
+            .parsley-errors-list.filled {
+                display: block;
+            }
+            .parsley-errors-list {
+                display: none;
+                margin: 0;
+                padding: 0;
+            }
+            .parsley-errors-list > li {
+                font-size: 12px;
+                list-style: none;
+                color: #ff5d48;
+                margin-top: 5px;
+            }
+            .form-section {
+                padding-left: 15px;
+                border-left: 2px solid #FF851B;
+                display: none;
+            }
+            .form-section.current {
+                display: inherit;
+            }
+            .fondo{
+                background-image: url("resources/estilos/img/clothing.jpeg");
+                background-attachment:fixed;
+                background-size: cover;
+            }
+        </style>
+
+        <!-- END CSS for this page -->
     </h:head>
-    <h:body>
+    <h:body class="fondo">
+       
+        <!-- NAVIGATION -->
+        <nav id="navigation">
+            <!-- container -->
+            <div class="container">
+                <!-- responsive-nav -->
+                <div id="responsive-nav">
+                    <!-- NAV -->
+                    <ul class="nav navbar-nav navbar-right main-nav">
+                        <li><h:link outcome="kleidung">Inicio</h:link></li>
+                        <li><a href="#">Accesorios</a></li>
+                        <li><a href="#">Polo</a></li>
+                        <li><a href="#">Faldas</a></li>
+                        <li><a href="#">Chaquetas</a></li>
+                        <li><a href="#">Bermudas</a></li>
+                        <li><a href="#">Jeans</a></li>
+                        
+                        <li class="active"><h:link outcome="login">Iniciar Sesión</h:link></li>
+                    </ul>
+                    <!-- /NAV -->
+                </div>
+                <!-- /responsive-nav -->
+            </div>
+            <!-- /container -->
+        </nav>
+        <!-- /NAVIGATION -->
+        <br></br>
         <div class="content-page">
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-5" style="margin-left: 30%; margin-top: 10%">						
-                            <div class="card mb-3" >
-                                <div class="card-header">
-                                    <h3><i class="fa fa-check-square-o"></i> Inicio de sesión</h3>
+                            <div class="card mb-3" style="background-color: white; padding: 15px; ">
+                                <div class="card-header text-center">
+                                    <h3><i class="fa fa-check-square-o "></i> Inicio de sesión</h3>
                                     <i></i><i></i> <i></i>
                                     <h:panelGroup layout="block" class="alert alert-danger" 
-                                          rendered="#{not empty facesContext.messageList}">
+                                                  rendered="#{not empty facesContext.messageList}">
                                         <h:messages/>
                                     </h:panelGroup>
                                 </div>
 
-                                <div class="card-body">
+                                <div class="card-body" >
 
                                     <h:form >
                                         <div class="form-group">
@@ -78,9 +113,9 @@
                                                          required="true" requiredMessage="Debes ingresar tu correo de usuario"/>
                                         </div>
                                         <div class="form-group">
-                                            <label for="clave">Password:</label>
+                                            <label for="clave">Password</label>
                                             <h:inputSecret value="#{loginBean.clave}" class="form-control"
-                                                       required="true" requiredMessage="Debes ingresar tu contraseña"/>
+                                                           required="true" requiredMessage="Debes ingresar tu contraseña"/>
                                         </div>
                                         <div class="form-group">
                                             <h:commandButton class="btn btn-lg btn-primary btn-block" 
