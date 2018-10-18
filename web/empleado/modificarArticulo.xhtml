@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="col-md-6" style="margin-left: 25%;">
                             <h:form prependId="false">
-                                <h2 style="text-align: center;">Nuevo Artículo</h2>
+                                <h2 style="text-align: center;">Editar Articulo Artículo</h2>
                                 <div class="form-group">
                                     <h:outputLabel value="Código Articulo:" for="idArticulo" />
                                     <h:inputText   class="form-control"  id="idArticulo" value="#{articuloBean.articulo.idArticulo}" 
@@ -112,7 +112,7 @@
                                                        itemValue="#{proveedor}" itemLabel="#{proveedor.nombre}"/>
                                     </h:selectOneMenu>
                                 </div>
-                                <h:commandButton class="btn btn-success" 
+                                <h:commandButton   class="btn btn-success" 
                                                  value="Guardar" action="#{articuloBean.modificarArticulo()}"/>
                             </h:form>
                         </div>
