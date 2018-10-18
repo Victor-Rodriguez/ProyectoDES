@@ -89,7 +89,7 @@ public class LoginBean {
     public String insertarUsuario(){
         usuario.setIdTipo(new TipoUsuarioEntity(3));
         if(usuarioModel.insertarUsuario(usuario)==0){
-            JsfUtils.addErrorMessage("codigoUsuario", "Ya existe un usuario con ese codigo");
+            JsfUtils.addErrorMessage("codigoUsuario", "Ya existe un usuario con ese correo o nombre de usuario");
             return null;
         }
         JsfUtils.addFlashMessage("exito", "usuario insertado exitosamente");
