@@ -46,7 +46,7 @@
                                 <f:facet name="header">
                                     <h:outputText value="Operaciones"/>
                                 </f:facet>
-                                <h:commandLink action="#{marcaBean.obtenerMarca()}" class="btn btn-primary">
+                                <h:commandLink value="Editar" action="#{marcaBean.obtenerMarca()}" class="btn btn-primary">
                                     <i class="glyphicon glyphicon-edit"/>
                                     <f:param name="codigo" value="#{item.idMarca}"/>
                                 </h:commandLink>
