@@ -17,16 +17,18 @@
         <section class="contact-section">
             <div class="container" style="-webkit-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
                  -moz-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
-                 box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75); padding:1%;max-width: 700px;margin-top: -100px;background-color: white;">
+                 box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75); padding:1%;margin-top: -100px;background-color: white;">
                 <h:panelGroup layout="block" class="alert alert-danger"
                               rendered="#{not empty facesContext.messageList}">
                     <h:messages/>
-                </h:panelGroup>
-                <div class="contact-form mt-40">
-                    <div class="row">
-                        <div class="col-md-6" style="margin-left: 25%;">
-                            <h:form prependId="false">
-                                <h2 style="text-align: center;">Nuevo Artículo</h2>
+                </h:panelGroup>               
+                        <div class="cont-nuevoA" >
+                            <h:form prependId="false" class="cont-nuevoA">
+                                <h2 class="tema-p">Nuevo Artículo</h2>
+                                
+                             
+                                <div class="izquierda">
+                                
                                 <div class="form-group">
                                     <h:outputLabel value="Código Articulo:" for="idArticulo" />
                                     <h:inputText   class="form-control"  id="idArticulo" value="#{articuloBean.articulo.idArticulo}" 
@@ -74,6 +76,9 @@
                                     <h:inputText class="form-control"  id="descripcion" value="#{articuloBean.articulo.descripcion}" 
                                                  title="Descripcion" required="true" requiredMessage="La Descripción es Obligatorio"/>
                                 </div>
+                                </div>
+                                
+                                <div class=" derecha">
                                 <div class="form-group">
                                     <h:outputLabel value="Subrubro:" for="idSubrubro" />
                                     <h:selectOneMenu class="form-control"  id="idSubrubro" value="#{articuloBean.articulo.idSubrubro}" title="IdSubrubro">
@@ -112,12 +117,11 @@
                                                        itemValue="#{proveedor}" itemLabel="#{proveedor.nombre}"/>
                                     </h:selectOneMenu>
                                 </div>
-                                <h:commandButton class="btn btn-success" 
-                                                 value="Registrar" action="#{articuloBean.insertarArticulo()}"/>
+                                <h:commandButton class="btn btn-success btn-ok"  value="Registrar" action="#{articuloBean.insertarArticulo()}"/>
+                                </div>
+                          
                             </h:form>
-                        </div>
-                    </div>
-                </div>
+                        </div>                  
             </div>
         </section>
         <br><br></br></br>
