@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col-md-6" style="margin-left: 25%;">
                             <h:form prependId="false">
-                                <h2 style="text-align: center;">Nuevo Empleado</h2>
+                                <h2 class="tema-p">Nuevo Empleado</h2>
                                 <div class="form-group">
                                     <h:outputLabel value="Username:" for="nombreUsuario" />
                                     <h:inputText id="nombreUsuario" value="#{loginBean.usuario.nombreUsuario}" title="NombreUsuario" 
@@ -71,7 +71,7 @@
                                                  required="true" class="form-control" 
                                                  requiredMessage="The Dui field is required."/>
                                 </div>
-                                <h:commandButton action="#{(empleadoBean.insertarEmpleado()) }" class="btn btn-success"
+                                <h:commandButton action="#{(empleadoBean.insertarEmpleado()) }" class="btn btn-success btn-abajo"
                                                  value="Registrar"/>
                             </h:form>
                         </div>

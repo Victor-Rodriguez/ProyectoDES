@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col-md-6" style="margin-left: 25%;">
                             <h:form prependId="false">
-                                <h2 style="text-align: center;">Nuevo Proveedor</h2>
+                                <h2 class="tema-p">Nuevo Proveedor</h2>
                                 <div class="form-group">
                                     <h:outputLabel value="Código:" for="id" />
                                     <h:inputText id="id"
@@ -71,7 +71,7 @@
                                                  requiredMessage="La dirección es obligatoria"/>
                                 </div>
 
-                                <h:commandButton value="Registrar" class="btn btn-success"
+                                <h:commandButton value="Registrar" class="btn btn-success btn-abajo"
                                                  action="#{proveedorBean.insertarProveedor()}"/>
                             </h:form>
                         </div>
