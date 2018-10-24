@@ -23,7 +23,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author Rodriguez
+ * @author Usuario
  */
 @Entity
 @Table(name = "tipo_usuario")

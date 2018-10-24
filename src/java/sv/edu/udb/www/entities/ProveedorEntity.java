@@ -21,7 +21,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author Rodriguez
+ * @author Usuario
  */
 @Entity
 @Table(name = "proveedor")
@@ -57,7 +57,7 @@ public class ProveedorEntity implements Serializable {
     @NotNull
     private boolean estado;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProveedor")
-    private List<ArticuloEntity> articuloEntityList;
+    private List<MarcaEntity> marcaEntityList;
 
     public ProveedorEntity() {
     }
@@ -114,12 +114,12 @@ public class ProveedorEntity implements Serializable {
         this.estado = estado;
     }
 
-    public List<ArticuloEntity> getArticuloEntityList() {
-        return articuloEntityList;
+    public List<MarcaEntity> getMarcaEntityList() {
+        return marcaEntityList;
     }
 
-    public void setArticuloEntityList(List<ArticuloEntity> articuloEntityList) {
-        this.articuloEntityList = articuloEntityList;
+    public void setMarcaEntityList(List<MarcaEntity> marcaEntityList) {
+        this.marcaEntityList = marcaEntityList;
     }
 
     @Override

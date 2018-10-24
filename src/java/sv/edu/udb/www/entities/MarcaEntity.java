@@ -14,6 +14,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -23,7 +25,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author Rodriguez
+ * @author Usuario
  */
 @Entity
 @Table(name = "marca")
@@ -45,6 +47,9 @@ public class MarcaEntity implements Serializable {
     private String marca;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMarca")
     private List<ArticuloEntity> articuloEntityList;
+    @JoinColumn(name = "id_proveedor", referencedColumnName = "id_proveedor")
+    @ManyToOne(optional = false)
+    private ProveedorEntity idProveedor;
 
     public MarcaEntity() {
     }
@@ -80,6 +85,14 @@ public class MarcaEntity implements Serializable {
 
     public void setArticuloEntityList(List<ArticuloEntity> articuloEntityList) {
         this.articuloEntityList = articuloEntityList;
+    }
+
+    public ProveedorEntity getIdProveedor() {
+        return idProveedor;
+    }
+
+    public void setIdProveedor(ProveedorEntity idProveedor) {
+        this.idProveedor = idProveedor;
     }
 
     @Override

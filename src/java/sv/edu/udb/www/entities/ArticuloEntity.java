@@ -24,7 +24,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author Rodriguez
+ * @author Usuario
  */
 @Entity
 @Table(name = "articulos")
@@ -64,9 +64,9 @@ public class ArticuloEntity implements Serializable {
     @NotNull
     @Size(min = 1, max = 200)
     private String descripcion;
-    @OneToMany( mappedBy = "idArticulo")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idArticulo")
     private List<PromocionEntity> promocionEntityList;
-    @OneToMany( mappedBy = "idArticulo")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idArticulo")
     private List<ImagenEntity> imagenEntityList;
     @JoinColumn(name = "id_subrubro", referencedColumnName = "id_subrubro")
     @ManyToOne(optional = false)
@@ -80,10 +80,7 @@ public class ArticuloEntity implements Serializable {
     @JoinColumn(name = "id_talla", referencedColumnName = "id_talla")
     @ManyToOne(optional = false)
     private TallaEntity idTalla;
-    @JoinColumn(name = "id_proveedor", referencedColumnName = "id_proveedor")
-    @ManyToOne(optional = false)
-    private ProveedorEntity idProveedor;
-    @OneToMany( mappedBy = "idArticulo")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idArticulo")
     private List<VentaEntity> ventaEntityList;
 
     public ArticuloEntity() {
@@ -196,14 +193,6 @@ public class ArticuloEntity implements Serializable {
 
     public void setIdTalla(TallaEntity idTalla) {
         this.idTalla = idTalla;
-    }
-
-    public ProveedorEntity getIdProveedor() {
-        return idProveedor;
-    }
-
-    public void setIdProveedor(ProveedorEntity idProveedor) {
-        this.idProveedor = idProveedor;
     }
 
     public List<VentaEntity> getVentaEntityList() {
