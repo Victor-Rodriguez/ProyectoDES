@@ -69,14 +69,18 @@ public class LoginBean {
             request.getSession().setAttribute("user", correo);
             request.getSession().setAttribute("nombre", user.getNombreUsuario());
             request.getSession().setAttribute("rol",user.getIdTipo());
-            //System.out.println("hola"+user.getIdTipo().getIdTipo());
-            if(user.getIdTipo().getIdTipo()==1){
-                return "/administrador/index?faces-redirect=true"; //direccion del administrador
-            }else if(user.getIdTipo().getIdTipo()==2){
-                return "/empleados/index?faces-redirect=true"; //direccion del empleado
-            }
-            else{
-                return "/prueba?faces-redirect=true"; //direccion del cliente
+            if(null==user.getIdTipo().getIdTipo()){
+                return "/login?faces-redirect=true"; //direccion del cliente
+            }else //System.out.println("hola"+user.getIdTipo().getIdTipo());
+            switch (user.getIdTipo().getIdTipo()) {
+                case 1:
+                    return "/administrador/index?faces-redirect=true"; //direccion del administrador
+                case 2:
+                    return "/empleado/listarArticulo?faces-redirect=true"; //direccion del empleado
+                case 3:
+                    return "/index?faces-redirect=true"; //direccion del cliente
+                default:
+                    return "/login?faces-redirect=true";
             }
         }
     }

@@ -41,6 +41,12 @@ public class EmpleadoModel {
         return em.find(EmpleadoEntity.class, id);
     }
     
+    public EmpleadoEntity verificarDUI(String dui){
+        Query query = em.createNamedQuery("EmpleadoEntity.findByDui");
+        query.setParameter("dui", dui);
+        return (EmpleadoEntity) query.getResultList().get(0);
+    }
+    
     public int modificarEmpleado(EmpleadoEntity empleado){
         try {
             em.merge(empleado);

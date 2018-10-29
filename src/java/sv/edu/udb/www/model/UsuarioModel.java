@@ -41,6 +41,11 @@ public class UsuarioModel {
         return em.find(UsuarioEntity.class, id);
     }
     
-    
+    public UsuarioEntity obtenerUsuario1(){
+        Query query = em.createNamedQuery("UsuarioEntity.ultimo");
+        List<UsuarioEntity> usuarioList = query.setMaxResults(1).getResultList();
+        UsuarioEntity usuario = usuarioList.get(0);
+        return usuario;
+    }
     
 }
