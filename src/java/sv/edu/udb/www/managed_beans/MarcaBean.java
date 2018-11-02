@@ -6,7 +6,9 @@ import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import sv.edu.udb.www.entities.MarcaEntity;
+import sv.edu.udb.www.entities.ProveedorEntity;
 import sv.edu.udb.www.model.MarcaModel;
+import sv.edu.udb.www.model.ProveedorModel;
 import sv.edu.udb.www.utils.JsfUtils;
 
 
@@ -15,7 +17,12 @@ import sv.edu.udb.www.utils.JsfUtils;
 public class MarcaBean {
 
     @EJB
+    private ProveedorModel proveedorModel;
+
+    @EJB
     private MarcaModel marcaModel;
+    
+    
     
     private List<MarcaEntity> listarMarca;
     private MarcaEntity marca = new MarcaEntity();
@@ -23,9 +30,13 @@ public class MarcaBean {
     public MarcaBean() {
     }
     public List<MarcaEntity> getListaMarca() {
-    return marcaModel.listarMarca();
-  }
-
+        return marcaModel.listarMarca();
+    }
+    
+    public List<ProveedorEntity> getListaProveedor() {
+        return proveedorModel.listarProveedor();
+    }
+    
     public MarcaEntity getMarca() {
         return marca;
     }

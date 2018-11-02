@@ -28,16 +28,30 @@
                 <div class="contact-form mt-40" >
                     <div class="row">
                         <div class="col-md-6" style="margin-left: 25%;">
-                            <h:form prependId="false">
-                                <h2 style="text-align: center;">Nueva Marca</h2>
-                                <div class="form-group">
-                                    <h:outputLabel value="Marca:" for="marca" />
-                                    <h:inputText id="marca" value="#{marcaBean.marca.marca}" class="form-control"
-                                                 title="Marca" required="true" requiredMessage="El nombre de la marca es obligatorio."/>
-                                </div>
-                                <h:commandButton action="#{marcaBean.insertarMarca()}" class="btn btn-success"
+
+                                <h:form>
+                                    <h2 class="tema-p">Nuevo Marca</h2>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Marca:" for="marca" />
+                                        <h:inputText id="marca" value="#{marcaBean.marca.marca}" title="Marca" 
+                                                     required="true" requiredMessage="La marca es requerida."/>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Proveedor:" for="idProveedor" />
+                                        <h:selectOneMenu id="idProveedor" value="#{marcaBean.marca.idProveedor}" title="IdProveedor" 
+                                                         required="true" requiredMessage="El proveedor es requerido.">
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItems value="#{proveedorBean.listarProveedor}" var="proveedor"
+                                                           itemLabel="#{proveedor.nombre}"
+                                                           itemValue="#{proveedor.idProveedor}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                        <h:commandButton action="#{marcaBean.insertarMarca()}" class="btn btn-success"
                                                  value="Registrar"/>
-                            </h:form>
+                                </h:form>
+
+                            
+                            
                         </div>
                     </div>
                 </div>
