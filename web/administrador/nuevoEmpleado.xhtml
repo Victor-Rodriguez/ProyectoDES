@@ -20,10 +20,7 @@
                  -moz-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
                  box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75); padding:1%;max-width: 700px;margin-top: -100px;background-color: white;">
 
-                <h:panelGroup layout="block" class="alert alert-danger"
-                              rendered="#{not empty facesContext.messageList}">
-                    <h:messages />
-                </h:panelGroup>
+               
 
                 <div class="contact-form mt-40" >
                     <div class="row">
@@ -35,6 +32,7 @@
                                     <h:inputText id="nombreUsuario" value="#{empleadoBean.usuario.nombreUsuario}" title="NombreUsuario" 
                                                  required="true" class="form-control"
                                                  requiredMessage="El nombre de usuario es obligatorio."/>
+                                    <h:message for="nombreUsuario" showDetail="false" showSummary="true" style="color: red;" />
 
                                 </div>
                                 <div class="form-group">
@@ -42,6 +40,7 @@
                                     <h:inputText id="correo" value="#{empleadoBean.usuario.correo}" title="Correo" 
                                                  required="true" class="form-control"
                                                  requiredMessage="EL correo es obligatorio."/>
+                                    <h:message for="correo" showDetail="false" showSummary="true" style="color: red;" />
 
                                 </div>
                                 <div class="form-group">
@@ -49,6 +48,7 @@
                                     <h:inputSecret id="clave" value="#{empleadoBean.usuario.clave}" title="Clave" 
                                                  required="true" class="form-control"
                                                  requiredMessage="La clave es obligatoria."/>
+                                    <h:message for="clave" showDetail="false" showSummary="true" style="color: red;" />
 
                                 </div>
                                 <div class="form-group">
@@ -56,6 +56,7 @@
                                     <h:inputText id="nombres" value="#{empleadoBean.empleado.nombres}" title="Nombres" 
                                                  required="true" class="form-control"
                                                  requiredMessage="El nombre es obligatorio."/>
+                                    <h:message for="nombres" showDetail="false" showSummary="true" style="color: red;" />
 
                                 </div>
                                 <div class="form-group">
@@ -63,6 +64,7 @@
                                     <h:inputText id="apellidos" value="#{empleadoBean.empleado.apellidos}" 
                                                  title="Apellidos" required="true"  class="form-control"
                                                  requiredMessage="Los apellidos son obligatorios."/>
+                                    <h:message for="apellidos" showDetail="false" showSummary="true" style="color: red;" />
 
                                 </div>
                                 <div class="form-group">
@@ -73,6 +75,7 @@
                                                  validatorMessage="El formato del DUI es incorrecto">
                                         <f:validateRegex pattern="[0-9]{8}-[0-9]{1}"/>
                                     </h:inputText>
+                                    <h:message for="dui" showDetail="false" showSummary="true" style="color: red;" />
                                 </div>
                                 <h:commandButton action="#{(empleadoBean.insertarEmpleado()) }" class="btn btn-success btn-abajo"
                                                  value="Registrar"/>

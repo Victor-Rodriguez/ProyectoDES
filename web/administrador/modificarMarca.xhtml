@@ -20,10 +20,7 @@
                  -moz-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
                  box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75); padding:1%;max-width: 700px;margin-top: -100px;background-color: white;">
                      
-                <h:panelGroup layout="block" class="alert alert-danger"
-                              rendered="#{not empty facesContext.messageList}">
-                    <h:messages />
-                </h:panelGroup>
+                
                 
                 <div class="contact-form mt-40" >
                     <div class="row">
@@ -40,6 +37,7 @@
                                         <h:outputLabel value="Marca:" for="marca" />
                                         <h:inputText id="marca" value="#{marcaBean.marca.marca}" class="form-control"
                                                      title="Marca" required="true" requiredMessage="El nombre de la marca es obligatorio."/>
+                                        <h:message for="marca" showDetail="false" showSummary="true" style="color: red;" />
                                     </div>
                                     <h:commandButton action="#{marcaBean.modificarMarca()}" class="btn btn-success"
                                                      value="Modificar"/>
