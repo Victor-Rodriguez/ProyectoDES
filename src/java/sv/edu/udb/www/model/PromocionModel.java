@@ -6,25 +6,25 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import sv.edu.udb.www.entities.ProveedorEntity;
+import sv.edu.udb.www.entities.PromocionEntity;
 
 
 @Stateless
-public class ProveedorModel {
+public class PromocionModel {
 
     @PersistenceContext(unitName = "ProyectoDESPU")
     private EntityManager em;
-
     
-
-    public List<ProveedorEntity> listarProveedor(){
-        Query query = em.createNamedQuery("ProveedorEntity.findAll");
+    
+    
+    public List<PromocionEntity> listarPromocion(){
+        Query query = em.createNamedQuery("PromocionEntity.findAll");
         return query.getResultList();
     }
 
-    public int insertarProveedor(ProveedorEntity proveedor){
+    public int insertarPromocion(PromocionEntity promocion){
         try {
-            em.persist(proveedor);
+            em.persist(promocion);
             em.flush();
             return 1;
         } catch (Exception e) {
@@ -32,13 +32,13 @@ public class ProveedorModel {
         }
     }
     
-    public ProveedorEntity obtenerProveedor(String id){
-        return em.find(ProveedorEntity.class, id);
+    public PromocionEntity obtenerPromocion(String id){
+        return em.find(PromocionEntity.class, id);
     }
     
-    public int modificarProveedor(ProveedorEntity proveedor){
+    public int modificarPromocion(PromocionEntity promocion){
         try {
-            em.merge(proveedor);
+            em.merge(promocion);
             em.flush();
             return 1;
         } catch (Exception e) {

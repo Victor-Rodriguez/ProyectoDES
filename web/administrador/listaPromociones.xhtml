@@ -3,7 +3,8 @@
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="./../WEB-INF/AdminTemplate.xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns="http://www.w3.org/1999/xhtml">
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="tipoUsuario">
         Administrador
@@ -24,8 +25,70 @@
         <section class="contact-section">
             <div class="container">
                 <h:link outcome="/administrador/nuevaPromocion" value="Nueva Promoción" class="btn btn-success "/><br><hr></hr></br>
+                
+                <h:form prependId="false">
+                        <h:dataTable value="#{promocionBean.listaPromocion}" var="item"
+                                     class="table table-bordered table-hover" id="tabla">
+                            
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Nombre"/>
+                                </f:facet>
+                                <h:outputText value="#{item.nombre}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Fecha de inico"/>
+                                </f:facet>
+                                <h:outputText value="#{item.fechaInico}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Fecha fin"/>
+                                </f:facet>
+                                <h:outputText value="#{item.fechaFin}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Precio de oferta"/>
+                                </f:facet>
+                                <h:outputText value="#{item.precioOferta}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Descripcion"/>
+                                </f:facet>
+                                <h:outputText value="#{item.descripcion}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Articulo"/>
+                                </f:facet>
+                                <h:outputText value="#{item.idArticulo.articulo}"/>
+                            </h:column>
+                            <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Operaciones"/>
+                            </f:facet>
+                                <h:commandLink value="Editar" class="btn btn-primary" action="#{promocionBean.obtenerPromocion()}">
+                                <i class="glyphicon glyphicon-edit"></i>
+                                <f:param name="id" value="#{item.idPromocion}"/>
+                            </h:commandLink>
+                        </h:column>
+                        </h:dataTable>
+                    </h:form>
+
             </div>
         </section>
+        <script>
+            $(document).ready(function () {
+                $("#tabla").dataTable();
+            });
+        </script>
     </ui:define>
 
 </ui:composition>
