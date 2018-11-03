@@ -18,6 +18,8 @@ public class ProveedorConverter implements Converter{
 
     ProveedorModel proveedorModel = lookupProveedorModelBean();
 
+    
+
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
         if(value==null || value.isEmpty()){
@@ -46,5 +48,7 @@ public class ProveedorConverter implements Converter{
             throw new RuntimeException(ne);
         }
     }
+
+    
     
 }

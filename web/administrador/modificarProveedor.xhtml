@@ -72,11 +72,13 @@
 
                                 <div class="form-group">
                                     <h:outputLabel value="Estado:" for="estado" />
-                                    <h:inputText id="estado" 
-                                                 class="form-control"
-                                                 value="#{proveedorBean.proveedor.estado}" 
-                                                 title="Estado" required="true" 
-                                                 requiredMessage="The Estado field is required."/>
+                                        <h:selectOneMenu id="estado" value="#{proveedorBean.proveedor.estado}" title="estado" 
+                                                         required="true" class="form-control"
+                                                         requiredMessage="El estado es obligatorio">
+                                            
+                                            <f:selectItem itemValue="true" itemLabel="Activo"/>
+                                            <f:selectItem itemValue="false" itemLabel="Inactivo"/>
+                                        </h:selectOneMenu>
                                 </div>
 
 
