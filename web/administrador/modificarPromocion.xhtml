@@ -3,7 +3,8 @@
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="./../WEB-INF/AdminTemplate.xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns="http://www.w3.org/1999/xhtml">
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="tipoUsuario">
         Administrador
@@ -27,7 +28,65 @@
                 <div class="contact-form mt-40" >
                     <div class="row">
                         <div class="col-md-6" style="margin-left: 25%;">
-                            
+                                <h:form>
+                                    <h2 style="text-align: center;">Modificar Promocion</h2>
+                                    <div class="form-group">    
+                                        <h:outputLabel value="Promocion:" for="idPromocion" />
+                                        <h:inputText id="idPromocion" value="#{promocionBean.promocion.idPromocion}" title="IdPromocion" 
+                                                     required="true" class="form-control" 
+                                                     readonly="#{not facesContext.postback or facesContext.renderResponse}"
+                                                     requiredMessage="El id es requerido."/>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Nombre:" for="nombre" />
+                                        <h:inputText id="nombre" value="#{promocionBean.promocion.nombre}" title="Nombre" 
+                                                     required="true" class="form-control"
+                                                     requiredMessage="El nombre es requerido."/>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Fecha de Inico:" for="fechaInico" />
+                                        <h:inputText id="fechaInico" value="#{promocionBean.promocion.fechaInico}" title="FechaInico" 
+                                                     required="true" class="form-control"
+                                                     requiredMessage="La fecha de inicio es requerido"
+                                                     validatorMessage="El formato de la fecha es incorrecta">
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        </h:inputText>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Fecha fin:" for="fechaFin" />
+                                        <h:inputText id="fechaFin" value="#{promocionBean.promocion.fechaFin}" title="FechaFin" 
+                                                     required="true" class="form-control" 
+                                                     requiredMessage="La fecha fin de la promocion es requerida."
+                                                     validatorMessage="El formato de la fecha es incorrecta">
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        </h:inputText>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Precio de oferta:" for="precioOferta" />
+                                        <h:inputText id="precioOferta" value="#{promocionBean.promocion.precioOferta}" title="PrecioOferta" 
+                                                     required="true" class="form-control"
+                                                     requiredMessage="El precio es requerido."/>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Descripcion:" for="descripcion" />
+                                        <h:inputText id="descripcion" value="#{promocionBean.promocion.descripcion}" 
+                                                     class="form-control" title="Descripcion" />
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Articulo:" for="idArticulo" />
+                                        <h:selectOneMenu id="idArticulo" value="#{promocionBean.promocion.idArticulo}" title="IdArticulo" 
+                                                         required="true" class="form-control" 
+                                                         requiredMessage="El articulo es requerido.">
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItems value="#{promocionBean.listaArticulos}" var="articulos"
+                                                           itemValue="#{articulos}"
+                                                           itemLabel="#{articulos.articulo}"/>
+                                        </h:selectOneMenu>
+                                        
+                                    </div>
+                                    <h:commandButton value="Modificar" class="btn btn-success"
+                                                     action="#{promocionBean.modificarPromocion()}"/>
+                                </h:form>
                         </div>
                     </div>
                 </div>

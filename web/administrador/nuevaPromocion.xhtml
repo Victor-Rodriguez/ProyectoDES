@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col-md-6" style="margin-left: 25%;">
                                 <h:form>
-                                    <h2 style="text-align: center;">Nueva Marca</h2>
+                                    <h2 style="text-align: center;"> Nueva promocion</h2>
                                     <div class="form-group">
                                         <h:outputLabel value="Nombre:" for="nombre" />
                                         <h:inputText id="nombre" value="#{promocionBean.promocion.nombre}" title="Nombre" 
@@ -55,7 +55,7 @@
                                         </h:inputText>
                                     </div>
                                     <div class="form-group">
-                                        <h:outputLabel value="PrecioOferta:" for="precioOferta" />
+                                        <h:outputLabel value="Precio de oferta:" for="precioOferta" />
                                         <h:inputText id="precioOferta" value="#{promocionBean.promocion.precioOferta}" title="PrecioOferta" 
                                                      required="true" class="form-control"
                                                      requiredMessage="El precio es requerido."/>
@@ -75,8 +75,10 @@
                                                            itemValue="#{articulos}"
                                                            itemLabel="#{articulos.articulo}"/>
                                         </h:selectOneMenu>
-                                    </div>
                                         
+                                    </div>
+                                        <h:commandButton value="Guardar" class="btn btn-success"
+                                                         action="#{promocionBean.insertarPromocion()}"/>
                                 </h:form>
                         </div>
                     </div>
