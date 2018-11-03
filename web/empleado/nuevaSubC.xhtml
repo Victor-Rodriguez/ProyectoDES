@@ -20,10 +20,6 @@
                  -moz-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
                  box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75); padding:1%;max-width: 700px;margin-top: -100px;background-color: white;">
 
-                <h:panelGroup layout="block" class="alert alert-danger"
-                              rendered="#{not empty facesContext.messageList}">
-                    <h:messages/>
-                </h:panelGroup>
 
                 <div class="contact-form mt-40">
                     <div class="row">
@@ -36,6 +32,7 @@
                                                  value="#{subCategoriaBean.subCate.subcategoria}" 
                                                  title="Subcategoria" required="true" 
                                                  requiredMessage="El nombre de la Sub-categoría es obligatorio"/>
+                                    <h:message for="subcategoria" showDetail="false" showSummary="true" style="color: red;" />
                                 </div>
 
                                 <div class="form-group">
@@ -44,6 +41,7 @@
                                                  value="#{subCategoriaBean.subCate.descripcion}" 
                                                  title="Descripcion" required="true" 
                                                  requiredMessage="Descripción obligatoria"/>
+                                    <h:message for="descripcion" showDetail="false" showSummary="true" style="color: red;" />
                                 </div>
 
                                 <div class="form-group">

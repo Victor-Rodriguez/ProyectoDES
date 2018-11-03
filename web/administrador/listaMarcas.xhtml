@@ -28,14 +28,9 @@
             <div class="container">
                 <h:link outcome="/administrador/nuevaMarca" class="btn btn-success" value="Nueva marca"/><br><hr></hr></br>
                 <h:form prependId="false">
-                        <h:dataTable value="#{marcaBean.listarMarca}" class="table table-bordered table-hover table-striped" 
+                    <h:dataTable value="#{marcaBean.listaMarca}" class="table table-bordered table-hover table-striped" 
                                      var="item" id="tabla">
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="ID"/>
-                                </f:facet>
-                                <h:outputText value="#{item.idMarca}"/>
-                            </h:column>
+                            
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="Marca"/>
@@ -61,6 +56,7 @@
                     </h:form>
             </div>
         </section>
+        
         <script>
             $(document).ready(function () {
                 $("#tabla").dataTable();

@@ -42,6 +42,7 @@
                                                  value="#{empleadoBean.empleado.nombres}" 
                                                  title="Nombres" required="true" 
                                                  requiredMessage="Los nombres son obligatorios"/>
+                                    <h:message for="nombres" showDetail="false" showSummary="true" style="color: red;" />
                                 </div>
 
                                 <div class="form-group">
@@ -50,6 +51,7 @@
                                                  value="#{empleadoBean.empleado.apellidos}" 
                                                  title="Apellidos" required="true" 
                                                  requiredMessage="Los apellidos son obigatorios"/>
+                                    <h:message for="apellidos" showDetail="false" showSummary="true" style="color: red;" />
                                 </div>
 
                                 <div class="form-group">
@@ -61,6 +63,7 @@
                                                  validatorMessage="DUI con formato incorrecto">
                                         <f:validateRegex pattern="[0-9]{8}-[0-9]{1}" />
                                     </h:inputText>
+                                    <h:message for="dui" showDetail="false" showSummary="true" style="color: red;" />
                                 </div>
 
                                 <div class="form-group">

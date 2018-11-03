@@ -29,12 +29,7 @@
                 <h:form prependId="false">
                     <h:dataTable value="#{empleadoBean.listarEmpleado}" var="item" 
                                  id="tabla" class="table table-bordered">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="ID"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idEmpleado}"/>
-                        </h:column>
+
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="Nombres"/>
