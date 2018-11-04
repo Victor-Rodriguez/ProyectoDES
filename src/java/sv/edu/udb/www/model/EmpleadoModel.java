@@ -44,7 +44,14 @@ public class EmpleadoModel {
     public EmpleadoEntity verificarDUI(String dui){
         Query query = em.createNamedQuery("EmpleadoEntity.findByDui");
         query.setParameter("dui", dui);
-        return (EmpleadoEntity) query.getResultList().get(0);
+        List<EmpleadoEntity> empleadoList = query.setMaxResults(1).getResultList();
+        if (empleadoList.isEmpty()) {
+            return null;
+        }else{
+            EmpleadoEntity empleado = empleadoList.get(0) ;
+            return empleado;
+        }
+        
     }
     
     public int modificarEmpleado(EmpleadoEntity empleado){
