@@ -61,7 +61,7 @@ public class EmpleadoBean {
     
     public String insertarEmpleado(){
         String cadenaAleatoria = UUID.randomUUID().toString();//generador de la contraseña
-        String cadena = cadenaAleatoria.substring(0, 8);//acortado de la cadena y contraseña final
+        String cadena = cadenaAleatoria.substring(0, 7);//acortado de la cadena y contraseña final
         try {
         if (empleadoModel.verificarDUI(empleado.getDui())==null) {
             
