@@ -20,10 +20,6 @@
                  -moz-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
                  box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75); padding:1%;max-width: 700px;margin-top: -100px;background-color: white;">
                      
-                <h:panelGroup layout="block" class="alert alert-danger"
-                              rendered="#{not empty facesContext.messageList}">
-                    <h:messages />
-                </h:panelGroup>
                 
                 <div class="contact-form mt-40" >
                     <div class="row">
@@ -35,6 +31,7 @@
                                         <h:inputText id="nombre" value="#{promocionBean.promocion.nombre}" title="Nombre" 
                                                      required="true" class="form-control"
                                                      requiredMessage="El nombre es requerido."/>
+                                        <h:message for="nombre" showDetail="false" showSummary="true" style="color: red;" />
                                     </div>
                                     <div class="form-group">
                                         <h:outputLabel value="Fecha de Inico:" for="fechaInico" />
@@ -44,6 +41,7 @@
                                                      validatorMessage="El formato de la fecha es incorrecta">
                                             <f:convertDateTime pattern="dd/MM/yyyy" />
                                         </h:inputText>
+                                        <h:message for="fechaInico" showDetail="false" showSummary="true" style="color: red;"/>
                                     </div>
                                     <div class="form-group">
                                         <h:outputLabel value="Fecha fin:" for="fechaFin" />
@@ -53,20 +51,23 @@
                                                      validatorMessage="El formato de la fecha es incorrecta">
                                             <f:convertDateTime pattern="dd/MM/yyyy" />
                                         </h:inputText>
+                                        <h:message for="fechaFin" showDetail="false" showSummary="true" style="color: red;" />
                                     </div>
                                     <div class="form-group">
                                         <h:outputLabel value="Precio de oferta:" for="precioOferta" />
                                         <h:inputText id="precioOferta" value="#{promocionBean.promocion.precioOferta}" title="PrecioOferta" 
                                                      required="true" class="form-control"
                                                      requiredMessage="El precio es requerido."/>
+                                        <h:message for="precioOferta" showDetail="false" showSummary="true" style="color: red;" />
                                     </div>
                                     <div class="form-group">
-                                        <h:outputLabel value="Descripcion:" for="descripcion" />
+                                        <h:outputLabel value="Descripción:" for="descripcion" />
                                         <h:inputText id="descripcion" value="#{promocionBean.promocion.descripcion}" 
-                                                     class="form-control" title="Descripcion" />
+                                                     class="form-control" title="Descripcion" required="true" requiredMessage="Descripción requerida" />
+                                        <h:message for="descripcion" showDetail="false" showSummary="true" style="color: red;" />
                                     </div>
                                     <div class="form-group">
-                                        <h:outputLabel value="Articulo:" for="idArticulo" />
+                                        <h:outputLabel value="Artículo:" for="idArticulo" />
                                         <h:selectOneMenu id="idArticulo" value="#{promocionBean.promocion.idArticulo}" title="IdArticulo" 
                                                          required="true" class="form-control" 
                                                          requiredMessage="El articulo es requerido.">
@@ -75,7 +76,7 @@
                                                            itemValue="#{articulos}"
                                                            itemLabel="#{articulos.articulo}"/>
                                         </h:selectOneMenu>
-                                        
+                                        <h:message for="idArticulo" showDetail="false" showSummary="true" style="color: red;" />
                                     </div>
                                         <h:commandButton value="Guardar" class="btn btn-success"
                                                          action="#{promocionBean.insertarPromocion()}"/>
