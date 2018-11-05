@@ -9,14 +9,12 @@ import sv.edu.udb.www.entities.CategoriaEntity;
 import sv.edu.udb.www.entities.MarcaEntity;
 import sv.edu.udb.www.entities.ProveedorEntity;
 import sv.edu.udb.www.entities.SubCategoriaEntity;
-import sv.edu.udb.www.entities.SubRubroEntity;
 import sv.edu.udb.www.entities.TallaEntity;
 import sv.edu.udb.www.model.ArticuloModel;
 import sv.edu.udb.www.model.CategoriaModel;
 import sv.edu.udb.www.model.MarcaModel;
 import sv.edu.udb.www.model.ProveedorModel;
 import sv.edu.udb.www.model.SubcategoriaModel;
-import sv.edu.udb.www.model.SubRubroModel;
 import sv.edu.udb.www.model.TallaModel;
 import sv.edu.udb.www.utils.JsfUtils;
 
@@ -30,8 +28,6 @@ public class ArticuloBean {
   private CategoriaModel categoriaModel;
   @EJB
   private ProveedorModel proveedorModel;
-  @EJB
-  private SubRubroModel subRubroModel;
   @EJB
   private SubcategoriaModel subCategoriaModel;
   @EJB
@@ -57,10 +53,6 @@ public class ArticuloBean {
   
   public List<SubCategoriaEntity> getListaSubCategoria() {
     return subCategoriaModel.listaSubCategorias();
-  }
-  
-  public List<SubRubroEntity> getListaSubRubro() {
-    return subRubroModel.listarSubRubros();
   }
     
   public List<ProveedorEntity> getListaProveedor() {

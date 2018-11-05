@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import sv.edu.udb.www.entities.UsuarioEntity;
+import sv.edu.udb.www.utils.SecurityUtils;
 
 
 @Stateless
@@ -19,7 +20,7 @@ public class UsuarioModel {
         try {
             Query query = em.createNamedQuery("UsuarioEntity.checkLogin");
             query.setParameter("usuario", correo);
-            query.setParameter("clave", (clave));//SecurityUtils.encriptarSHA
+            query.setParameter("clave", SecurityUtils.encriptarSHA(clave));//
             
             return (UsuarioEntity) query.getSingleResult();
         } catch (Exception e) {

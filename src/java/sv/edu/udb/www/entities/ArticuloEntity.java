@@ -68,9 +68,9 @@ public class ArticuloEntity implements Serializable {
     private List<PromocionEntity> promocionEntityList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idArticulo")
     private List<ImagenEntity> imagenEntityList;
-    @JoinColumn(name = "id_subrubro", referencedColumnName = "id_subrubro")
+    @JoinColumn(name = "id_rubro", referencedColumnName = "id_rubro")
     @ManyToOne(optional = false)
-    private SubRubroEntity idSubrubro;
+    private RubroEntity idRubro;
     @JoinColumn(name = "id_subcategoria", referencedColumnName = "id_subcategoria")
     @ManyToOne(optional = false)
     private SubCategoriaEntity idSubcategoria;
@@ -163,12 +163,12 @@ public class ArticuloEntity implements Serializable {
         this.imagenEntityList = imagenEntityList;
     }
 
-    public SubRubroEntity getIdSubrubro() {
-        return idSubrubro;
+    public RubroEntity getIdRubro() {
+        return idRubro;
     }
 
-    public void setIdSubrubro(SubRubroEntity idSubrubro) {
-        this.idSubrubro = idSubrubro;
+    public void setIdRubro(RubroEntity idRubro) {
+        this.idRubro = idRubro;
     }
 
     public SubCategoriaEntity getIdSubcategoria() {

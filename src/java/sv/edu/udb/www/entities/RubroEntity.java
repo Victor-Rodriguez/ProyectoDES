@@ -47,7 +47,7 @@ public class RubroEntity implements Serializable {
     @Size(max = 100)
     private String descripcion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idRubro")
-    private List<SubRubroEntity> subRubroEntityList;
+    private List<ArticuloEntity> articuloEntityList;
 
     public RubroEntity() {
     }
@@ -85,12 +85,12 @@ public class RubroEntity implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public List<SubRubroEntity> getSubRubroEntityList() {
-        return subRubroEntityList;
+    public List<ArticuloEntity> getArticuloEntityList() {
+        return articuloEntityList;
     }
 
-    public void setSubRubroEntityList(List<SubRubroEntity> subRubroEntityList) {
-        this.subRubroEntityList = subRubroEntityList;
+    public void setArticuloEntityList(List<ArticuloEntity> articuloEntityList) {
+        this.articuloEntityList = articuloEntityList;
     }
 
     @Override

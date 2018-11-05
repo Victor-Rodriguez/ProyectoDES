@@ -8,11 +8,14 @@ import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 import sv.edu.udb.www.entities.EmpleadoEntity;
 import sv.edu.udb.www.entities.TipoUsuarioEntity;
 import sv.edu.udb.www.entities.UsuarioEntity;
 import sv.edu.udb.www.model.EmpleadoModel;
 import sv.edu.udb.www.model.UsuarioModel;
+import sv.edu.udb.www.utils.Correo;
 import sv.edu.udb.www.utils.JsfUtils;
 import sv.edu.udb.www.utils.SecurityUtils;
 
@@ -27,7 +30,7 @@ public class EmpleadoBean {
     @EJB
     private EmpleadoModel empleadoModel;
     
-    
+    HttpServletRequest origRequest = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
     private List<EmpleadoEntity>listarEmpleado;
     
     private EmpleadoEntity empleado = new EmpleadoEntity();
@@ -63,8 +66,9 @@ public class EmpleadoBean {
         String cadenaAleatoria = UUID.randomUUID().toString();//generador de la contraseña
         String cadena = cadenaAleatoria.substring(0, 7);//acortado de la cadena y contraseña final
         try {
+            //insertar empleado
         if (empleadoModel.verificarDUI(empleado.getDui())==null) {
-            
+                
                 usuario.setIdTipo(new TipoUsuarioEntity(2));
                 usuario.setClave(SecurityUtils.encriptarSHA(cadena));
                 System.out.println("contra: "+cadena);
@@ -78,8 +82,29 @@ public class EmpleadoBean {
                 if(empleadoModel.insertarEmpleado(empleado)==0){
                     JsfUtils.addErrorMessage("empleado", "Datos del empleado ingresados incorrectamente");
                     return null;
-                }
+                }//fin de insercion
                 
+                //Envio de correo
+                String texto = empleado.getNombres()+" "+empleado.getApellidos()+" tu usuario ha sido registrado exitosamente.<br>";
+                    texto+="Tu contraseña es: "+cadena+"<br>";
+                    texto+="Para ingresar a tu cuenta puedes dar click";
+                    String url = origRequest.getRequestURL().toString();
+                    String enlace = url.substring(0, url.length() - origRequest.getRequestURI().length()) + origRequest.getContextPath() +"/faces/login.xhtml";
+                    texto+="<a target='a_blank'"
+                            + "href='"+enlace+"'>aqui</a>";
+
+                    Correo correo = new Correo();
+                    correo.setAsunto("Registro de empleado");
+                    correo.setMensaje(texto);
+                    correo.setDestinatario(usuario.getCorreo());
+
+                    //String directorio = getServletContext().getRealPath("assets/pdf");
+                    //correo.setRutaAdjunto(directorio+"\\proyecto.pdf");
+                    //correo.setNombreAdjunto("Especificaciones del proyecto de catedra.pdf");
+
+                    correo.enviarCorreo();
+                
+                //Fin de correo
                 JsfUtils.addFlashMessage("exito", "Empleado insertada exitosamente");
                 
                 return "/administrador/listarEmpleado?faces-redirect=true";
