@@ -24,7 +24,7 @@
                 <div class="contact-form mt-40" >
                     <div class="row">
                         <div class="col-md-6" style="margin-left: 25%;">
-                                <h:form>
+                            <h:form prependId="false">
                                     <h2 style="text-align: center;"> Nueva promocion</h2>
                                     <div class="form-group">
                                         <h:outputLabel value="Nombre:" for="nombre" />
@@ -85,6 +85,9 @@
                     </div>
                 </div>
             </div>
+             <script>
+                $('#idArticulo').select2();
+            </script>
         </section>
     </ui:define>
 
