@@ -36,7 +36,7 @@ public class ProveedorBean {
     public String insertarProveedor(){
         proveedor.setEstado(true);
         if(proveedorModel.insertarProveedor(proveedor) == 0){
-            JsfUtils.addErrorMessage("idProveedor", "Ya existe un proveedor con este ID");
+            JsfUtils.addErrorMessage("id", "Ya existe un proveedor con este ID");
             return null;
         }
         JsfUtils.addFlashMessage("exito", "Proveedor registrado exitosamente");

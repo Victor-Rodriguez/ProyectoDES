@@ -60,6 +60,15 @@
                             </f:facet>
                             <h:outputText value="#{item.idUsuario.correo}"/>
                         </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Operaciones"/>
+                            </f:facet>
+                            <h:commandLink value="Editar" class="btn btn-primary" action="#{empleadoBean.obtenerEmpleado()}">
+                                <i class="glyphicon glyphicon-edit"></i>
+                                <f:param name="id" value="#{item.idEmpleado}"/>
+                            </h:commandLink>
+                        </h:column>
                     </h:dataTable>
                 </h:form>
                 

@@ -118,4 +118,14 @@ public class EmpleadoBean {
                 return null;
             }
     }
+    
+    public String obtenerEmpleado(){
+        int id = Integer.parseInt( JsfUtils.getRequest().getParameter("id"));
+        empleado = empleadoModel.obtenerEmpleado(id);
+        return "/administrador/modificarEmpleado";
+    } 
+    
+    
+    
+    
 }

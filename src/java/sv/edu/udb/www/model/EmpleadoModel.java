@@ -37,7 +37,7 @@ public class EmpleadoModel {
         }
     }
     
-    public EmpleadoEntity obtenerEmpleado(String id){
+    public EmpleadoEntity obtenerEmpleado(int id){
         return em.find(EmpleadoEntity.class, id);
     }
     
