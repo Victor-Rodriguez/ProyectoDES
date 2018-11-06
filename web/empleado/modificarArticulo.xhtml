@@ -17,22 +17,25 @@
         <section class="contact-section">
             <div class="container" style="-webkit-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
                  -moz-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
-                 box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75); padding:1%;max-width: 700px;margin-top: -100px;background-color: white;">
+                 box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75); padding:1%;margin-top: -100px;background-color: white;">
                 <h:panelGroup layout="block" class="alert alert-danger"
                               rendered="#{not empty facesContext.messageList}">
                     <h:messages/>
-                </h:panelGroup>
+                </h:panelGroup>          
                 <div class="contact-form mt-40">
                     <div class="row">
                         <div class="col-md-6" style="margin-left: 25%;">
                             <h:form prependId="false">
                                 <h2 style="text-align: center;">Editar Articulo Artículo</h2>
+                                
+                                <div class="izquierda">
+                                
                                 <div class="form-group">
                                     <h:outputLabel value="Código Articulo:" for="idArticulo" />
                                     <h:inputText   class="form-control"  id="idArticulo" value="#{articuloBean.articulo.idArticulo}" 
                                                    title="IdArticulo" required="true" 
                                                    requiredMessage="El Código del Articulo es Obligatorio"
-                                                   validatorMessage="El formato del Código es invalido 'ART###'">
+                                                   validatorMessage="El formato del Código es invalido 'ART000'">
 
                                         <f:validateRegex pattern="ART[0-9]{3}"/>
                                     </h:inputText>
@@ -50,7 +53,7 @@
                                                  validatorMessage="La cantidad debe ser mayor a 0"
                                                  converterMessage="La Cantidad debe ser un número">
 
-                                        <f:validateLongRange minimum="1" />
+                                        <f:validateLongRange minimum="0" />
                                     </h:inputText>
                                 </div>
                                 <div class="form-group">
@@ -58,6 +61,7 @@
                                     <h:inputText class="form-control"  id="estilo" value="#{articuloBean.articulo.estilo}" 
                                                  title="Estilo" required="true" requiredMessage="El Estilo es Obligatorio"/>
                                 </div>
+                                    
                                 <div class="form-group">
                                     <h:outputLabel value="Precio:" for="precio" />
                                     <h:inputText  class="form-control"  id="precio" value="#{articuloBean.articulo.precio}" 
@@ -69,16 +73,22 @@
 
                                     </h:inputText>
                                 </div>
+                             
+                                </div>
+                                
+                                <div class=" derecha">                                       
+                              
                                 <div class="form-group">
                                     <h:outputLabel value="Descripcion:" for="descripcion" />
                                     <h:inputText class="form-control"  id="descripcion" value="#{articuloBean.articulo.descripcion}" 
                                                  title="Descripcion" required="true" requiredMessage="La Descripción es Obligatorio"/>
                                 </div>
-                                <div class="form-group">
-                                    <h:outputLabel value="Subrubro:" for="idSubrubro" />
-                                    <h:selectOneMenu class="form-control"  id="idSubrubro" value="#{articuloBean.articulo.idSubrubro}" title="IdSubrubro">
-                                        <f:selectItems value="#{subRubroBean.listaSubRubro}" var="subRubro" itemValue="#{subRubro}" 
-                                                       itemLabel="#{subRubro.subrubro}"/>
+                                
+                                 <div class="form-group">    
+                                    <h:outputLabel value="Rubro:" for="idRubro" />
+                                    <h:selectOneMenu class="form-control"   id="idRubro" value="#{articuloBean.articulo.idRubro}" title="idRubro" >
+                                        <f:selectItems value="#{rubroBean.listaRubros}" var="rubro" itemValue="#{rubro}"
+                                                       itemLabel="#{rubro.rubro}"/>
                                     </h:selectOneMenu>
                                 </div>
 
@@ -104,16 +114,9 @@
                                         <f:selectItems value="#{tallaBean.listarTalla }" var="talla" itemValue="#{talla}" 
                                                        itemLabel="#{talla.talla}"/>
                                     </h:selectOneMenu>
+                                </div>                          
+                                <h:commandButton   class="btn btn-success" value="Guardar" action="#{articuloBean.modificarArticulo()}"/>
                                 </div>
-                                <div class="form-group">
-                                    <h:outputLabel value="Proveedor:" for="idProveedor" />
-                                    <h:selectOneMenu class="form-control"  id="idProveedor" value="#{articuloBean.articulo.idProveedor}" title="IdProveedor">
-                                        <f:selectItems value="#{proveedorBean.listarProveedor}" var="proveedor" 
-                                                       itemValue="#{proveedor}" itemLabel="#{proveedor.nombre}"/>
-                                    </h:selectOneMenu>
-                                </div>
-                                <h:commandButton   class="btn btn-success" 
-                                                 value="Guardar" action="#{articuloBean.modificarArticulo()}"/>
                             </h:form>
                         </div>
                     </div>
