@@ -14,6 +14,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -23,7 +25,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author Rodriguez
+ * @author Usuario
  */
 @Entity
 @Table(name = "clientes")
@@ -75,6 +77,11 @@ public class ClienteEntity implements Serializable {
     private String idConfirmar;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCliente")
     private List<TarjetaCreditoEntity> tarjetaCreditoEntityList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCliente")
+    private List<FacturaEntity> facturaEntityList;
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+    @ManyToOne(optional = false)
+    private UsuarioEntity idUsuario;
 
     public ClienteEntity() {
     }
@@ -164,6 +171,22 @@ public class ClienteEntity implements Serializable {
 
     public void setTarjetaCreditoEntityList(List<TarjetaCreditoEntity> tarjetaCreditoEntityList) {
         this.tarjetaCreditoEntityList = tarjetaCreditoEntityList;
+    }
+
+    public List<FacturaEntity> getFacturaEntityList() {
+        return facturaEntityList;
+    }
+
+    public void setFacturaEntityList(List<FacturaEntity> facturaEntityList) {
+        this.facturaEntityList = facturaEntityList;
+    }
+
+    public UsuarioEntity getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(UsuarioEntity idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     @Override
