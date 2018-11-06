@@ -7,7 +7,9 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />   
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js%22%3E"></script>
         <h:outputStylesheet name="css/mobile-menu.css"/>
         <h:outputStylesheet name="fonts/flaticon/flaticon.css"/>
         <h:outputStylesheet name="css/bootstrap.min.css" />
@@ -81,6 +83,10 @@
         <h:outputScript rendered="#{not empty flash.fracaso}">
             alertify.error('#{flash.fracaso}');
         </h:outputScript>
+        
+         <script>
+            $('#idCategoria', '#idSubcategoria','#idMarca', '#idTalla', '#idProveedor').select2();
+        </script>
     </h:body>
 
 </html>

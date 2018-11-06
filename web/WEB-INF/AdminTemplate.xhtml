@@ -7,7 +7,8 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />   
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        
         <h:outputStylesheet name="css/mobile-menu.css"/>
         <h:outputStylesheet name="fonts/flaticon/flaticon.css"/>
         <h:outputStylesheet name="css/bootstrap.min.css" />
@@ -21,6 +22,8 @@
         <h:outputScript name="js/jquery.dataTables.min.js"/>
         <h:outputScript name="js/dataTables.bootstrap.min.js"/>
         <title><ui:insert name="titulo"/></title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js%22%3E"></script>
     </h:head>
 
     <h:body>
@@ -83,6 +86,8 @@
         <h:outputScript rendered="#{not empty flash.fracaso}">
             alertify.error('#{flash.fracaso}');
         </h:outputScript>
+        
+       
     </h:body>
 
 </html>
