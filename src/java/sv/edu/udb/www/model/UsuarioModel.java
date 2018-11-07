@@ -48,5 +48,13 @@ public class UsuarioModel {
         UsuarioEntity usuario = usuarioList.get(0);
         return usuario;
     }
-    
+    public int modificarUsuario(UsuarioEntity usuario){
+        try {
+            em.merge(usuario);
+            em.flush();
+            return 1;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
 }

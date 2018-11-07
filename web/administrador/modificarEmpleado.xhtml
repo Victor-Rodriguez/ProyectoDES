@@ -27,6 +27,8 @@
                         <div class="col-md-6" style="margin-left: 25%;">
                             <h:form prependId="false">
                                 <h2 class="tema-p">Editar Empleado</h2>
+                                <h:inputHidden id="id" value="#{empleadoBean.usuario.idUsuario}"/>
+                                <h:inputHidden id="id1" value="#{empleadoBean.empleado.idEmpleado}"/>
                                 <div class="form-group">
                                     <h:outputLabel value="Nombre de usuario" for="nombreUsuario" />
                                     <h:inputText id="nombreUsuario" value="#{empleadoBean.usuario.nombreUsuario}" title="NombreUsuario" 
@@ -72,8 +74,8 @@
                                     </h:inputText>
                                     <h:message for="dui" showDetail="false" showSummary="true" style="color: red;" />
                                 </div>
-                                <h:commandButton action="#{(empleadoBean.insertarEmpleado()) }" class="btn btn-success btn-abajo"
-                                                 value="Registrar"/>
+                                <h:commandButton action="#{(empleadoBean.modificarEmpleado()) }" class="btn btn-success btn-abajo"
+                                                 value="Modificar"/>
                             </h:form>
                         </div>
                     </div>

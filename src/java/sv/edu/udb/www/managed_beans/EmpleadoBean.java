@@ -122,8 +122,61 @@ public class EmpleadoBean {
     public String obtenerEmpleado(){
         int id = Integer.parseInt( JsfUtils.getRequest().getParameter("id"));
         empleado = empleadoModel.obtenerEmpleado(id);
+        usuario = empleado.getIdUsuario();
         return "/administrador/modificarEmpleado";
-    } 
+    }
+    
+    
+    public String modificarEmpleado(){
+        String cadenaAleatoria = UUID.randomUUID().toString();//generador de la contraseña
+        String cadena = cadenaAleatoria.substring(0, 8);//acortado de la cadena y contraseña final
+        try {
+            //insertar empleado
+                usuario.setIdTipo(new TipoUsuarioEntity(2));
+                usuario.setClave(SecurityUtils.encriptarSHA(cadena));
+                System.out.println("contra: "+cadena);
+                System.out.println(usuario.getClave());
+                if(usuarioModel.modificarUsuario(usuario)==0){
+                    JsfUtils.addErrorMessage("correo", "Correo, ya existente");
+                    return null;
+                }
+                empleado.setIdUsuario(new UsuarioEntity(usuario.getIdUsuario()));
+                if(empleadoModel.modificarEmpleado(empleado)==0){
+                    JsfUtils.addErrorMessage("empleado", "Datos del empleado ingresados incorrectamente");
+                    return null;
+                }//fin de insercion
+                
+                //Envio de correo
+                String texto = empleado.getNombres()+" "+empleado.getApellidos()+" tu usuario ha sido modificado exitosamente.<br>";
+                    texto+="Tu contraseña es: "+cadena+"<br>";
+                    texto+="Para ingresar a tu cuenta puedes dar click";
+                    String url = origRequest.getRequestURL().toString();
+                    String enlace = url.substring(0, url.length() - origRequest.getRequestURI().length()) + origRequest.getContextPath() +"/faces/login.xhtml";
+                    texto+="<a target='a_blank'"
+                            + "href='"+enlace+"'>aqui</a>";
+
+                    Correo correo = new Correo();
+                    correo.setAsunto("Modificacion de empleado");
+                    correo.setMensaje(texto);
+                    correo.setDestinatario(usuario.getCorreo());
+
+                    //String directorio = getServletContext().getRealPath("assets/pdf");
+                    //correo.setRutaAdjunto(directorio+"\\proyecto.pdf");
+                    //correo.setNombreAdjunto("Especificaciones del proyecto de catedra.pdf");
+
+                    correo.enviarCorreo();
+                
+                //Fin de correo
+                JsfUtils.addFlashMessage("exito", "Empleado modificado exitosamente");
+                
+                return "/administrador/listarEmpleado?faces-redirect=true";
+            
+        
+        } catch (Exception ex) {
+                Logger.getLogger(EmpleadoBean.class.getName()).log(Level.SEVERE, null, ex);
+                return null;
+            }
+    }
     
     
     
