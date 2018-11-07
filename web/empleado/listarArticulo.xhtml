@@ -11,11 +11,11 @@
     <ui:define name="titulo">
         Lista de Artículos
     </ui:define>
-        <ui:define name="content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                       <h2>Lista de Artículos</h2>
+    <ui:define name="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Lista de Artículos</h2>
                 </div>
             </div>
         </div>
@@ -25,51 +25,58 @@
                 <h:form prependId="false">
                     <h:dataTable value="#{articuloBean.listaArticulos}" var="item"
                                  id="tabla" class="table table-bordered">
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Articulo"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.articulo}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Cantidad"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.cantidad}"/>
-                                      </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Estilo"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.estilo}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Precio"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.precio}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Descripción"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.descripcion}"/>
-                                    </h:column>
-                       
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Marca"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.idMarca.marca}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Talla"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.idTalla.talla}"/>
-                                    </h:column>
-                                    
-                               <h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Articulo"/>
+                            </f:facet>
+                            <h:outputText value="#{item.articulo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Cantidad"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Estilo"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estilo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Precio"/>
+                            </f:facet>
+                            <h:outputText value="#{item.precio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Descripción"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcion}"/>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Marca"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMarca.marca}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Talla"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTalla.talla}"/>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Imagen"/>
+                            </f:facet>
+                            <h:graphicImage name="img/#{item.img1}" width="100px"/>
+                        </h:column>
+
+                        <h:column>
                             <f:facet name="header">
                                 <h:outputText value="Operaciones"/>
                             </f:facet>
@@ -79,15 +86,23 @@
                             </h:commandLink>
 
                         </h:column>
+
+                        
+
+
                     </h:dataTable>
                 </h:form>
             </div>
-                </section>
+        </section>
+
+
+
+
         <script>
             $(document).ready(function () {
                 $("#tabla").dataTable();
             });
         </script>
     </ui:define>
-    
+
 </ui:composition>

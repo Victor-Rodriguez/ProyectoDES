@@ -20,104 +20,136 @@
                               rendered="#{not empty facesContext.messageList}">
                     <h:messages/>
                 </h:panelGroup>               
-                        <div class="cont-nuevoA" >
-                            <h:form prependId="false" class="cont-nuevoA">
-                                <h2 class="tema-p">Nuevo Artículo</h2>
-                                
+                <div class="cont-nuevoA" >
+                    <h:form prependId="false" class="cont-nuevoA" enctype="multipart/form-data">
+                        <h2 class="tema-p">Nuevo Artículo</h2>
+
+
+                        <div class="izquierda">
+
+                            <div class="form-group">
+                                <h:outputLabel value="Código Articulo:" for="idArticulo" />
+                                <h:inputText   class="form-control"  id="idArticulo" value="#{articuloBean.articulo.idArticulo}" 
+                                               title="IdArticulo" required="true" 
+                                               requiredMessage="El Código del Articulo es Obligatorio"
+                                               validatorMessage="El formato del Código es invalido 'ART000'">
+
+                                    <f:validateRegex pattern="ART[0-9]{3}"/>
+                                </h:inputText>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel value="Nombre Articulo:" for="articulo" />
+                                <h:inputText class="form-control" id="articulo" value="#{articuloBean.articulo.articulo}" 
+                                             title="Articulo" required="true" requiredMessage="El nombre del Articulo es Obligatorio"/>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel value="Cantidad de Existencias:" for="cantidad" />
+                                <h:inputText class="form-control"  id="cantidad" value="#{articuloBean.articulo.cantidad}" 
+                                             title="Cantidad" required="true" 
+                                             requiredMessage="La Cantidad es Obligatoria"
+                                             validatorMessage="La cantidad debe ser mayor a 0"
+                                             converterMessage="La Cantidad debe ser un número">
+
+                                    <f:validateLongRange minimum="0" />
+                                </h:inputText>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel value="Estilo:" for="estilo" />
+                                <h:inputText class="form-control"  id="estilo" value="#{articuloBean.articulo.estilo}" 
+                                             title="Estilo" required="true" requiredMessage="El Estilo es Obligatorio"/>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel value="Precio:" for="precio" />
+                                <h:inputText  class="form-control"  id="precio" value="#{articuloBean.articulo.precio}" 
+                                              title="Precio" required="true" 
+                                              requiredMessage="El Precio es Obligatorio"
+                                              converterMessage="El precio debe ser un numero"
+                                              validatorMessage="El precio debe ser mayor a 0.00">
+                                    <f:validateDoubleRange minimum="0.01"/>
+
+                                </h:inputText>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel value="Imagen 1:" for="Imagen" />
+                                <h:inputFile class="form-control" id="IMG" value="#{articuloBean.imagen}" 
+                                             title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
+                            </div> 
+                            
+                            <div class="form-group">
+                                <h:outputLabel value="Imagen 2:" for="Imagen" />
+                                <h:inputFile class="form-control" id="IMG2" value="#{articuloBean.imagen2}" 
+                                             title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
+                            </div> 
+                            
+                            <div class="form-group">
+                                <h:outputLabel value="Imagen 3:" for="Imagen" />
+                                <h:inputFile class="form-control" id="IMG3" value="#{articuloBean.imagen3}" 
+                                             title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
+                            </div> 
+                            
+                        </div>
+
+                        <div class=" derecha">                                       
+
+                            <div class="form-group">
+                                <h:outputLabel value="Descripcion:" for="descripcion" />
+                                <h:inputText class="form-control"  id="descripcion" value="#{articuloBean.articulo.descripcion}" 
+                                             title="Descripcion" required="true" requiredMessage="La Descripción es Obligatorio"/>
+                            </div>
+
+                            <div class="form-group">    
+                                <h:outputLabel value="Rubro:" for="idRubro" />
+                                <h:selectOneMenu class="form-control"   id="idRubro" value="#{articuloBean.articulo.idRubro}" title="idRubro" >
+                                    <f:selectItems value="#{rubroBean.listaRubros}" var="rubro" itemValue="#{rubro}"
+                                                   itemLabel="#{rubro.rubro}"/>
+                                </h:selectOneMenu>
+                            </div>
+
+                            <div class="form-group">    
+                                <h:outputLabel value="Subcategoria:" for="idSubcategoria" />
+                                <h:selectOneMenu class="form-control"   id="idSubcategoria" value="#{articuloBean.articulo.idSubcategoria}" title="IdSubcategoria" >
+                                    <f:selectItems value="#{subCategoriaBean.listaSubCategoria}" var="subCategoria" itemValue="#{subCategoria}"
+                                                   itemLabel="#{subCategoria.subcategoria}"/>
+                                </h:selectOneMenu>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel value="Marca:" for="idMarca" />
+                                <h:selectOneMenu class="form-control"  id="idMarca" value="#{articuloBean.articulo.idMarca}" title="IdMarca">
+                                    <!-- TODO: update below reference to list of available items-->
+                                    <f:selectItems value="#{marcaBean.listaMarca}" var="marca" itemValue="#{marca}" 
+                                                   itemLabel="#{marca.marca}"/>
+                                </h:selectOneMenu>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel value="Talla:" for="idTalla" />
+                                <h:selectOneMenu  class="form-control" id="idTalla" value="#{articuloBean.articulo.idTalla}" title="IdTalla" >
+                                    <f:selectItems value="#{tallaBean.listarTalla }" var="talla" itemValue="#{talla}" 
+                                                   itemLabel="#{talla.talla}"/>
+                                </h:selectOneMenu>
+                            </div>
+
                              
-                                <div class="izquierda">
-                                
-                                <div class="form-group">
-                                    <h:outputLabel value="Código Articulo:" for="idArticulo" />
-                                    <h:inputText   class="form-control"  id="idArticulo" value="#{articuloBean.articulo.idArticulo}" 
-                                                   title="IdArticulo" required="true" 
-                                                   requiredMessage="El Código del Articulo es Obligatorio"
-                                                   validatorMessage="El formato del Código es invalido 'ART000'">
+                            
+                            <div class="form-group">
+                                <h:outputLabel value="Imagen 4:" for="Imagen" />
+                                <h:inputFile class="form-control" id="IMG4" value="#{articuloBean.imagen4}" 
+                                             title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
+                            </div>  
+                            
+                            <div class="form-group">
+                                <h:outputLabel value="Imagen 5:" for="Imagen" />
+                                <h:inputFile class="form-control" id="IMG5" value="#{articuloBean.imagen5}" 
+                                             title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
+                            </div>  
 
-                                        <f:validateRegex pattern="ART[0-9]{3}"/>
-                                    </h:inputText>
-                                </div>
-                                <div class="form-group">
-                                    <h:outputLabel value="Nombre Articulo:" for="articulo" />
-                                    <h:inputText class="form-control" id="articulo" value="#{articuloBean.articulo.articulo}" 
-                                                 title="Articulo" required="true" requiredMessage="El nombre del Articulo es Obligatorio"/>
-                                </div>
-                                <div class="form-group">
-                                    <h:outputLabel value="Cantidad de Existencias:" for="cantidad" />
-                                    <h:inputText class="form-control"  id="cantidad" value="#{articuloBean.articulo.cantidad}" 
-                                                 title="Cantidad" required="true" 
-                                                 requiredMessage="La Cantidad es Obligatoria"
-                                                 validatorMessage="La cantidad debe ser mayor a 0"
-                                                 converterMessage="La Cantidad debe ser un número">
+                        </div>
+                        <h:commandButton class="btn btn-success btn-ok"  style="margin-top: 95px" value="Registrar" action="#{articuloBean.insertarArticulo()}"/>
 
-                                        <f:validateLongRange minimum="0" />
-                                    </h:inputText>
-                                </div>
-                                <div class="form-group">
-                                    <h:outputLabel value="Estilo:" for="estilo" />
-                                    <h:inputText class="form-control"  id="estilo" value="#{articuloBean.articulo.estilo}" 
-                                                 title="Estilo" required="true" requiredMessage="El Estilo es Obligatorio"/>
-                                </div>
-                                    
-                                <div class="form-group">
-                                    <h:outputLabel value="Precio:" for="precio" />
-                                    <h:inputText  class="form-control"  id="precio" value="#{articuloBean.articulo.precio}" 
-                                                  title="Precio" required="true" 
-                                                  requiredMessage="El Precio es Obligatorio"
-                                                  converterMessage="El precio debe ser un numero"
-                                                  validatorMessage="El precio debe ser mayor a 0.00">
-                                        <f:validateDoubleRange minimum="0.01"/>
-
-                                    </h:inputText>
-                                </div>
-                             
-                                </div>
-                                
-                                <div class=" derecha">                                       
-                              
-                                <div class="form-group">
-                                    <h:outputLabel value="Descripcion:" for="descripcion" />
-                                    <h:inputText class="form-control"  id="descripcion" value="#{articuloBean.articulo.descripcion}" 
-                                                 title="Descripcion" required="true" requiredMessage="La Descripción es Obligatorio"/>
-                                </div>
-                                
-                                 <div class="form-group">    
-                                    <h:outputLabel value="Rubro:" for="idRubro" />
-                                    <h:selectOneMenu class="form-control"   id="idRubro" value="#{articuloBean.articulo.idRubro}" title="idRubro" >
-                                        <f:selectItems value="#{rubroBean.listaRubros}" var="rubro" itemValue="#{rubro}"
-                                                       itemLabel="#{rubro.rubro}"/>
-                                    </h:selectOneMenu>
-                                </div>
-
-                                <div class="form-group">    
-                                    <h:outputLabel value="Subcategoria:" for="idSubcategoria" />
-                                    <h:selectOneMenu class="form-control"   id="idSubcategoria" value="#{articuloBean.articulo.idSubcategoria}" title="IdSubcategoria" >
-                                        <f:selectItems value="#{subCategoriaBean.listaSubCategoria}" var="subCategoria" itemValue="#{subCategoria}"
-                                                       itemLabel="#{subCategoria.subcategoria}"/>
-                                    </h:selectOneMenu>
-                                </div>
-
-                                <div class="form-group">
-                                    <h:outputLabel value="Marca:" for="idMarca" />
-                                    <h:selectOneMenu class="form-control"  id="idMarca" value="#{articuloBean.articulo.idMarca}" title="IdMarca">
-                                        <!-- TODO: update below reference to list of available items-->
-                                        <f:selectItems value="#{marcaBean.listaMarca}" var="marca" itemValue="#{marca}" 
-                                                       itemLabel="#{marca.marca}"/>
-                                    </h:selectOneMenu>
-                                </div>
-                                <div class="form-group">
-                                    <h:outputLabel value="Talla:" for="idTalla" />
-                                    <h:selectOneMenu  class="form-control" id="idTalla" value="#{articuloBean.articulo.idTalla}" title="IdTalla" >
-                                        <f:selectItems value="#{tallaBean.listarTalla }" var="talla" itemValue="#{talla}" 
-                                                       itemLabel="#{talla.talla}"/>
-                                    </h:selectOneMenu>
-                                </div>                             
-                                
-                                </div>
-                               <h:commandButton class="btn btn-success btn-ok"  value="Registrar" action="#{articuloBean.insertarArticulo()}"/>
-                               
-                            </h:form>
-                        </div>                  
+                    </h:form>
+                </div>                  
             </div>
         </section>
         <br><br></br></br>
