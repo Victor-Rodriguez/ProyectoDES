@@ -1,57 +1,3 @@
-/*
-Colors:
-	Body 		: #333
-	Headers 	: #2B2D42
-	Primary 	: #D10024
-	Dark 		: #15161D ##1E1F29
-	Grey 		: #E4E7ED #FBFBFC #8D99AE #B9BABC
-
-Fonts: Montserrat
-
-Table OF Contents
-------------------------------------
-1 > GENERAL
------- Typography
------- Buttons
------- Inputs
------- Sections
------- Breadcrumb
-2 > HEADER
------- Top header
------- Logo
------- Search
------- Cart
-3 > NAVIGATION
------- Main nav
------- Responsive Nav
-4 > CATEGORY SHOP
-5 > HOT DEAL
-6 > PRODUCT
------- Product
------- Widget product
------- Product slick
-7 > STORE PAGE
------- Aside
------- Store
-8 > PRODUCT DETAILS PAGE
------- Product view
------- Product details
------- Product tab
-9 > CHECKOUT PAGE
-10 > NEWSLETTER
-11 > FOOTER
-11 > SLICK STYLE
-12 > RESPONSIVE
-------------------------------------*/
-
-/*=========================================================
-	01 -> GENERAL
-===========================================================*/
-
-/*----------------------------*\
-	Typography
-\*----------------------------*/
-
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
@@ -2223,8 +2169,8 @@ textarea.input {
     margin-bottom: 5%;
 }
 .cont-imgA{
-    width: 60%;
-    margin-left: 20%;
+    width: 80%;
+    margin-left: 10%;
 }
 .caja-sombra{
     -webkit-box-shadow: 2px 2px 18px 0px rgba(0,0,0,0.75);
@@ -2233,4 +2179,10 @@ textarea.input {
     padding:1%;
     margin-top: -100px;
     background-color: white;
+}
+.todo-imgA{
+    margin-top: 10%;
+}
+.corto{
+    width: 70%;
 }
