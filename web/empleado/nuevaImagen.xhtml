@@ -9,7 +9,7 @@
         Empleado
     </ui:define>
     <ui:define name="titulo">
-        Nuevo Articulo
+        Imágenes de artículos
     </ui:define>
     <br><br></br></br>
     <ui:define name="content">
@@ -28,36 +28,32 @@
                                     
                                 <div class="form-group">
                                     <h:outputLabel value="1ra imágen del artículo:" for="img1" />
-                                    <h:inputFile class="form-control" id="img1">
-                                        
-                                    </h:inputFile>                                    
+                                    <h:inputFile class="form-control" id="img1" title="Imágen" required="true" value="#{imagenBean.imagen2}"
+                                         requiredMessage="La imágen es obligatoria." />       
                                 </div>
                                 <div class="form-group">
                                     <h:outputLabel value="2da imágen del artículo:" for="img2" />
-                                    <h:inputFile class="form-control" id="img2">
-                                        
-                                    </h:inputFile>                                    
+                                    <h:inputFile class="form-control" id="img2" title="Imágen" required="true" value="#{imagenBean.imagen2}"
+                                         requiredMessage="La imágen es obligatoria." />    
                                 </div>
                                 <div class="form-group">
                                     <h:outputLabel value="3ra imágen del artículo:" for="img3" />
-                                    <h:inputFile class="form-control" id="img3">
-                                        
-                                    </h:inputFile>                                    
+                                    <h:inputFile class="form-control" id="img3" title="Imágen" required="true" value="#{imagenBean.imagen2}"
+                                         requiredMessage="La imágen es obligatoria." />      
                                 </div>
                                 <div class="form-group">
                                     <h:outputLabel value="4ta imágen del artículo:" for="img4" />
-                                    <h:inputFile class="form-control" id="img4">
-                                        
-                                    </h:inputFile>                                    
-                                </div><div class="form-group">
+                                    <h:inputFile class="form-control" id="img4" title="Imágen" required="true" value="#{imagenBean.imagen2}"
+                                         requiredMessage="La imágen es obligatoria." />     
+                                </div>
+                                <div class="form-group">
                                     <h:outputLabel value="5ta imágen del artículo:" for="img5" />
-                                    <h:inputFile class="form-control" id="img5">
-                                        
-                                    </h:inputFile>                                    
+                                    <h:inputFile class="form-control" id="img5" title="Imágen" required="true" value="#{imagenBean.imagen2}"
+                                         requiredMessage="La imágen es obligatoria." />      
                                 </div>        
                                 </div>                        
                              
-                                <h:commandButton class="btn btn-primary btn-ok center"  value="Agregar" action="#{articuloBean.insertarArticulo()}"/>
+                                <h:commandButton class="btn btn-primary btn-ok center"  value="Agregar" action="#{imagenBean.insertarImagen()}"/>
                                
                             </h:form>
                         </div>                  

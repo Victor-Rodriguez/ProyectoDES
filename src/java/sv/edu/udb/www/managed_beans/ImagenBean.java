@@ -11,6 +11,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.Part;
 import sv.edu.udb.www.entities.ImagenEntity;
+import sv.edu.udb.www.model.ArticuloModel;
 import sv.edu.udb.www.model.ImagenModel;
 import sv.edu.udb.www.utils.JsfUtils;
 
@@ -24,6 +25,9 @@ public class ImagenBean {
 
     @EJB
     private ImagenModel imagenModel;
+    
+    @EJB
+    private ArticuloModel articuloModel;
     
     private List<ImagenEntity> listaImagenes;
     
@@ -54,6 +58,17 @@ public class ImagenBean {
     public void setImagen2(Part imagen2) {
         this.imagen2 = imagen2;
     }
+
+    public ArticuloModel getArticuloModel() {
+        return articuloModel;
+    }
+
+    public void setArticuloModel(ArticuloModel articuloModel) {
+        this.articuloModel = articuloModel;
+    }
+    
+    
+    
     
     public String insertarImagen(){
         try {
@@ -62,13 +77,13 @@ public class ImagenBean {
             
             if(imagenModel.insertarImagen(imagen) > 0){
                 String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/");
-               Files.copy(input, new File(path + "/resources/ciudadanos/", imagen.getUrl()).toPath());
+               Files.copy(input, new File(path + "/resources/estilos/img/Hombre/", imagen.getUrl()).toPath());
                 JsfUtils.addFlashMessage("exito", "Imágen de artículo insertada exitosamente");
             }
             else{
                 JsfUtils.addFlashMessage("fracaso", "No se pudo insertar la imágen del artículo");
             }
-            return "/administrador/listaImagenes?faces-redirect=true";
+            return "/empleado/nuevaImagen?faces-redirect=true";
         } catch (Exception e) {
             JsfUtils.addErrorMessage("idImagen",e.toString());
              return null;
