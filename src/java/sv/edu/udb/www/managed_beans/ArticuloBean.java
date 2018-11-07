@@ -8,12 +8,14 @@ import sv.edu.udb.www.entities.ArticuloEntity;
 import sv.edu.udb.www.entities.CategoriaEntity;
 import sv.edu.udb.www.entities.MarcaEntity;
 import sv.edu.udb.www.entities.ProveedorEntity;
+import sv.edu.udb.www.entities.RubroEntity;
 import sv.edu.udb.www.entities.SubCategoriaEntity;
 import sv.edu.udb.www.entities.TallaEntity;
 import sv.edu.udb.www.model.ArticuloModel;
 import sv.edu.udb.www.model.CategoriaModel;
 import sv.edu.udb.www.model.MarcaModel;
 import sv.edu.udb.www.model.ProveedorModel;
+import sv.edu.udb.www.model.RubrosModel;
 import sv.edu.udb.www.model.SubcategoriaModel;
 import sv.edu.udb.www.model.TallaModel;
 import sv.edu.udb.www.utils.JsfUtils;
@@ -34,6 +36,9 @@ public class ArticuloBean {
   private MarcaModel marcaModel;
   @EJB
   private TallaModel tallaModel;
+  
+  @EJB
+  private RubrosModel rubrosModel;
   
   private List<ArticuloEntity> listaArticulos;
 
@@ -68,6 +73,10 @@ public class ArticuloBean {
     return categoriaModel.listarCategorias();
   }
 
+  public List<RubroEntity> getListaRubro(){
+      return rubrosModel.listarRubros();
+  }
+  
   public ArticuloEntity getArticulo() {
     return articulo;
   }
@@ -76,6 +85,17 @@ public class ArticuloBean {
     this.articulo = articulo;
   }
 
+  public RubrosModel getRubrosModel() {
+    return rubrosModel;
+ }
+
+ public void setRubrosModel(RubrosModel rubrosModel) {
+    this.rubrosModel = rubrosModel;
+ }
+
+  
+  
+  
    public String insertarArticulo() {
     if (articuloModel.insertarArticulo(articulo)== 0) {
       JsfUtils.addErrorMessage("articulo", "Ya existe otro articulo con este nombre o código");
