@@ -16,10 +16,7 @@
         <br><br><br></br></br></br>
         <section class="contact-section">
             <div class="container caja-sombra">
-                <h:panelGroup layout="block" class="alert alert-danger"
-                              rendered="#{not empty facesContext.messageList}">
-                    <h:messages/>
-                </h:panelGroup>               
+                             
                 <div class="cont-nuevoA" >
                     <h:form prependId="false" class="cont-nuevoA" enctype="multipart/form-data">
                         <h2 class="tema-p">Nuevo Artículo</h2>
@@ -36,11 +33,13 @@
 
                                     <f:validateRegex pattern="ART[0-9]{3}"/>
                                 </h:inputText>
+                                <h:message for="idArticulo" showDetail="false" showSummary="true" style="color: red;" />
                             </div>
                             <div class="form-group">
-                                <h:outputLabel value="Nombre Articulo:" for="articulo" />
+                                <h:outputLabel value="Nombre Artículo:" for="articulo" />
                                 <h:inputText class="form-control" id="articulo" value="#{articuloBean.articulo.articulo}" 
                                              title="Articulo" required="true" requiredMessage="El nombre del Articulo es Obligatorio"/>
+                                <h:message for="articulo" showDetail="false" showSummary="true" style="color: red;" />
                             </div>
                             <div class="form-group">
                                 <h:outputLabel value="Cantidad de Existencias:" for="cantidad" />
@@ -52,11 +51,13 @@
 
                                     <f:validateLongRange minimum="0" />
                                 </h:inputText>
+                                 <h:message for="cantidad" showDetail="false" showSummary="true" style="color: red;" />
                             </div>
                             <div class="form-group">
                                 <h:outputLabel value="Estilo:" for="estilo" />
                                 <h:inputText class="form-control"  id="estilo" value="#{articuloBean.articulo.estilo}" 
                                              title="Estilo" required="true" requiredMessage="El Estilo es Obligatorio"/>
+                                <h:message for="estilo" showDetail="false" showSummary="true" style="color: red;" />
                             </div>
 
                             <div class="form-group">
@@ -67,26 +68,29 @@
                                               converterMessage="El precio debe ser un numero"
                                               validatorMessage="El precio debe ser mayor a 0.00">
                                     <f:validateDoubleRange minimum="0.01"/>
-
                                 </h:inputText>
+                                <h:message for="precio" showDetail="false" showSummary="true" style="color: red;" />
                             </div>
 
                             <div class="form-group">
                                 <h:outputLabel value="Imagen 1:" for="Imagen" />
                                 <h:inputFile class="form-control" id="IMG" value="#{articuloBean.imagen}" 
                                              title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
+                                <h:message for="Imagen" showDetail="false" showSummary="true" style="color: red;" />
                             </div> 
                             
                             <div class="form-group">
                                 <h:outputLabel value="Imagen 2:" for="Imagen" />
                                 <h:inputFile class="form-control" id="IMG2" value="#{articuloBean.imagen2}" 
                                              title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
+                                <h:message for="Imagen" showDetail="false" showSummary="true" style="color: red;" />
                             </div> 
                             
                             <div class="form-group">
                                 <h:outputLabel value="Imagen 3:" for="Imagen" />
                                 <h:inputFile class="form-control" id="IMG3" value="#{articuloBean.imagen3}" 
                                              title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
+                                <h:message for="Imagen" showDetail="false" showSummary="true" style="color: red;" />
                             </div> 
                             
                         </div>
@@ -97,6 +101,7 @@
                                 <h:outputLabel value="Descripcion:" for="descripcion" />
                                 <h:inputText class="form-control"  id="descripcion" value="#{articuloBean.articulo.descripcion}" 
                                              title="Descripcion" required="true" requiredMessage="La Descripción es Obligatorio"/>
+                                <h:message for="descripcion" showDetail="false" showSummary="true" style="color: red;" />
                             </div>
 
                             <div class="form-group">    
@@ -105,6 +110,7 @@
                                     <f:selectItems value="#{rubroBean.listaRubros}" var="rubro" itemValue="#{rubro}"
                                                    itemLabel="#{rubro.rubro}"/>
                                 </h:selectOneMenu>
+                                <h:message for="idRubro" showDetail="false" showSummary="true" style="color: red;" />
                             </div>
 
                             <div class="form-group">    
@@ -113,6 +119,7 @@
                                     <f:selectItems value="#{subCategoriaBean.listaSubCategoria}" var="subCategoria" itemValue="#{subCategoria}"
                                                    itemLabel="#{subCategoria.subcategoria}"/>
                                 </h:selectOneMenu>
+                                <h:message for="idSubcategoria" showDetail="false" showSummary="true" style="color: red;" />
                             </div>
 
                             <div class="form-group">
@@ -122,6 +129,7 @@
                                     <f:selectItems value="#{marcaBean.listaMarca}" var="marca" itemValue="#{marca}" 
                                                    itemLabel="#{marca.marca}"/>
                                 </h:selectOneMenu>
+                                <h:message for="idMarca" showDetail="false" showSummary="true" style="color: red;" />
                             </div>
                             <div class="form-group">
                                 <h:outputLabel value="Talla:" for="idTalla" />
@@ -129,6 +137,7 @@
                                     <f:selectItems value="#{tallaBean.listarTalla }" var="talla" itemValue="#{talla}" 
                                                    itemLabel="#{talla.talla}"/>
                                 </h:selectOneMenu>
+                                <h:message for="idTalla" showDetail="false" showSummary="true" style="color: red;" />
                             </div>
 
                              
@@ -137,12 +146,14 @@
                                 <h:outputLabel value="Imagen 4:" for="Imagen" />
                                 <h:inputFile class="form-control" id="IMG4" value="#{articuloBean.imagen4}" 
                                              title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
+                                <h:message for="Imagen" showDetail="false" showSummary="true" style="color: red;" />
                             </div>  
                             
                             <div class="form-group">
                                 <h:outputLabel value="Imagen 5:" for="Imagen" />
                                 <h:inputFile class="form-control" id="IMG5" value="#{articuloBean.imagen5}" 
                                              title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
+                                <h:message for="Imagen" showDetail="false" showSummary="true" style="color: red;" />
                             </div>  
 
                         </div>
@@ -151,6 +162,12 @@
                     </h:form>
                 </div>                  
             </div>
+            <script>
+                $('#idRubro').select2();
+                $('#idSubcategoria').select2();
+                $('#idMarca').select2();
+                $('#idTalla').select2();
+            </script>
         </section>
         <br><br></br></br>
     </ui:define>
