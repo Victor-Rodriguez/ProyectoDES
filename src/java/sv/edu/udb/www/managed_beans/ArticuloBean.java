@@ -186,7 +186,7 @@ public class ArticuloBean {
       JsfUtils.addErrorMessage("articulo", "Ya existe otro articulo con este nombre o código");
       return null;
     }
-    JsfUtils.addFlashMessage("exito", "Articulo insertada exitosamente");
+    JsfUtils.addFlashMessage("exito", "Articulo insertado exitosamente");
     return "/empleado/listarArticulo?faces-redirect=true";
   }
 
