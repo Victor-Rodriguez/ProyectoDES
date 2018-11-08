@@ -2154,7 +2154,9 @@ textarea.input {
 .btn-ok{
     margin-top: 5%;
     margin-bottom: 5%;
+    width: 100%;
 }
+
 .login-tS{
     width: 600px;
     display: block;
@@ -2179,10 +2181,14 @@ textarea.input {
     padding:1%;
     margin-top: -100px;
     background-color: white;
+    margin-bottom: 8%;
 }
 .todo-imgA{
     margin-top: 10%;
 }
 .corto{
     width: 70%;
+}
+.doo{
+    margin-top: 4%;
 }

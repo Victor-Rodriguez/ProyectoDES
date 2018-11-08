@@ -71,32 +71,7 @@
                                 </h:inputText>
                                 <h:message for="precio" showDetail="false" showSummary="true" style="color: red;" />
                             </div>
-
-                            <div class="form-group">
-                                <h:outputLabel value="Imagen 1:" for="Imagen" />
-                                <h:inputFile class="form-control" id="IMG" value="#{articuloBean.imagen}" 
-                                             title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
-                                <h:message for="Imagen" showDetail="false" showSummary="true" style="color: red;" />
-                            </div> 
                             
-                            <div class="form-group">
-                                <h:outputLabel value="Imagen 2:" for="Imagen" />
-                                <h:inputFile class="form-control" id="IMG2" value="#{articuloBean.imagen2}" 
-                                             title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
-                                <h:message for="Imagen" showDetail="false" showSummary="true" style="color: red;" />
-                            </div> 
-                            
-                            <div class="form-group">
-                                <h:outputLabel value="Imagen 3:" for="Imagen" />
-                                <h:inputFile class="form-control" id="IMG3" value="#{articuloBean.imagen3}" 
-                                             title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
-                                <h:message for="Imagen" showDetail="false" showSummary="true" style="color: red;" />
-                            </div> 
-                            
-                        </div>
-
-                        <div class=" derecha">                                       
-
                             <div class="form-group">
                                 <h:outputLabel value="Descripcion:" for="descripcion" />
                                 <h:inputText class="form-control"  id="descripcion" value="#{articuloBean.articulo.descripcion}" 
@@ -121,8 +96,12 @@
                                 </h:selectOneMenu>
                                 <h:message for="idSubcategoria" showDetail="false" showSummary="true" style="color: red;" />
                             </div>
+                            
+                        </div>
 
-                            <div class="form-group">
+                        <div class=" derecha">                        
+
+                            <div class="form-group doo">
                                 <h:outputLabel value="Marca:" for="idMarca" />
                                 <h:selectOneMenu class="form-control"  id="idMarca" value="#{articuloBean.articulo.idMarca}" title="IdMarca">
                                     <!-- TODO: update below reference to list of available items-->
@@ -140,7 +119,26 @@
                                 <h:message for="idTalla" showDetail="false" showSummary="true" style="color: red;" />
                             </div>
 
-                             
+                             <div class="form-group">
+                                <h:outputLabel value="Imagen 1:" for="Imagen" />
+                                <h:inputFile class="form-control" id="IMG" value="#{articuloBean.imagen}" 
+                                             title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
+                                <h:message for="Imagen" showDetail="false" showSummary="true" style="color: red;" />
+                            </div> 
+                            
+                            <div class="form-group">
+                                <h:outputLabel value="Imagen 2:" for="Imagen" />
+                                <h:inputFile class="form-control" id="IMG2" value="#{articuloBean.imagen2}" 
+                                             title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
+                                <h:message for="Imagen" showDetail="false" showSummary="true" style="color: red;" />
+                            </div> 
+                            
+                            <div class="form-group">
+                                <h:outputLabel value="Imagen 3:" for="Imagen" />
+                                <h:inputFile class="form-control" id="IMG3" value="#{articuloBean.imagen3}" 
+                                             title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
+                                <h:message for="Imagen" showDetail="false" showSummary="true" style="color: red;" />
+                            </div>                              
                             
                             <div class="form-group">
                                 <h:outputLabel value="Imagen 4:" for="Imagen" />
@@ -155,9 +153,11 @@
                                              title="Imagen" required="true" requiredMessage="La IMG es Obligatoria"/>
                                 <h:message for="Imagen" showDetail="false" showSummary="true" style="color: red;" />
                             </div>  
+                            <h:commandButton class="btn btn-success btn-ok"  value="Registrar" action="#{articuloBean.insertarArticulo()}"/>
+                            
 
                         </div>
-                        <h:commandButton class="btn btn-success btn-ok"  style="margin-top: 95px" value="Registrar" action="#{articuloBean.insertarArticulo()}"/>
+                        
 
                     </h:form>
                 </div>                  

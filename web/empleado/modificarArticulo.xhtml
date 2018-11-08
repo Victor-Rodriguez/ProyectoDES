@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="col-md-6" style="margin-left: 25%;">
                             <h:form prependId="false">
-                                <h2 style="text-align: center;">Editar Articulo Artículo</h2>
+                                <h2 class="tema-p">Modificar Artículo</h2>
                                 
                                 <div class="izquierda">
                                 
@@ -119,8 +119,10 @@
                                     </h:selectOneMenu>
                                     <h:message for="idTalla" showDetail="false" showSummary="true" style="color: red;" />
                                 </div>                          
-                                <h:commandButton   class="btn btn-success" value="Guardar" action="#{articuloBean.modificarArticulo()}"/>
+                                
                                 </div>
+                                
+                                <h:commandButton   class="btn btn-success btn-ok" value="Guardar" action="#{articuloBean.modificarArticulo()}"/>
                             </h:form>
                         </div>
                     </div>
