@@ -2,6 +2,8 @@
 package sv.edu.udb.www.managed_beans;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -11,6 +13,7 @@ import sv.edu.udb.www.entities.UsuarioEntity;
 import sv.edu.udb.www.model.TipoModel;
 import sv.edu.udb.www.model.UsuarioModel;
 import sv.edu.udb.www.utils.JsfUtils;
+import sv.edu.udb.www.utils.SecurityUtils;
 
 
 
@@ -91,13 +94,19 @@ public class LoginBean {
     }
     
     public String insertarUsuario(){
-        usuario.setIdTipo(new TipoUsuarioEntity(3));
-        if(usuarioModel.insertarUsuario(usuario)==0){
-            JsfUtils.addErrorMessage("codigoUsuario", "Ya existe un usuario con ese correo o nombre de usuario");
+        try {
+            usuario.setIdTipo(new TipoUsuarioEntity(3));
+            usuario.setClave(SecurityUtils.encriptarSHA(clave));
+            if(usuarioModel.insertarUsuario(usuario)==0){
+                JsfUtils.addErrorMessage("correo", "Ya existe un usuario con ese correo");
+                return null;
+            }
+            JsfUtils.addFlashMessage("exito", "usuario insertado exitosamente");
+            return "/login?faces-redirect=true";
+        } catch (Exception ex) {
+            Logger.getLogger(LoginBean.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-        JsfUtils.addFlashMessage("exito", "usuario insertado exitosamente");
-        return "/login?faces-redirect=true";
     }
     public String insertarUsuario2(){
         usuario.setIdTipo(new TipoUsuarioEntity(2));

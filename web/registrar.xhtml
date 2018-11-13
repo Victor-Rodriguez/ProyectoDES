@@ -96,7 +96,7 @@
                             <div class="card mb-3" style="background-color: white; padding: 15px; width: 400px; ">
                                 
                                 <div class="card-body">
-                                    <h:form>
+                                    <h:form prependId="false">
                                         <h1 class="text-center">Registro usuarios</h1>
                                         <br/>
                                         <div class="form-group"><h:outputLabel value="Nombre del usuario:" for="nombreUsuario" />
@@ -119,7 +119,7 @@
 
                                         <div class="form-group">
                                             <h:outputLabel value="Contraseña:" for="clave" />
-                                            <h:inputSecret id="clave" value="#{loginBean.usuario.clave}" title="Clave" 
+                                            <h:inputSecret id="clave" value="#{loginBean.clave}" title="Clave" 
                                                            required="true" class="form-control" 
                                                            requiredMessage="La contraseña es obligatoria."/>
                                             <h:message for="clave" showDetail="false" showSummary="true" style="color: red;" />
