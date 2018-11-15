@@ -63,7 +63,11 @@
                         <li><h:link outcome="/administrador/listarProveedor">Proveedores</h:link></li>
                         <li><h:link outcome="/administrador/listaMarcas">Marcas</h:link></li>
                         <li><h:link outcome="/administrador/listaPromociones">Promociones</h:link></li>
-                        <li style="margin-top: 20px;"><h:form><h:commandLink value="Salir" action="#{loginBean.cerrarSesion()}" style="text-decoration: none;"/></h:form></li>   
+                        <li class="dropdown-toggle" data-toggle="dropdown" style="margin-top: 4.5%;">#{sessionScope.nombre}<span class="caret"></span></li>
+                            <ul class="dropdown-menu" style="margin-right: 15%;">
+                                <li><h:link>Cambiar contraseña</h:link></li>
+                                <li style="margin-left: 12%;"><h:form><h:commandLink value="Salir" action="#{loginBean.cerrarSesion()}" /></h:form></li>
+                            </ul>   
                     </ul>
                     <!-- /NAV -->
                 </div>
