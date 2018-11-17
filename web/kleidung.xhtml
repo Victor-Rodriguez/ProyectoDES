@@ -212,9 +212,13 @@
                                                                     <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
                                                                 </div>
                                                             </div>
+                                                            <h:form prependId="false">
                                                             <div class="add-to-cart">
-                                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                                                 <h:commandLink value="Comprar" class="btn add-to-cart-btn" action="#{articuloBean.obtenerArticuloV()}">
+                                                                    <f:param name="id" value="#{item.idArticulo}"/>
+                                                                </h:commandLink>                                                                
                                                             </div>
+                                                            </h:form>
                                                         </div>
                                                         <!-- /product -->
                                                   
@@ -330,21 +334,18 @@
                                                                     <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
                                                                 </div>
                                                             </div>
+                                                            <h:form prependId="false">
                                                             <div class="add-to-cart">
-                                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                                                 <h:commandLink value="Comprar" class="btn add-to-cart-btn" action="#{articuloBean.obtenerArticuloV()}">
+                                                                    <f:param name="id" value="#{item.idArticulo}"/>
+                                                                </h:commandLink>                                                                
                                                             </div>
+                                                            </h:form>
                                                         </div>
                                                         <!-- /product -->
-                                                  
-                                                    
-
                                                 </c:forEach>
 
                                         <!-- /product -->
-
-                                        
-
-
                                     </div>
                                     <div id="slick-nav-1" class="products-slick-nav"></div>
                                 </div>
@@ -353,14 +354,6 @@
                         </div>
                     </div>
                     <!-- Products tab & slick -->
-
-
-
-
-
-
-
-
                 </div>
                 <!-- /row -->
             </div>
@@ -446,19 +439,17 @@
                                                                     <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
                                                                 </div>
                                                             </div>
+                                                           <h:form prependId="false">
                                                             <div class="add-to-cart">
-                                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                                                 <h:commandLink value="Comprar" class="btn add-to-cart-btn" action="#{articuloBean.obtenerArticuloV()}">
+                                                                    <f:param name="id" value="#{item.idArticulo}"/>
+                                                                </h:commandLink>                                                                
                                                             </div>
+                                                            </h:form>
                                                         </div>
                                                         <!-- /product -->
-                                                  
-                                                    
-
-                                                </c:forEach>
-
-                                        <!-- /product -->
-
-                                      
+                                        </c:forEach>
+                                        <!-- /product -->                                      
                                     </div>
                                     <div id="slick-nav-2" class="products-slick-nav"></div>
                                 </div>

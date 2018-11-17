@@ -195,6 +195,12 @@ public class ArticuloBean {
     articulo = articuloModel.obtenerArticulo(codigo);
     return "/empleado/modificarArticulo";
   }
+  
+    public String obtenerArticuloV() {
+    String codigo = JsfUtils.getRequest().getParameter("codigo");
+    articulo = articuloModel.obtenerArticulo(codigo);
+    return "/empleado/#carrito o cada uno";
+  }
 
   public String modificarArticulo() {
     if (articuloModel.modificarArticulo(articulo) == 0) {
