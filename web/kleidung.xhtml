@@ -223,8 +223,6 @@
                                                 </c:forEach>
 
 
-
-
                                             </div>
                                             <div id="slick-nav-1" class="products-slick-nav"></div>
                                         </div>
@@ -305,148 +303,46 @@
                                 <div id="tab1" class="tab-pane active">
                                     <div class="products-slick" data-nav="#slick-nav-1">
                                         <!-- product -->
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="resources/estilos/img/Hombre/Bermudas/Bermudas1.jpg" alt=""/>
-                                                <div class="product-label">
-                                                    <span class="sale">-30%</span>
-                                                    <span class="new">NEW</span>
-                                                </div>
-                                            </div>
-                                            <div class="product-body">
-                                                <p class="product-category">Category</p>
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <div class="product-btns">
-                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                </div>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                            </div>
-                                        </div>
+                                        <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
+
+                                                        <div class="product">
+                                                            <div class="product-img">
+                                                                <h:graphicImage name="img/#{item.img1}" style="height: 410px"/>
+                                                                <div class="product-label">
+                                                                    <span class="sale">-30%</span>
+                                                                    <span class="new">NEW</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-body">
+                                                                <p class="product-category">Category</p>
+                                                                <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                                                <h4 class="product-price">$980.00 <del class="product-old-price"><h:outputText value="#{item.precio}"/></del></h4>
+                                                                <div class="product-rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                </div>
+                                                                <div class="product-btns">
+                                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="add-to-cart">
+                                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /product -->
+                                                  
+                                                    
+
+                                                </c:forEach>
+
                                         <!-- /product -->
 
-                                        <!-- product -->
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="resources/estilos/img/Hombre/Chaquetas/Chaqueta1.jpg" alt=""/>												
-                                                <div class="product-label">
-                                                    <span class="new">NEW</span>
-                                                </div>
-                                            </div>
-                                            <div class="product-body">
-                                                <p class="product-category">Category</p>
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <div class="product-btns">
-                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                </div>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                            </div>
-                                        </div>
-                                        <!-- /product -->
-
-                                        <!-- product -->
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="resources/estilos/img/Hombre/Jeans/Jeans1.jpg" alt=""/>												
-                                                <div class="product-label">
-                                                    <span class="sale">-30%</span>
-                                                </div>
-                                            </div>
-                                            <div class="product-body">
-                                                <p class="product-category">Category</p>
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                                <div class="product-rating">
-                                                </div>
-                                                <div class="product-btns">
-                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                </div>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                            </div>
-                                        </div>
-                                        <!-- /product -->
-
-                                        <!-- product -->
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="resources/estilos/img/Hombre/Polo/Polo1.jpg" alt=""/>												
-                                            </div>
-                                            <div class="product-body">
-                                                <p class="product-category">Category</p>
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <div class="product-btns">
-                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                </div>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                            </div>
-                                        </div>
-                                        <!-- /product -->
-
-                                        <!-- product -->
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="resources/estilos/img/Mujer/Faldas/Faldas1.jpg" alt=""/>											
-                                            </div>
-                                            <div class="product-body">
-                                                <p class="product-category">Category</p>
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <div class="product-btns">
-                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                </div>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                            </div>
-                                        </div>
+                                        
 
 
                                     </div>
@@ -523,154 +419,46 @@
                                 <div id="tab2" class="tab-pane fade in active">
                                     <div class="products-slick" data-nav="#slick-nav-2">
                                         <!-- product -->
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="resources/estilos/img/Hombre/Polo/Polo2.jpg" alt=""/>												
-                                                <div class="product-label">
-                                                    <span class="sale">-30%</span>
-                                                    <span class="new">NEW</span>
-                                                </div>
-                                            </div>
-                                            <div class="product-body">
-                                                <p class="product-category">Category</p>
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <div class="product-btns">
-                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                </div>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                            </div>
-                                        </div>
+                                       <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
+
+                                                        <div class="product">
+                                                            <div class="product-img">
+                                                                <h:graphicImage name="img/#{item.img1}" style="height: 410px"/>
+                                                                <div class="product-label">
+                                                                    <span class="sale">-30%</span>
+                                                                    <span class="new">NEW</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-body">
+                                                                <p class="product-category">Category</p>
+                                                                <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                                                <h4 class="product-price">$980.00 <del class="product-old-price"><h:outputText value="#{item.precio}"/></del></h4>
+                                                                <div class="product-rating">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                </div>
+                                                                <div class="product-btns">
+                                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="add-to-cart">
+                                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /product -->
+                                                  
+                                                    
+
+                                                </c:forEach>
+
                                         <!-- /product -->
 
-                                        <!-- product -->
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="resources/estilos/img/Hombre/Jeans/Jeans4.jpg" alt=""/>												
-                                                <div class="product-label">
-                                                    <span class="new">NEW</span>
-                                                </div>
-                                            </div>
-                                            <div class="product-body">
-                                                <p class="product-category">Category</p>
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <div class="product-btns">
-                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                </div>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                            </div>
-                                        </div>
-                                        <!-- /product -->
-
-                                        <!-- product -->
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="resources/estilos/img/Hombre/Chaquetas/Chaqueta4.jpg" alt=""/>												
-                                                <div class="product-label">
-                                                    <span class="sale">-30%</span>
-                                                </div>
-                                            </div>
-                                            <div class="product-body">
-                                                <p class="product-category">Category</p>
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <div class="product-btns">
-                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                </div>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                            </div>
-                                        </div>
-                                        <!-- /product -->
-
-                                        <!-- product -->
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="resources/estilos/img/Hombre/Bermudas/Bermudas4.jpg" alt=""/>												
-                                            </div>
-                                            <div class="product-body">
-                                                <p class="product-category">Category</p>
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <div class="product-btns">
-                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                </div>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                            </div>
-                                        </div>
-                                        <!-- /product -->
-
-                                        <!-- product -->
-                                        <div class="product">
-                                            <div class="product-img">
-                                                <img src="resources/estilos/img/Accesorios/Hombre/Gorro1A.jpg" alt=""/>
-                                            </div>
-                                            <div class="product-body">
-                                                <p class="product-category">Category</p>
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <div class="product-btns">
-                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                </div>
-                                            </div>
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                            </div>
-                                        </div>
-                                        <!-- /product -->
+                                      
                                     </div>
                                     <div id="slick-nav-2" class="products-slick-nav"></div>
                                 </div>
@@ -701,57 +489,30 @@
                         </div>
 
                         <div class="products-widget-slick" data-nav="#slick-nav-3">
-                            <div>
-                                <!-- product widget -->
+                            <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
+                            <div>                                
+                                <!-- product widget -->                                
                                 <div class="product-widget">
                                     <div class="product-img">
-                                        <img src="resources/estilos/img/Mujer/Chaquetas/Chaqueta2.jpg" alt=""/>										
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>										
                                     </div>
                                     <div class="product-body">
                                         <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#">Chaqueta marron</a></h3>
-                                        <h4 class="product-price">$79.00 <del class="product-old-price">$99.00</del></h4>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$99.00</del></h4>
                                     </div>
-                                </div>
+                                </div>                               
                                 <!-- /product widget -->
 
                                 <!-- product widget -->
                                 <div class="product-widget">
                                     <div class="product-img">
-                                        <img src="resources/estilos/img/Mujer/Faldas/Faldas2.jpg" alt=""/>										
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>											
                                     </div>
                                     <div class="product-body">
                                         <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#">Falda de lona</a></h3>
-                                        <h4 class="product-price">30.00 <del class="product-old-price">$45.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- /product widget -->
-
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">										
-                                        <img src="resources/estilos/img/Mujer/Jeans/Jeans2.jpg" alt=""/>
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#">Jeans navy</a></h3>
-                                        <h4 class="product-price">$70.00 <del class="product-old-price">$80.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- product widget -->
-                            </div>
-
-                            <div>
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <img src="resources/estilos/img/Mujer/Vestidos/Vestido2.jpg" alt=""/>
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#">Vestido musgo</a></h3>
-                                        <h4 class="product-price">$60.00 <del class="product-old-price">$69.00</del></h4>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$45.00</del></h4>
                                     </div>
                                 </div>
                                 <!-- /product widget -->
@@ -759,12 +520,42 @@
                                 <!-- product widget -->
                                 <div class="product-widget">
                                     <div class="product-img">										
-                                        <img src="resources/estilos/img/Mujer/Chaquetas/Chaqueta3.jpg" alt=""/>
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
                                     </div>
                                     <div class="product-body">
                                         <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#">Chaqueta de invierno</a></h3>
-                                        <h4 class="product-price">$90.00 <del class="product-old-price">$110.00</del></h4>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
+                                    </div>
+                                </div>
+                                <!-- product widget -->
+                            </div>
+                            </c:forEach>
+                            
+                            <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
+                            <div>
+                                <!-- product widget -->
+                                <div class="product-widget">
+                                    <div class="product-img">
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">Mujer</p>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$69.00</del></h4>
+                                    </div>
+                                </div>
+                                <!-- /product widget -->
+
+                                <!-- product widget -->
+                                <div class="product-widget">
+                                    <div class="product-img">										
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">Mujer</p>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$110.00</del></h4>
                                     </div>
                                 </div>
                                 <!-- /product widget -->
@@ -772,16 +563,17 @@
                                 <!-- product widget -->
                                 <div class="product-widget">
                                     <div class="product-img">
-                                        <img src="resources/estilos/img/Mujer/Faldas/Faldas4.jpg" alt=""/>
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
                                     </div>
                                     <div class="product-body">
                                         <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#">Falda de cuero</a></h3>
-                                        <h4 class="product-price">$70.00 <del class="product-old-price">$80.00</del></h4>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
                                     </div>
                                 </div>
                                 <!-- product widget -->
                             </div>
+                             </c:forEach>
                         </div>
                     </div>
 
@@ -793,113 +585,31 @@
                             </div>
                         </div>
 
-                        <div class="products-widget-slick" data-nav="#slick-nav-4">
-                            <div>
-                                <!-- product widget -->
+                    <div class="products-widget-slick" data-nav="#slick-nav-4">
+                            <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
+                            <div>                                
+                                <!-- product widget -->                                
                                 <div class="product-widget">
                                     <div class="product-img">
-                                        <img src="resources/estilos/img/Hombre/Bermudas/Bermudas2.jpg" alt=""/>
-
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>										
                                     </div>
                                     <div class="product-body">
-                                        <p class="product-category">Hombre</p>
-                                        <h3 class="product-name"><a href="#">Bermuda de lona</a></h3>
-                                        <h4 class="product-price">$30.00 <del class="product-old-price">$40.00</del></h4>
+                                        <p class="product-category">Mujer</p>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$99.00</del></h4>
                                     </div>
-                                </div>
+                                </div>                               
                                 <!-- /product widget -->
 
                                 <!-- product widget -->
                                 <div class="product-widget">
                                     <div class="product-img">
-                                        <img src="resources/estilos/img/Hombre/Chaquetas/Chaqueta4.jpg" alt=""/>										
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>											
                                     </div>
                                     <div class="product-body">
-                                        <p class="product-category">Hombre</p>
-                                        <h3 class="product-name"><a href="#">Chaleco navy</a></h3>
-                                        <h4 class="product-price">$80.00 <del class="product-old-price">$90.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- /product widget -->
-
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <img src="resources/estilos/img/Hombre/Jeans/Jeans2.jpg" alt=""/>										
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Hombre</p>
-                                        <h3 class="product-name"><a href="#">Pantalón</a></h3>
-                                        <h4 class="product-price">$80.00 <del class="product-old-price">$85.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- product widget -->
-                            </div>
-
-                            <div>
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <img src="resources/estilos/img/Hombre/Polo/Polo2.jpg" alt=""/>
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Hombre</p>
-                                        <h3 class="product-name"><a href="#">Polo gris</a></h3>
-                                        <h4 class="product-price">$90.00 <del class="product-old-price">$99.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- /product widget -->
-
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <img src="resources/estilos/img/Hombre/Bermudas/Bermudas4.jpg" alt=""/>										
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Hombre</p>
-                                        <h3 class="product-name"><a href="#">Bermuna deportiva</a></h3>
-                                        <h4 class="product-price">$40.00 <del class="product-old-price">$30.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- /product widget -->
-
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <img src="resources/estilos/img/Hombre/Chaquetas/Chaqueta2.jpg" alt=""/>
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Hombre</p>
-                                        <h3 class="product-name"><a href="#">Chaqueta de cuero</a></h3>
-                                        <h4 class="product-price">$99.00 <del class="product-old-price">$120.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- product widget -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="clearfix visible-sm visible-xs"></div>
-
-                    <div class="col-md-4 col-xs-6">
-                        <div class="section-title">
-                            <h4 class="title">Top Accesorios</h4>
-                            <div class="section-nav">
-                                <div id="slick-nav-5" class="products-slick-nav"></div>
-                            </div>
-                        </div>
-
-                        <div class="products-widget-slick" data-nav="#slick-nav-5">
-                            <div>
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <img src="resources/estilos/img/Accesorios/Hombre/RopaInteriorAB1.jpg" alt=""/>										
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Hombre</p>
-                                        <h3 class="product-name"><a href="#">Ropa interior</a></h3>
-                                        <h4 class="product-price">$10.00 <del class="product-old-price">$25.00</del></h4>
+                                        <p class="product-category">Mujer</p>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$45.00</del></h4>
                                     </div>
                                 </div>
                                 <!-- /product widget -->
@@ -907,40 +617,42 @@
                                 <!-- product widget -->
                                 <div class="product-widget">
                                     <div class="product-img">										
-                                        <img src="resources/estilos/img/Accesorios/Mujer/Aretes1.1.jpg" alt=""/>
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
                                     </div>
                                     <div class="product-body">
                                         <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#">Aretes</a></h3>
-                                        <h4 class="product-price">$30.00 <del class="product-old-price">$35.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- /product widget -->
-
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <img src="resources/estilos/img/Accesorios/Hombre/RopaInteriorAG1.jpg" alt=""/>
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Hombre</p>
-                                        <h3 class="product-name"><a href="#">Ropa interior</a></h3>
-                                        <h4 class="product-price">$10.00 <del class="product-old-price">$20.00</del></h4>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
                                     </div>
                                 </div>
                                 <!-- product widget -->
                             </div>
-
+                            </c:forEach>
+                            
+                            <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
                             <div>
                                 <!-- product widget -->
                                 <div class="product-widget">
                                     <div class="product-img">
-                                        <img src="resources/estilos/img/Accesorios/Mujer/Gorro1.1.jpg" alt=""/>
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
                                     </div>
                                     <div class="product-body">
                                         <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#">Gorro negro</a></h3>
-                                        <h4 class="product-price">$20.00 <del class="product-old-price">$25.00</del></h4>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$69.00</del></h4>
+                                    </div>
+                                </div>
+                                <!-- /product widget -->
+
+                                <!-- product widget -->
+                                <div class="product-widget">
+                                    <div class="product-img">										
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">Mujer</p>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$110.00</del></h4>
                                     </div>
                                 </div>
                                 <!-- /product widget -->
@@ -948,29 +660,117 @@
                                 <!-- product widget -->
                                 <div class="product-widget">
                                     <div class="product-img">
-                                        <img src="resources/estilos/img/Accesorios/Hombre/Gorro1A.jpg" alt=""/>
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Hombre</p>
-                                        <h3 class="product-name"><a href="#">Gorro marron</a></h3>
-                                        <h4 class="product-price">$20.00 <del class="product-old-price">$30.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- /product widget -->
-
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <img src="resources/estilos/img/Accesorios/Mujer/TrajeBaño.jpg" alt=""/>
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
                                     </div>
                                     <div class="product-body">
                                         <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#">Traje de baño</a></h3>
-                                        <h4 class="product-price">$40.00 <del class="product-old-price">$50.00</del></h4>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
                                     </div>
                                 </div>
                                 <!-- product widget -->
                             </div>
+                             </c:forEach>
+                        </div>
+                        
+                    </div>
+
+                    <div class="clearfix visible-sm visible-xs"></div>
+
+                    <div class="col-md-4 col-xs-6">
+                        <div class="section-title">
+                            <h4 class="title">Top +</h4>
+                            <div class="section-nav">
+                                <div id="slick-nav-5" class="products-slick-nav"></div>
+                            </div>
+                        </div>
+
+                        <div class="products-widget-slick" data-nav="#slick-nav-5">
+                            <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
+                            <div>                                
+                                <!-- product widget -->                                
+                                <div class="product-widget">
+                                    <div class="product-img">
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>										
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">Mujer</p>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$99.00</del></h4>
+                                    </div>
+                                </div>                               
+                                <!-- /product widget -->
+
+                                <!-- product widget -->
+                                <div class="product-widget">
+                                    <div class="product-img">
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>											
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">Mujer</p>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$45.00</del></h4>
+                                    </div>
+                                </div>
+                                <!-- /product widget -->
+
+                                <!-- product widget -->
+                                <div class="product-widget">
+                                    <div class="product-img">										
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">Mujer</p>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
+                                    </div>
+                                </div>
+                                <!-- product widget -->
+                            </div>
+                            </c:forEach>
+                            
+                            <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
+                            <div>
+                                <!-- product widget -->
+                                <div class="product-widget">
+                                    <div class="product-img">
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">Mujer</p>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$69.00</del></h4>
+                                    </div>
+                                </div>
+                                <!-- /product widget -->
+
+                                <!-- product widget -->
+                                <div class="product-widget">
+                                    <div class="product-img">										
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">Mujer</p>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$110.00</del></h4>
+                                    </div>
+                                </div>
+                                <!-- /product widget -->
+
+                                <!-- product widget -->
+                                <div class="product-widget">
+                                    <div class="product-img">
+                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">Mujer</p>
+                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
+                                    </div>
+                                </div>
+                                <!-- product widget -->
+                            </div>
+                             </c:forEach>
                         </div>
                     </div>
 
