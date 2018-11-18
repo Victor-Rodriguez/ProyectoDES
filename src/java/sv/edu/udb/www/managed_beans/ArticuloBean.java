@@ -153,7 +153,11 @@ public class ArticuloBean {
    public String insertarArticulo() {
        
    String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/");    
-     
+   
+  String cod = articuloModel.generarCodigo();
+   
+  articulo.setIdArticulo(cod);
+   
    try {
 
             InputStream input = imagen.getInputStream();

@@ -35,4 +35,30 @@ public class ArticuloModel {
             return 0;
         }
     }
+        
+    public String generarCodigo(){
+        
+        int digitos=0;
+        
+        
+        Query query = em.createNamedQuery("ArticuloEntity.findAll");
+        
+        digitos = query.getResultList().size();
+        
+        digitos++;
+        
+        if(digitos<=9){
+            return "ART00"+digitos;
+        }
+        else if(digitos<=99 && digitos>9){
+            return "ART0"+digitos;
+        }
+        else if(digitos<=999 && digitos>99){
+            return "ART"+digitos;
+        }
+        
+        return null;
+        
+        
+    }    
 }

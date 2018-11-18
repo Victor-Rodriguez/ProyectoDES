@@ -24,17 +24,7 @@
 
                         <div class="izquierda">
 
-                            <div class="form-group">
-                                <h:outputLabel value="Código Articulo:" for="idArticulo" />
-                                <h:inputText   class="form-control"  id="idArticulo" value="#{articuloBean.articulo.idArticulo}" 
-                                               title="IdArticulo" required="true" 
-                                               requiredMessage="El Código del Articulo es Obligatorio"
-                                               validatorMessage="El formato del Código es invalido 'ART000'">
-
-                                    <f:validateRegex pattern="ART[0-9]{3}"/>
-                                </h:inputText>
-                                <h:message for="idArticulo" showDetail="false" showSummary="true" style="color: red;" />
-                            </div>
+                            
                             <div class="form-group">
                                 <h:outputLabel value="Nombre Artículo:" for="articulo" />
                                 <h:inputText class="form-control" id="articulo" value="#{articuloBean.articulo.articulo}" 
