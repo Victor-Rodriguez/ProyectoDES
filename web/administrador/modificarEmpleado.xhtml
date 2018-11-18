@@ -69,7 +69,7 @@
                                     <h:inputText id="dui" value="#{empleadoBean.empleado.dui}" title="Dui" 
                                                  required="true" class="form-control" 
                                                  requiredMessage="El DUI es obligatorio"
-                                                 validatorMessage="El formato del DUI es incorrecto">
+                                                 validatorMessage="El formato del DUI es incorrecto. Formato: 00000000-0">
                                         <f:validateRegex pattern="[0-9]{8}-[0-9]{1}"/>
                                     </h:inputText>
                                     <h:message for="dui" showDetail="false" showSummary="true" style="color: red;" />
