@@ -71,10 +71,10 @@ public class LoginBean {
             HttpServletRequest request= JsfUtils.getRequest();
             request.getSession().setAttribute("user", correo);
             request.getSession().setAttribute("nombre", user.getNombreUsuario());
-            request.getSession().setAttribute("rol",user.getIdTipo());
+            request.getSession().setAttribute("rol",user.getIdTipo().getIdTipo());
             if(null==user.getIdTipo().getIdTipo()){
                 return "/login?faces-redirect=true"; //direccion del cliente
-            }else //System.out.println("hola"+user.getIdTipo().getIdTipo());
+            } //System.out.println("hola"+user.getIdTipo().getIdTipo());
             switch (user.getIdTipo().getIdTipo()) {
                 case 1:
                     return "/administrador/index?faces-redirect=true"; //direccion del administrador
