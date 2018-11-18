@@ -22,18 +22,7 @@
                         <div class="col-md-6" style="margin-left: 25%;">
                             <h:form prependId="false">
                                 <h2 class="tema-p">Nuevo Proveedor</h2>
-                                <div class="form-group">
-                                    <h:outputLabel value="Código:" for="id" />
-                                    <h:inputText id="id"
-                                                 class="form-control"
-                                                 value="#{proveedorBean.proveedor.idProveedor}" 
-                                                 title="id" required="true" 
-                                                 requiredMessage="El código del proveedor es obligatorio"
-                                                 validatorMessage="Código con formato incorrecto.PD###">
-                                        <f:validateRegex pattern="PD[0-9]{3}" />
-                                    </h:inputText>
-                                    <h:message for="id" showDetail="false" showSummary="true" style="color: red;" />
-                                </div>
+
                                 <div class="form-group">
                                     <h:outputLabel value="Nombre:" for="nombre" />
                                     <h:inputText id="nombre"
@@ -49,7 +38,7 @@
                                     <h:inputText id="correo"
                                                  class="form-control"
                                                  value="#{proveedorBean.proveedor.correo}" 
-                                                 title="Correo" required="true" 
+                                                 title="Correo: ejemplo@gmail.com" required="true" 
                                                  requiredMessage="El correo es obligatorio"
                                                  validatorMessage="Correo con formato incorrecto">
                                         <f:validateRegex pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" />

@@ -45,4 +45,22 @@ public class ProveedorModel {
             return 0;
         }
     }
+    
+    public String generaCodigo(){
+        int digitos=0;
+        Query query = em.createNamedQuery("ProveedorEntity.findAll");
+        digitos = query.getResultList().size();
+        digitos++;
+        
+        if(digitos<=9){
+            return "PD00"+digitos;
+        }
+        else if(digitos<=99 && digitos>9){
+            return "PD0"+digitos;
+        }
+        else if(digitos<=999 && digitos>99){
+            return "PD"+digitos;
+        }
+        return null;
+    }
 }
