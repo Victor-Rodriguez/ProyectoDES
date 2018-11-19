@@ -75,6 +75,9 @@ public class LoginBean {
             if(null==user.getIdTipo().getIdTipo()){
                 return "/login?faces-redirect=true"; //direccion del cliente
             } //System.out.println("hola"+user.getIdTipo().getIdTipo());
+            if(null==user.getIdTipo().getIdTipo()){
+                return "/login?faces-redirect=true"; //direccion del cliente
+            }else //System.out.println("hola"+user.getIdTipo().getIdTipo());
             switch (user.getIdTipo().getIdTipo()) {
                 case 1:
                     return "/administrador/index?faces-redirect=true"; //direccion del administrador
