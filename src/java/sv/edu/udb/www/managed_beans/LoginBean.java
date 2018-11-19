@@ -84,7 +84,7 @@ public class LoginBean {
                 case 2:
                     return "/empleado/listarCategoria?faces-redirect=true"; //direccion del empleado
                 case 3:
-                    return "/index?faces-redirect=true"; //direccion del cliente
+                    return "/kleidung?faces-redirect=true"; //direccion del cliente
                 default:
                     return "/login?faces-redirect=true";
             }

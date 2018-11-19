@@ -9,6 +9,7 @@ import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 import sv.edu.udb.www.entities.ArticuloEntity;
 import sv.edu.udb.www.entities.CategoriaEntity;
@@ -219,6 +220,20 @@ public class ArticuloBean {
     }
     JsfUtils.addFlashMessage("exito", "Artículo modificado exitosamente");
     return "/empleado/listarArticulo?faces-redirect=true";
+  }
+  
+  public String agregarCarrito(){
+      
+      HttpServletRequest request= JsfUtils.getRequest();
+        
+      if(request.getSession().getAttribute("user") == null){
+         return "/login?faces-redirect=true";
+      }else{
+          
+          return obtenerArticulo2();
+      }
+      
+      
   }
 
 }

@@ -191,7 +191,8 @@
 						
 					</div>
 					<div class="details col-md-6">
-                                            <h3 class="product-title">#{articuloBean.articulo.articulo}</h3>
+                                            <h3 class="product-title">#{articuloBean.articulo.articulo}
+                                            </h3>
 						<div class="rating">
 							<div class="stars">
 								<span class="fa fa-star checked"></span>
@@ -205,8 +206,15 @@
                                             <h4 class="price">Precio Actual: <span>#{articuloBean.articulo.precio}</span></h4>
 						
 						<div class="action">
-							<button class="add-to-cart btn btn-danger" type="button">Agregar al Carrito</button>
+                                                    
+                                                    <h:form>
+                                                        <h:commandButton action="#{articuloBean.agregarCarrito()}" class="add-to-cart btn btn-danger" value="Carrito">
+                                                            <f:param name="id" value="#{articuloBean.articulo.idArticulo}"/>
+                                                        </h:commandButton>
 							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                                                        
+                                                    </h:form>
+                                                    
 						</div>
 					</div>
 				</div>
