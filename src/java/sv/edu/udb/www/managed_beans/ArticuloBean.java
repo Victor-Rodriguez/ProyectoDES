@@ -200,6 +200,12 @@ public class ArticuloBean {
     return "/empleado/modificarArticulo";
   }
   
+  public String obtenerArticulo2() {
+    String codigo = JsfUtils.getRequest().getParameter("id");
+    articulo = articuloModel.obtenerArticulo(codigo);
+    return "/kleidung_detalle";
+  }
+  
     public String obtenerArticuloV() {
     String codigo = JsfUtils.getRequest().getParameter("codigo");
     articulo = articuloModel.obtenerArticulo(codigo);
