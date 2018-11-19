@@ -318,7 +318,7 @@ public class ArticuloBean {
         
         carritoModel.eliminarCarrito(id);
                 
-        return null;
+        return "/carrito?faces-redirect=true";
     }
 
 }
