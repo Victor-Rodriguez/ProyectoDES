@@ -1,5 +1,6 @@
 package sv.edu.udb.www.managed_beans;
 
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,6 +13,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 import sv.edu.udb.www.entities.ArticuloEntity;
+import sv.edu.udb.www.entities.CarritoEntity;
 import sv.edu.udb.www.entities.CategoriaEntity;
 import sv.edu.udb.www.entities.MarcaEntity;
 import sv.edu.udb.www.entities.ProveedorEntity;
@@ -19,6 +21,7 @@ import sv.edu.udb.www.entities.RubroEntity;
 import sv.edu.udb.www.entities.SubCategoriaEntity;
 import sv.edu.udb.www.entities.TallaEntity;
 import sv.edu.udb.www.model.ArticuloModel;
+import sv.edu.udb.www.model.CarritoModel;
 import sv.edu.udb.www.model.CategoriaModel;
 import sv.edu.udb.www.model.MarcaModel;
 import sv.edu.udb.www.model.ProveedorModel;
@@ -31,80 +34,125 @@ import sv.edu.udb.www.utils.JsfUtils;
 @RequestScoped
 public class ArticuloBean {
 
-  @EJB
-  private ArticuloModel articuloModel;
-  @EJB
-  private CategoriaModel categoriaModel;
-  @EJB
-  private ProveedorModel proveedorModel;
-  @EJB
-  private SubcategoriaModel subCategoriaModel;
-  @EJB
-  private MarcaModel marcaModel;
-  @EJB
-  private TallaModel tallaModel;
-  
-  @EJB
-  private RubrosModel rubrosModel;
-  
-  private List<ArticuloEntity> listaArticulos;
+    @EJB
+    private CarritoModel carritoModel;
+    @EJB
+    private ArticuloModel articuloModel;
+    @EJB
+    private CategoriaModel categoriaModel;
+    @EJB
+    private ProveedorModel proveedorModel;
+    @EJB
+    private SubcategoriaModel subCategoriaModel;
+    @EJB
+    private MarcaModel marcaModel;
+    @EJB
+    private TallaModel tallaModel;
 
-  private ArticuloEntity articulo = new ArticuloEntity();
+    @EJB
+    private RubrosModel rubrosModel;
 
-  public ArticuloBean() {
-  }
-  
-  
-   public List<TallaEntity> getListaTalla() {
-    return tallaModel.listaTalla();
-  }
-  
-  public List<MarcaEntity> getListaMarca() {
-    return marcaModel.listarMarca();
-  }
-  
-  public List<SubCategoriaEntity> getListaSubCategoria() {
-    return subCategoriaModel.listaSubCategorias();
-  }
-    
-  public List<ProveedorEntity> getListaProveedor() {
-    return proveedorModel.listarProveedor();
-  }
+    private List<CarritoEntity> listaCarritos;
 
-  public List<ArticuloEntity> getListaArticulos() {
-    listaArticulos = articuloModel.listaArticulos();
-    return listaArticulos;
-  }
+    private CarritoEntity carrito = new CarritoEntity();
 
-  public List<CategoriaEntity> getListaCategoria() {
-    return categoriaModel.listarCategorias();
-  }
+    public CarritoModel getCarritoModel() {
+        return carritoModel;
+    }
 
-  public List<RubroEntity> getListaRubro(){
-      return rubrosModel.listarRubros();
-  }
-  
-  public ArticuloEntity getArticulo() {
-    return articulo;
-  }
+    public void setCarritoModel(CarritoModel carritoModel) {
+        this.carritoModel = carritoModel;
+    }
 
-  public void setArticulo(ArticuloEntity articulo) {
-    this.articulo = articulo;
-  }
+    public List<CarritoEntity> getListaCarritos() {
+        HttpServletRequest request = JsfUtils.getRequest();
+        
+        String correo = (String) request.getSession().getAttribute("user");
+        
+        
+        
+        listaCarritos = carritoModel.listarCarritos(correo);
+        
+        double total=0;
+        
+        for(CarritoEntity carrito: listaCarritos){
+            total+=carrito.getPrecio();
+        }
+        
+        
+        
+        return listaCarritos;
+    }
 
-  public RubrosModel getRubrosModel() {
-    return rubrosModel;
- }
+    public void setListaCarritos(List<CarritoEntity> listaCarritos) {
+        this.listaCarritos = listaCarritos;
+    }
 
- public void setRubrosModel(RubrosModel rubrosModel) {
-    this.rubrosModel = rubrosModel;
- }
+    public CarritoEntity getCarrito() {
+        return carrito;
+    }
 
-  private Part imagen;
-  private Part imagen2;
-  private Part imagen3;
-  private Part imagen4;
-  private Part imagen5;
+    public void setCarrito(CarritoEntity carrito) {
+        this.carrito = carrito;
+    }
+
+    private List<ArticuloEntity> listaArticulos;
+
+    private ArticuloEntity articulo = new ArticuloEntity();
+
+    public ArticuloBean() {
+    }
+
+    public List<TallaEntity> getListaTalla() {
+        return tallaModel.listaTalla();
+    }
+
+    public List<MarcaEntity> getListaMarca() {
+        return marcaModel.listarMarca();
+    }
+
+    public List<SubCategoriaEntity> getListaSubCategoria() {
+        return subCategoriaModel.listaSubCategorias();
+    }
+
+    public List<ProveedorEntity> getListaProveedor() {
+        return proveedorModel.listarProveedor();
+    }
+
+    public List<ArticuloEntity> getListaArticulos() {
+        listaArticulos = articuloModel.listaArticulos();
+        return listaArticulos;
+    }
+
+    public List<CategoriaEntity> getListaCategoria() {
+        return categoriaModel.listarCategorias();
+    }
+
+    public List<RubroEntity> getListaRubro() {
+        return rubrosModel.listarRubros();
+    }
+
+    public ArticuloEntity getArticulo() {
+        return articulo;
+    }
+
+    public void setArticulo(ArticuloEntity articulo) {
+        this.articulo = articulo;
+    }
+
+    public RubrosModel getRubrosModel() {
+        return rubrosModel;
+    }
+
+    public void setRubrosModel(RubrosModel rubrosModel) {
+        this.rubrosModel = rubrosModel;
+    }
+
+    private Part imagen;
+    private Part imagen2;
+    private Part imagen3;
+    private Part imagen4;
+    private Part imagen5;
 
     public Part getImagen2() {
         return imagen2;
@@ -138,8 +186,6 @@ public class ArticuloBean {
         this.imagen5 = imagen5;
     }
 
-  
-  
     public Part getImagen() {
         return imagen;
     }
@@ -147,93 +193,132 @@ public class ArticuloBean {
     public void setImagen(Part imagen) {
         this.imagen = imagen;
     }
-  
-  
-  
-  
-   public String insertarArticulo() {
-       
-   String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/");    
-   
-  String cod = articuloModel.generarCodigo();
-   
-  articulo.setIdArticulo(cod);
-   
-   try {
+    
+    public double obtenerPrecio(){
+        double total=0;
+        
+        HttpServletRequest request = JsfUtils.getRequest();
+        
+        String correo = (String) request.getSession().getAttribute("user");
+        
+        listaCarritos = carritoModel.listarCarritos(correo);
+        
+        
+        for(CarritoEntity carrito: listaCarritos){
+            total+=carrito.getPrecio();
+        }
+        
+        
+        return total;
+    }
+
+    public String insertarArticulo() {
+
+        String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/");
+
+        String cod = articuloModel.generarCodigo();
+
+        articulo.setIdArticulo(cod);
+
+        try {
 
             InputStream input = imagen.getInputStream();
-            
+
             InputStream input2 = imagen2.getInputStream();
             InputStream input3 = imagen3.getInputStream();
             InputStream input4 = imagen4.getInputStream();
             InputStream input5 = imagen5.getInputStream();
-            
+
             articulo.setImg1(imagen.getSubmittedFileName());
-            
+
             articulo.setImg2(imagen2.getSubmittedFileName());
             articulo.setImg3(imagen3.getSubmittedFileName());
             articulo.setImg4(imagen4.getSubmittedFileName());
             articulo.setImg5(imagen5.getSubmittedFileName());
-            
+
             Files.copy(input, new File(path + "/resources/img/", articulo.getImg1()).toPath());
-            
+
             Files.copy(input2, new File(path + "/resources/img/", articulo.getImg2()).toPath());
             Files.copy(input3, new File(path + "/resources/img/", articulo.getImg3()).toPath());
             Files.copy(input4, new File(path + "/resources/img/", articulo.getImg4()).toPath());
             Files.copy(input5, new File(path + "/resources/img/", articulo.getImg5()).toPath());
-            
+
         } catch (IOException e) {
             JsfUtils.addErrorMessage("idArticulo", e.toString());
             return null;
         }
-       
-    if (articuloModel.insertarArticulo(articulo)== 0) {
-      JsfUtils.addErrorMessage("articulo", "Ya existe otro articulo con este nombre o código");
-      return null;
-    }
-    JsfUtils.addFlashMessage("exito", "Articulo insertado exitosamente");
-    return "/empleado/listarArticulo?faces-redirect=true";
-  }
 
-  public String obtenerArticulo() {
-    String codigo = JsfUtils.getRequest().getParameter("codigo");
-    articulo = articuloModel.obtenerArticulo(codigo);
-    return "/empleado/modificarArticulo";
-  }
-  
-  public String obtenerArticulo2() {
-    String codigo = JsfUtils.getRequest().getParameter("id");
-    articulo = articuloModel.obtenerArticulo(codigo);
-    return "/kleidung_detalle";
-  }
-  
+        if (articuloModel.insertarArticulo(articulo) == 0) {
+            JsfUtils.addErrorMessage("articulo", "Ya existe otro articulo con este nombre o código");
+            return null;
+        }
+        JsfUtils.addFlashMessage("exito", "Articulo insertado exitosamente");
+        return "/empleado/listarArticulo?faces-redirect=true";
+    }
+
+    public String obtenerArticulo() {
+        String codigo = JsfUtils.getRequest().getParameter("codigo");
+        articulo = articuloModel.obtenerArticulo(codigo);
+        return "/empleado/modificarArticulo";
+    }
+
+    public String obtenerArticulo2() {
+        String codigo = JsfUtils.getRequest().getParameter("id");
+        articulo = articuloModel.obtenerArticulo(codigo);
+        return "/kleidung_detalle";
+    }
+
     public String obtenerArticuloV() {
-    String codigo = JsfUtils.getRequest().getParameter("codigo");
-    articulo = articuloModel.obtenerArticulo(codigo);
-    return "/empleado/#carrito o cada uno";
-  }
-
-  public String modificarArticulo() {
-    if (articuloModel.modificarArticulo(articulo) == 0) {
-      JsfUtils.addErrorMessage("idArticulo", "No se pudo modificar");
-      return null;
+        String codigo = JsfUtils.getRequest().getParameter("codigo");
+        articulo = articuloModel.obtenerArticulo(codigo);
+        return "/empleado/#carrito o cada uno";
     }
-    JsfUtils.addFlashMessage("exito", "Artículo modificado exitosamente");
-    return "/empleado/listarArticulo?faces-redirect=true";
-  }
-  
-  public String agregarCarrito(){
-      
-      HttpServletRequest request= JsfUtils.getRequest();
+
+    public String modificarArticulo() {
+        if (articuloModel.modificarArticulo(articulo) == 0) {
+            JsfUtils.addErrorMessage("idArticulo", "No se pudo modificar");
+            return null;
+        }
+        JsfUtils.addFlashMessage("exito", "Artículo modificado exitosamente");
+        return "/empleado/listarArticulo?faces-redirect=true";
+    }
+
+    public String agregarCarrito() {
+
+        HttpServletRequest request = JsfUtils.getRequest();
+
+        if (request.getSession().getAttribute("user") == null) {
+            return "/login?faces-redirect=true";
+        } else {
+            
+            String correo = (String) request.getSession().getAttribute("user");
+            String id = JsfUtils.getRequest().getParameter("id");
+            String articulo = JsfUtils.getRequest().getParameter("nombre");
+            String img = JsfUtils.getRequest().getParameter("img");
+            
+            double precio = Double.parseDouble(JsfUtils.getRequest().getParameter("precio"));
+            
+            carrito.setCorreo(correo);
+            carrito.setIdProducto(id);
+            carrito.setArticulo(articulo);
+            carrito.setImg(img);
+            carrito.setPrecio(precio);
+            
+            
+            carritoModel.insertarCarrito(carrito);
+
+            return "/carrito?faces-redirect=true";
+        }
+
+    }
+    
+    public String eliminarArticulo(){
         
-      if(request.getSession().getAttribute("user") == null){
-         return "/login?faces-redirect=true";
-      }else{
-          
-          return obtenerArticulo2();
-      }
-      
-      
-  }
+        int id = Integer.parseInt(JsfUtils.getRequest().getParameter("codigo"));
+        
+        carritoModel.eliminarCarrito(id);
+                
+        return null;
+    }
 
 }
