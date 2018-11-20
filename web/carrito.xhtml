@@ -25,7 +25,7 @@
 
         <!-- Icono -->
         <link rel="icon" type="image/png" href="resources/estilos/img/icon.ico" />
-       
+
         <link href="resources/css/estilo.css" rel="stylesheet" type="text/css"/>
 
     </head>
@@ -70,11 +70,11 @@
                             <div class="header-ctn">
                                 <!-- Wishlist -->
                                 <div>
-                                    <a href="#">
+                                    <h:link outcome="deseo"  class="dropdown-toggle" >
                                         <i class="fa fa-heart-o"></i>
-                                        <span>Your Wishlist</span>
-                                        <div class="qty">2</div>
-                                    </a>
+                                        <span>Lista Deseos</span>
+                                        <div class="qty">#{articuloBean.contarDeseo()}</div>
+                                    </h:link>
                                 </div>
                                 <!-- /Wishlist -->
 
@@ -85,7 +85,7 @@
                                         <span>Tu Carrito</span>
                                         <div class="qty">#{articuloBean.contarCarrito()}</div>
                                     </h:link>
-                                    
+
                                 </div>
                                 <!-- /Cart -->
 
@@ -135,7 +135,13 @@
             <div class="container">
                 <!-- row -->
 
-
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>Lista del Carrito</h2>
+                        </div>
+                    </div>
+                </div>
 
 
                 <h:form prependId="false">
@@ -160,12 +166,12 @@
                             </f:facet>
                             <h:outputText value="#{item.precio}"/>
                         </h:column>
-                        
+
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="Operaciones"/>
                             </f:facet>
-                            <h:commandLink  value="Eliminar" class="btn btn-danger" action="#{articuloBean.eliminarArticulo()}">
+                            <h:commandLink  value="Quitar del Carrito" class="btn btn-danger" action="#{articuloBean.eliminarArticulo()}">
                                 <i class="glyphicon glyphicon-edit"></i>
                                 <f:param name="codigo" value="#{item.idCarrito}"/>
                             </h:commandLink>

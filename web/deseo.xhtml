@@ -23,10 +23,7 @@
         <!-- Custom stlylesheet -->
         <link href="resources/estilos/css/style.css" rel="stylesheet" type="text/css"/>
 
-        <!-- Icono -->
-        <link rel="icon" type="image/png" href="resources/estilos/img/icon.ico" />
-       
-        
+
         <link href="resources/css/estilo.css" rel="stylesheet" type="text/css"/>
 
     </head>
@@ -43,7 +40,7 @@
                         <div class="col-md-3">
                             <div class="header-logo">
                                 <a href="#" class="logo">
-                                    <img src="resources/estilos/img/Logo.png" alt="" style="width: 70%"/>
+                                    <img src="./img/logo.png" alt="" />
                                 </a>
                             </div>
                         </div>
@@ -71,6 +68,8 @@
                             <div class="header-ctn">
                                 <!-- Wishlist -->
                                 <div>
+
+
                                     <h:link outcome="deseo"  class="dropdown-toggle" >
                                         <i class="fa fa-heart-o"></i>
                                         <span>Lista Deseos</span>
@@ -80,13 +79,13 @@
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
-                                <div href="carrito.xhtml">
+                                <div class="dropdown">
                                     <h:link outcome="carrito"  class="dropdown-toggle" >
                                         <i class="fa fa-shopping-cart"></i>
                                         <span>Tu Carrito</span>
                                         <div class="qty">#{articuloBean.contarCarrito()}</div>
                                     </h:link>
-                                    
+
                                 </div>
                                 <!-- /Cart -->
 
@@ -137,83 +136,56 @@
                 <!-- row -->
 
 
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>Lista de Deseos</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <h:form prependId="false">
+                    <h:dataTable value="#{articuloBean.listaDeseos}" var="item"
+                                 id="tabla" class="table table-bordered">
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Porducto"/>
+                            </f:facet>
+                            <h:graphicImage name="img/#{item.img}" width="100px"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nombre"/>
+                            </f:facet>
+                            <h:outputText value="#{item.articulo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Precio"/>
+                            </f:facet>
+                            <h:outputText value="#{item.precio}"/>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Operaciones"/>
+                            </f:facet>
+                            <h:commandLink  value="Agregar al Carrito" class="btn btn-success" action="#{articuloBean.alCarrito()}">
+                                <i class="glyphicon glyphicon-edit"></i>
+                                <f:param name="id" value="#{item.idDeseo}"/>
+                                <f:param name="producto" value="#{item.idProducto}"/>
+                                <f:param name="img" value="#{item.img}"/>
+                                <f:param name="precio" value="#{item.precio}"/>
+                                <f:param name="nombre" value="#{item.articulo}"/>
+                                
+                            </h:commandLink>
+
+                        </h:column>
 
 
-               <div class="container">
-		<div class="card">
-			<div class="container-fliud">
-				<div class="wrapper row">
-					<div class="preview col-md-6">
-						
-						<div class="preview-pic tab-content">
-                                                    <div class="tab-pane active" id="pic-1"><img src="resources/img/#{articuloBean.articulo.img5}" /></div>
-						  <div class="tab-pane" id="pic-2"><img src="resources/img/#{articuloBean.articulo.img1}"/></div>
-						  <div class="tab-pane" id="pic-3"><img src="resources/img/#{articuloBean.articulo.img1}"/></div>
-						  <div class="tab-pane" id="pic-4"><img src="resources/img/#{articuloBean.articulo.img1}"/></div>
-						  <div class="tab-pane" id="pic-5"><img src="resources/img/#{articuloBean.articulo.img1}"/></div>
-						</div>
-						<ul class="preview-thumbnail nav nav-tabs">
-						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="resources/img/#{articuloBean.articulo.img1}"/></a></li>
-						  <li><a data-target="#pic-2" data-toggle="tab"><img src="resources/img/#{articuloBean.articulo.img5}" /></a></li>
-						  <li><a data-target="#pic-3" data-toggle="tab"><img src="resources/img/#{articuloBean.articulo.img2}" /></a></li>
-						  <li><a data-target="#pic-4" data-toggle="tab"><img src="resources/img/#{articuloBean.articulo.img3}" /></a></li>
-						  <li><a data-target="#pic-5" data-toggle="tab"><img src="resources/img/#{articuloBean.articulo.img4}" /></a></li>
-						</ul>
-						
-					</div>
-					<div class="details col-md-6">
-                                            <h3 class="product-title">#{articuloBean.articulo.articulo}
-                                            </h3>
-						<div class="rating">
-							<div class="stars">
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-						</div>
-                                            <p class="product-description">#{articuloBean.articulo.descripcion}</p>
-                                            <p>Marca: #{articuloBean.articulo.idMarca.marca}</p>
-                                            <p>Talla: #{articuloBean.articulo.idTalla.talla}</p>
-                                            <c:set var = "existencias" scope = "session" value = "#{articuloBean.articulo.cantidad}"/>
-                                            
-                                            <c:if test="${existencias>0}">
-                                           
-                                                <h4 class="price">Existencias: <span style="color: green">Disponible</span></h4>
-                                                
-                                            </c:if>
-                                            
-                                            <c:if test="${existencias==0}">
-                                           
-                                                <h4 class="price">Existencias: <span style="color: red">Agotado</span></h4>
-                                                
-                                            </c:if>
-                                            
-                                            <h4 class="price">Precio Actual: <span style="color: green">#{articuloBean.articulo.precio}</span></h4>
-						
-						<div class="action">
-                                                    
-                                                    <h:form>
-                                                        <h:commandButton action="#{articuloBean.agregarCarrito()}" class="add-to-cart btn btn-danger" value="Carrito">
-                                                            <f:param name="id" value="#{articuloBean.articulo.idArticulo}"/>
-                                                            <f:param name="nombre" value="#{articuloBean.articulo.articulo}"/>
-                                                            <f:param name="precio" value="#{articuloBean.articulo.precio}"/>
-                                                            <f:param name="img" value="#{articuloBean.articulo.img1}"/>
-                                                        </h:commandButton>
-							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
-                                                        
-                                                    </h:form>
-                                                    
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
+                    </h:dataTable>
+                </h:form>
 
 
 
@@ -224,7 +196,7 @@
                     <div id="tab1" class="tab-pane active">
                         <div class="products-slick" data-nav="#slick-nav-1">
 
-                           
+
 
                         </div>
                         <div id="slick-nav-1" class="products-slick-nav"></div>
@@ -238,7 +210,7 @@
         </div>
         <!-- /SECTION -->
 
-       
+
         <br/><br/><br/><br/><br/><br/>
 
         <!-- FOOTER -->
