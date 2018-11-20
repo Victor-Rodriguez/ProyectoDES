@@ -25,8 +25,7 @@
 
         <!-- Icono -->
         <link rel="icon" type="image/png" href="resources/estilos/img/icon.ico" />
-       
-        
+        <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>        
         <link href="resources/css/estilo.css" rel="stylesheet" type="text/css"/>
 
     </head>
@@ -146,11 +145,11 @@
 					<div class="preview col-md-6">
 						
 						<div class="preview-pic tab-content">
-                                                    <div class="tab-pane active" id="pic-1"><img src="resources/img/#{articuloBean.articulo.img5}" /></div>
-						  <div class="tab-pane" id="pic-2"><img src="resources/img/#{articuloBean.articulo.img1}"/></div>
-						  <div class="tab-pane" id="pic-3"><img src="resources/img/#{articuloBean.articulo.img1}"/></div>
-						  <div class="tab-pane" id="pic-4"><img src="resources/img/#{articuloBean.articulo.img1}"/></div>
-						  <div class="tab-pane" id="pic-5"><img src="resources/img/#{articuloBean.articulo.img1}"/></div>
+                                                    <div class="tab-pane active" id="pic-1"><img src="resources/img/#{articuloBean.articulo.img1}"/></div>
+						  <div class="tab-pane" id="pic-2"><img src="resources/img/#{articuloBean.articulo.img5}"/></div>
+						  <div class="tab-pane" id="pic-3"><img src="resources/img/#{articuloBean.articulo.img2}"/></div>
+						  <div class="tab-pane" id="pic-4"><img src="resources/img/#{articuloBean.articulo.img3}"/></div>
+						  <div class="tab-pane" id="pic-5"><img src="resources/img/#{articuloBean.articulo.img4}"/></div>
 						</div>
 						<ul class="preview-thumbnail nav nav-tabs">
 						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="resources/img/#{articuloBean.articulo.img1}"/></a></li>
@@ -195,14 +194,20 @@
 						<div class="action">
                                                     
                                                     <h:form>
-                                                        <h:commandButton action="#{articuloBean.agregarCarrito()}" class="add-to-cart btn btn-danger" value="Carrito">
+                                                        <h:commandButton action="#{articuloBean.agregarCarrito()}" class="add-to-cart btn btn-danger moD" value="Carrito">
+                                                            <f:param name="id" value="#{articuloBean.articulo.idArticulo}"/>
+                                                            <f:param name="nombre" value="#{articuloBean.articulo.articulo}"/>
+                                                            <f:param name="precio" value="#{articuloBean.articulo.precio}"/>
+                                                            <f:param name="img" value="#{articuloBean.articulo.img1}"/>
+                                                        </h:commandButton>  
+                                                        
+                                                        <h:commandButton class="add-to-cart btn btn-danger" value="Deseo" action="#{articuloBean.alDeseo()}">                                                           
                                                             <f:param name="id" value="#{articuloBean.articulo.idArticulo}"/>
                                                             <f:param name="nombre" value="#{articuloBean.articulo.articulo}"/>
                                                             <f:param name="precio" value="#{articuloBean.articulo.precio}"/>
                                                             <f:param name="img" value="#{articuloBean.articulo.img1}"/>
                                                         </h:commandButton>
-							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
-                                                        
+                                                             
                                                     </h:form>
                                                     
 						</div>

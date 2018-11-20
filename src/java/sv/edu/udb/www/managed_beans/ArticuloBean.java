@@ -340,6 +340,7 @@ public class ArticuloBean {
 
     }
 
+    //Principal al deseo
     public String agregarDeseo() {
         HttpServletRequest request = JsfUtils.getRequest();
 
@@ -365,6 +366,33 @@ public class ArticuloBean {
             return "/kleidung?faces-redirect=true";
         }
     }
+    
+    //Detalle al deseo
+      public String alDeseo() {
+        HttpServletRequest request = JsfUtils.getRequest();
+
+        if (request.getSession().getAttribute("user") == null) {
+            return "/login?faces-redirect=true";
+        } else {
+
+            String correo = (String) request.getSession().getAttribute("user");
+            String id = JsfUtils.getRequest().getParameter("id");
+            String articulo = JsfUtils.getRequest().getParameter("nombre");
+            String img = JsfUtils.getRequest().getParameter("img");
+
+            double precio = Double.parseDouble(JsfUtils.getRequest().getParameter("precio"));
+
+            deseo.setCorreo(correo);
+            deseo.setIdProducto(id);
+            deseo.setArticulo(articulo);
+            deseo.setImg(img);
+            deseo.setPrecio(precio);
+
+            deseoModel.insertarDeseo(deseo);
+
+            return "/deseo?faces-redirect=true";
+        }
+    }
 
     public int contarDeseo() {
         int num = 0;
@@ -386,6 +414,23 @@ public class ArticuloBean {
         carritoModel.eliminarCarrito(id);
 
         return "/carrito?faces-redirect=true";
+    }
+    
+    //Eliminar 1 deseo
+     public String eliminarLista() {
+
+        int id = Integer.parseInt(JsfUtils.getRequest().getParameter("codigo"));
+        deseoModel.eliminarDeseo(id);        
+
+        return "/deseo?faces-redirect=true";
+    }
+     
+    //Eliminar todo
+    public String eliminarAllLista() {
+        
+        //Codigo respectivo    
+
+        return "/deseo?faces-redirect=true";
     }
 
     public String alCarrito() {
@@ -411,7 +456,7 @@ public class ArticuloBean {
 
         deseoModel.eliminarDeseo(id1);
 
-        return "/carrito?faces-redirect=true";
+        return "/deseo?faces-redirect=true";
     }
 
     public int contarCarrito() {

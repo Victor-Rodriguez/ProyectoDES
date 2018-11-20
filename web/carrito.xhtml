@@ -22,7 +22,8 @@
         <link href="resources/estilos/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <!-- Custom stlylesheet -->
         <link href="resources/estilos/css/style.css" rel="stylesheet" type="text/css"/>
-
+        
+        <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
         <!-- Icono -->
         <link rel="icon" type="image/png" href="resources/estilos/img/icon.ico" />
 
@@ -135,56 +136,51 @@
             <div class="container">
                 <!-- row -->
 
-                <div class="container">
+                <div class="container totalFijo" >
                     <div class="row">
                         <div class="col-md-12">
                             <h2>Lista del Carrito</h2>
+                            <h3>Total: $#{articuloBean.obtenerPrecio()}</h3>
                         </div>
                     </div>
+                    <!-- Botones todo -->
+                    <h:form prependId="false">
+                        <h:commandLink  value="Comprar todo" class="btn btn-primary moD" action="#{articuloBean.eliminarAllLista()}">                                        
+                            <f:param name="codigo" value="#{item.idDeseo}"/>
+                        </h:commandLink>
+                        
+                        <h:commandLink  value="Eliminar todo" class="btn btn-danger" action="#{articuloBean.eliminarAllLista()}">                                        
+                            <f:param name="codigo" value="#{item.idDeseo}"/>
+                        </h:commandLink>  
+                    </h:form>
+                    <!-- Botones todo -->
                 </div>
-
-
+                
+                <c:set var = "existencias" scope = "session" value = "#{articuloBean.listaCarritos}"/>
+                
                 <h:form prependId="false">
-                    <h:dataTable value="#{articuloBean.listaCarritos}" var="item"
-                                 id="tabla" class="table table-bordered">
+                                        
+                    <c:forEach items="#{articuloBean.listaCarritos}" var="item">  
 
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Porducto"/>
-                            </f:facet>
-                            <h:graphicImage name="img/#{item.img}" width="100px"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Nombre"/>
-                            </f:facet>
-                            <h:outputText value="#{item.articulo}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Precio"/>
-                            </f:facet>
-                            <h:outputText value="#{item.precio}"/>
-                        </h:column>
-
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Operaciones"/>
-                            </f:facet>
-                            <h:commandLink  value="Quitar del Carrito" class="btn btn-danger" action="#{articuloBean.eliminarArticulo()}">
-                                <i class="glyphicon glyphicon-edit"></i>
-                                <f:param name="codigo" value="#{item.idCarrito}"/>
-                            </h:commandLink>
-
-                        </h:column>
-
-
-                    </h:dataTable>
-                </h:form>
-
-
-
-                <h3>Total: #{articuloBean.obtenerPrecio()}</h3>
+                        <div class="product list-Deseos">
+                            <div class="product-img">
+                                <h:graphicImage name="img/#{item.img}" style="width:210px"/>                                
+                            </div>
+                            <div class="product-body">                                
+                                <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                <h4 class="product-price">$<h:outputText value="#{item.precio}"/></h4>                              
+                                <div class="product-btns">                                    
+                                    <h:commandLink  value="Eliminar" class="btn btn-danger" action="#{articuloBean.eliminarArticulo()}">                                        
+                                        <f:param name="codigo" value="#{item.idCarrito}"/>
+                                    </h:commandLink>
+                                </div>
+                                                         
+                            </div>                            
+                        </div>
+                        <!-- /product -->
+                    </c:forEach>
+                    
+                </h:form>               
 
 
 

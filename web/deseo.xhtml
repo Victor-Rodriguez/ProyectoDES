@@ -22,8 +22,7 @@
         <link href="resources/estilos/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <!-- Custom stlylesheet -->
         <link href="resources/estilos/css/style.css" rel="stylesheet" type="text/css"/>
-
-
+        <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/estilo.css" rel="stylesheet" type="text/css"/>
 
     </head>
@@ -142,49 +141,49 @@
                             <h2>Lista de Deseos</h2>
                         </div>
                     </div>
+                    <!-- Botones todo -->
+                    <h:form prependId="false">
+                        <h:commandLink  value="Agregar todo" class="btn btn-success moD" action="#{articuloBean.eliminarAllLista()}">                                        
+                            <f:param name="codigo" value="#{item.idDeseo}"/>
+                        </h:commandLink>
+                        
+                        <h:commandLink  value="Eliminar todo" class="btn btn-info" action="#{articuloBean.eliminarAllLista()}">                                        
+                            <f:param name="codigo" value="#{item.idDeseo}"/>
+                        </h:commandLink>                        
+                    </h:form>
+                    <!-- Botones todo -->
                 </div>
 
                 <h:form prependId="false">
-                    <h:dataTable value="#{articuloBean.listaDeseos}" var="item"
-                                 id="tabla" class="table table-bordered">
+                   
+                    <c:forEach items="#{articuloBean.listaDeseos}" var="item">  
 
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Porducto"/>
-                            </f:facet>
-                            <h:graphicImage name="img/#{item.img}" width="100px"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Nombre"/>
-                            </f:facet>
-                            <h:outputText value="#{item.articulo}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Precio"/>
-                            </f:facet>
-                            <h:outputText value="#{item.precio}"/>
-                        </h:column>
-
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Operaciones"/>
-                            </f:facet>
-                            <h:commandLink  value="Agregar al Carrito" class="btn btn-success" action="#{articuloBean.alCarrito()}">
-                                <i class="glyphicon glyphicon-edit"></i>
-                                <f:param name="id" value="#{item.idDeseo}"/>
-                                <f:param name="producto" value="#{item.idProducto}"/>
-                                <f:param name="img" value="#{item.img}"/>
-                                <f:param name="precio" value="#{item.precio}"/>
-                                <f:param name="nombre" value="#{item.articulo}"/>
-                                
-                            </h:commandLink>
-
-                        </h:column>
-
-
-                    </h:dataTable>
+                        <div class="product list-Deseos">
+                            <div class="product-img">
+                                <h:graphicImage name="img/#{item.img}" style="width:210px"/>                                
+                            </div>
+                            <div class="product-body">                                
+                                <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                <h4 class="product-price">$<h:outputText value="#{item.precio}"/></h4>                              
+                                <div class="product-btns">
+                                    <h:commandLink  value="Carrito +" class="btn btn-success moD" action="#{articuloBean.alCarrito()}">                                      
+                                        <f:param name="id" value="#{item.idDeseo}"/>
+                                        <f:param name="producto" value="#{item.idProducto}"/>
+                                        <f:param name="img" value="#{item.img}"/>
+                                        <f:param name="precio" value="#{item.precio}"/>
+                                        <f:param name="nombre" value="#{item.articulo}"/>                                
+                                    </h:commandLink>
+                                    <h:commandLink  value="Eliminar" class="btn btn-info" action="#{articuloBean.eliminarLista()}">                                        
+                                        <f:param name="codigo" value="#{item.idDeseo}"/>
+                                    </h:commandLink>
+                                </div>
+                                                         
+                            </div>                            
+                        </div>
+                        <!-- /product -->
+                    </c:forEach>
+                    
+                    
                 </h:form>
 
 
