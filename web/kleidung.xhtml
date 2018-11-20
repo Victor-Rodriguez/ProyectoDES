@@ -38,7 +38,7 @@
                         <div class="col-md-3">
                             <div class="header-logo">
                                 <a href="#" class="logo">
-                                    <img src="./img/logo.png" alt="" />
+                                    <img src="resources/estilos/img/Logo.png" alt="" style="width: 70%"/>
                                 </a>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                                 <div>
                                     <a href="#">
                                         <i class="fa fa-heart-o"></i>
-                                        <span>Your Wishlist</span>
+                                        <span>Lista de deseos</span>
                                         <div class="qty">2</div>
                                     </a>
                                 </div>
@@ -179,7 +179,7 @@
                                                             <div class="product-btns">
                                                                 <h:form>
                                                                     <h:commandLink class="add-to-wishlist" value="" action="#{articuloBean.agregarDeseo()}">
-                                                                        <i class="fa fa-heart-o"></i><span class="tooltipp">Agregar a Lista de Deseos</span>
+                                                                        <i class="fa fa-heart-o"></i><span class="tooltipp"> Lista de Deseos</span>
                                                                         <f:param name="id" value="#{item.idArticulo}"/>
                                                                         <f:param name="nombre" value="#{item.articulo}"/>
                                                                         <f:param name="precio" value="#{item.precio}"/>
@@ -305,9 +305,15 @@
                                                         <i class="fa fa-star"></i>
                                                     </div>
                                                     <div class="product-btns">
-                                                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                        <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                        <h:form>
+                                                            <h:commandLink class="add-to-wishlist" value="" action="#{articuloBean.agregarDeseo()}">
+                                                                <i class="fa fa-heart-o"></i><span class="tooltipp"> Lista de Deseos</span>
+                                                                <f:param name="id" value="#{item.idArticulo}"/>
+                                                                <f:param name="nombre" value="#{item.articulo}"/>
+                                                                <f:param name="precio" value="#{item.precio}"/>
+                                                                <f:param name="img" value="#{item.img1}"/>
+                                                            </h:commandLink>
+                                                        </h:form>
                                                     </div>
                                                 </div>
                                                 <h:form prependId="false">
@@ -363,22 +369,7 @@
             <!-- container -->
             <div class="container">
                 <!-- row -->
-                <div class="row">
-
-                    <!-- section title -->
-                    <div class="col-md-12">
-                        <div class="section-title">
-                            <h3 class="title">Mejores ventas</h3>
-                            <div class="section-nav">
-                                <ul class="section-tab-nav tab-nav">
-                                    <li class="active"><a data-toggle="tab" href="#tab2">Hombre</a></li>
-                                    <li><a data-toggle="tab" href="#tab2">Mujer</a></li>
-                                    <li><a data-toggle="tab" href="#tab2">Accesorios</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /section title -->
+                <div class="row">          
 
                     <!-- Products tab & slick -->
                     <div class="col-md-12">
@@ -410,9 +401,15 @@
                                                         <i class="fa fa-star"></i>
                                                     </div>
                                                     <div class="product-btns">
-                                                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                        <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                        <h:form>
+                                                            <h:commandLink class="add-to-wishlist" value="" action="#{articuloBean.agregarDeseo()}">
+                                                                <i class="fa fa-heart-o"></i><span class="tooltipp"> Lista de Deseos</span>
+                                                                <f:param name="id" value="#{item.idArticulo}"/>
+                                                                <f:param name="nombre" value="#{item.articulo}"/>
+                                                                <f:param name="precio" value="#{item.precio}"/>
+                                                                <f:param name="img" value="#{item.img1}"/>
+                                                            </h:commandLink>
+                                                        </h:form>
                                                     </div>
                                                 </div>
                                                 <h:form prependId="false">
@@ -776,7 +773,6 @@
                                 <ul class="footer-links">
                                     <li><a href="#">Hombre</a></li>
                                     <li><a href="#">Mujer</a></li>
-                                    <li><a href="#">Accesorios</a></li>
                                 </ul>
                             </div>
                         </div>
