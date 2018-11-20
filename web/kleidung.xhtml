@@ -76,44 +76,14 @@
 
                                 <!-- Cart -->
                                 <div class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        <span>Your Cart</span>
-                                        <div class="qty">3</div>
-                                    </a>
-                                    <div class="cart-dropdown">
-                                        <div class="cart-list">
-                                            <div class="product-widget">
-                                                <div class="product-img">
-                                                    <img src="./img/product01.png" alt=""/>
-                                                </div>
-                                                <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-                                                </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
-                                            </div>
 
-                                            <div class="product-widget">
-                                                <div class="product-img">
-                                                    <img src="./img/product02.png" alt=""/>
-                                                </div>
-                                                <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                                </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
-                                            </div>
-                                        </div>
-                                        <div class="cart-summary">
-                                            <small>3 Item(s) selected</small>
-                                            <h5>SUBTOTAL: $2940.00</h5>
-                                        </div>
-                                        <div class="cart-btns">
-                                            <a href="#">View Cart</a>
-                                            <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
-                                        </div>
-                                    </div>
+
+                                    <h:link outcome="carrito"  class="dropdown-toggle" >
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <span>Tu Carrito</span>
+                                        <div class="qty">#{articuloBean.contarCarrito()}</div>
+                                    </h:link>
+
                                 </div>
                                 <!-- /Cart -->
 
@@ -187,42 +157,48 @@
 
                                                 <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
 
-                                                        <div class="product">
-                                                            <div class="product-img">
-                                                                <h:graphicImage name="img/#{item.img1}" style="height: 410px"/>
-                                                                <div class="product-label">
-                                                                    <span class="sale">-30%</span>
-                                                                    <span class="new">NEW</span>
-                                                                </div>
+                                                    <div class="product">
+                                                        <div class="product-img">
+                                                            <h:graphicImage name="img/#{item.img1}" style="height: 410px"/>
+                                                            <div class="product-label">
+                                                                <span class="sale">-30%</span>
+                                                                <span class="new">NEW</span>
                                                             </div>
-                                                            <div class="product-body">
-                                                                <p class="product-category">Category</p>
-                                                                <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                                                <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price"><h:outputText value="#{item.precio}"/></del></h4>
-                                                                <div class="product-rating">
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                </div>
-                                                                <div class="product-btns">
-                                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                                </div>
+                                                        </div>
+                                                        <div class="product-body">
+                                                            <p class="product-category">Category</p>
+                                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price"><h:outputText value="#{item.precio}"/></del></h4>
+                                                            <div class="product-rating">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
                                                             </div>
-                                                            <h:form prependId="false">
+                                                            <div class="product-btns">
+                                                                <h:form>
+                                                                    <h:commandLink class="add-to-wishlist" value="" action="#{articuloBean.agregarDeseo()}">
+                                                                        <i class="fa fa-heart-o"></i><span class="tooltipp">Agregar a Lista de Deseos</span>
+                                                                        <f:param name="id" value="#{item.idArticulo}"/>
+                                                                        <f:param name="nombre" value="#{item.articulo}"/>
+                                                                        <f:param name="precio" value="#{item.precio}"/>
+                                                                        <f:param name="img" value="#{item.img1}"/>
+                                                                    </h:commandLink>
+                                                                </h:form>
+                                                            </div>
+                                                        </div>
+                                                        <h:form prependId="false">
                                                             <div class="add-to-cart">
                                                                 <h:commandLink value="Detalles" class="btn add-to-cart-btn" action="#{articuloBean.obtenerArticulo2()}">
                                                                     <f:param name="id" value="#{item.idArticulo}"/>
                                                                 </h:commandLink>                                                                
                                                             </div>
-                                                            </h:form>
-                                                        </div>
-                                                        <!-- /product -->
-                                                  
-                                                    
+                                                        </h:form>
+                                                    </div>
+                                                    <!-- /product -->
+
+
 
                                                 </c:forEach>
 
@@ -257,7 +233,7 @@
                     <div id="tab1" class="tab-pane active">
                         <div class="products-slick" data-nav="#slick-nav-1">
 
-                           
+
 
                         </div>
                         <div id="slick-nav-1" class="products-slick-nav"></div>
@@ -309,41 +285,41 @@
                                         <!-- product -->
                                         <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
 
-                                                        <div class="product">
-                                                            <div class="product-img">
-                                                                <h:graphicImage name="img/#{item.img1}" style="height: 410px"/>
-                                                                <div class="product-label">
-                                                                    <span class="sale">-30%</span>
-                                                                    <span class="new">NEW</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-body">
-                                                                <p class="product-category">Category</p>
-                                                                <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                                                <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price"><h:outputText value="#{item.precio}"/></del></h4>
-                                                                <div class="product-rating">
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                </div>
-                                                                <div class="product-btns">
-                                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                                </div>
-                                                            </div>
-                                                            <h:form prependId="false">
-                                                            <div class="add-to-cart">
-                                                                 <h:commandLink value="Detalles" class="btn add-to-cart-btn" action="#{articuloBean.obtenerArticuloV()}">
-                                                                    <f:param name="id" value="#{item.idArticulo}"/>
-                                                                </h:commandLink>                                                                
-                                                            </div>
-                                                            </h:form>
-                                                        </div>
-                                                        <!-- /product -->
-                                                </c:forEach>
+                                            <div class="product">
+                                                <div class="product-img">
+                                                    <h:graphicImage name="img/#{item.img1}" style="height: 410px"/>
+                                                    <div class="product-label">
+                                                        <span class="sale">-30%</span>
+                                                        <span class="new">NEW</span>
+                                                    </div>
+                                                </div>
+                                                <div class="product-body">
+                                                    <p class="product-category">Category</p>
+                                                    <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                                    <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price"><h:outputText value="#{item.precio}"/></del></h4>
+                                                    <div class="product-rating">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div>
+                                                    <div class="product-btns">
+                                                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                                        <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                    </div>
+                                                </div>
+                                                <h:form prependId="false">
+                                                    <div class="add-to-cart">
+                                                        <h:commandLink value="Detalles" class="btn add-to-cart-btn" action="#{articuloBean.obtenerArticuloV()}">
+                                                            <f:param name="id" value="#{item.idArticulo}"/>
+                                                        </h:commandLink>                                                                
+                                                    </div>
+                                                </h:form>
+                                            </div>
+                                            <!-- /product -->
+                                        </c:forEach>
 
                                         <!-- /product -->
                                     </div>
@@ -412,42 +388,42 @@
                                 <div id="tab2" class="tab-pane fade in active">
                                     <div class="products-slick" data-nav="#slick-nav-2">
                                         <!-- product -->
-                                       <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
+                                        <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
 
-                                                        <div class="product">
-                                                            <div class="product-img">
-                                                                <h:graphicImage name="img/#{item.img1}" style="height: 410px"/>
-                                                                <div class="product-label">
-                                                                    <span class="sale">-30%</span>
-                                                                    <span class="new">NEW</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-body">
-                                                                <p class="product-category">Category</p>
-                                                                <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                                                <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price"><h:outputText value="#{item.precio}"/></del></h4>
-                                                                <div class="product-rating">
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                </div>
-                                                                <div class="product-btns">
-                                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                                </div>
-                                                            </div>
-                                                           <h:form prependId="false">
-                                                            <div class="add-to-cart">
-                                                                 <h:commandLink value="Detalles" class="btn add-to-cart-btn" action="#{articuloBean.obtenerArticuloV()}">
-                                                                    <f:param name="id" value="#{item.idArticulo}"/>
-                                                                </h:commandLink>                                                                
-                                                            </div>
-                                                            </h:form>
-                                                        </div>
-                                                        <!-- /product -->
+                                            <div class="product">
+                                                <div class="product-img">
+                                                    <h:graphicImage name="img/#{item.img1}" style="height: 410px"/>
+                                                    <div class="product-label">
+                                                        <span class="sale">-30%</span>
+                                                        <span class="new">NEW</span>
+                                                    </div>
+                                                </div>
+                                                <div class="product-body">
+                                                    <p class="product-category">Category</p>
+                                                    <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                                    <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price"><h:outputText value="#{item.precio}"/></del></h4>
+                                                    <div class="product-rating">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div>
+                                                    <div class="product-btns">
+                                                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                                        <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                    </div>
+                                                </div>
+                                                <h:form prependId="false">
+                                                    <div class="add-to-cart">
+                                                        <h:commandLink value="Detalles" class="btn add-to-cart-btn" action="#{articuloBean.obtenerArticuloV()}">
+                                                            <f:param name="id" value="#{item.idArticulo}"/>
+                                                        </h:commandLink>                                                                
+                                                    </div>
+                                                </h:form>
+                                            </div>
+                                            <!-- /product -->
                                         </c:forEach>
                                         <!-- /product -->                                      
                                     </div>
@@ -481,90 +457,90 @@
 
                         <div class="products-widget-slick" data-nav="#slick-nav-3">
                             <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
-                            <div>                                
-                                <!-- product widget -->                                
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>										
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$99.00</del></h4>
-                                    </div>
-                                </div>                               
-                                <!-- /product widget -->
+                                <div>                                
+                                    <!-- product widget -->                                
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>										
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$99.00</del></h4>
+                                        </div>
+                                    </div>                               
+                                    <!-- /product widget -->
 
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>											
+                                    <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>											
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$45.00</del></h4>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$45.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- /product widget -->
+                                    <!-- /product widget -->
 
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">										
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">										
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
-                                    </div>
+                                    <!-- product widget -->
                                 </div>
-                                <!-- product widget -->
-                            </div>
                             </c:forEach>
-                            
+
                             <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
-                            <div>
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                <div>
+                                    <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$69.00</del></h4>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$69.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- /product widget -->
+                                    <!-- /product widget -->
 
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">										
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">										
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$110.00</del></h4>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$110.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- /product widget -->
+                                    <!-- /product widget -->
 
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
-                                    </div>
+                                    <!-- product widget -->
                                 </div>
-                                <!-- product widget -->
-                            </div>
-                             </c:forEach>
+                            </c:forEach>
                         </div>
                     </div>
 
@@ -576,94 +552,94 @@
                             </div>
                         </div>
 
-                    <div class="products-widget-slick" data-nav="#slick-nav-4">
+                        <div class="products-widget-slick" data-nav="#slick-nav-4">
                             <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
-                            <div>                                
-                                <!-- product widget -->                                
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>										
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$99.00</del></h4>
-                                    </div>
-                                </div>                               
-                                <!-- /product widget -->
+                                <div>                                
+                                    <!-- product widget -->                                
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>										
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$99.00</del></h4>
+                                        </div>
+                                    </div>                               
+                                    <!-- /product widget -->
 
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>											
+                                    <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>											
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$45.00</del></h4>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$45.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- /product widget -->
+                                    <!-- /product widget -->
 
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">										
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">										
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
-                                    </div>
+                                    <!-- product widget -->
                                 </div>
-                                <!-- product widget -->
-                            </div>
                             </c:forEach>
-                            
+
                             <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
-                            <div>
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                <div>
+                                    <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$69.00</del></h4>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$69.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- /product widget -->
+                                    <!-- /product widget -->
 
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">										
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">										
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$110.00</del></h4>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$110.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- /product widget -->
+                                    <!-- /product widget -->
 
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
-                                    </div>
+                                    <!-- product widget -->
                                 </div>
-                                <!-- product widget -->
-                            </div>
-                             </c:forEach>
+                            </c:forEach>
                         </div>
-                        
+
                     </div>
 
                     <div class="clearfix visible-sm visible-xs"></div>
@@ -678,90 +654,90 @@
 
                         <div class="products-widget-slick" data-nav="#slick-nav-5">
                             <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
-                            <div>                                
-                                <!-- product widget -->                                
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>										
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$99.00</del></h4>
-                                    </div>
-                                </div>                               
-                                <!-- /product widget -->
+                                <div>                                
+                                    <!-- product widget -->                                
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>										
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$99.00</del></h4>
+                                        </div>
+                                    </div>                               
+                                    <!-- /product widget -->
 
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>											
+                                    <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>											
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$45.00</del></h4>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$45.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- /product widget -->
+                                    <!-- /product widget -->
 
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">										
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">										
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
-                                    </div>
+                                    <!-- product widget -->
                                 </div>
-                                <!-- product widget -->
-                            </div>
                             </c:forEach>
-                            
+
                             <c:forEach items="#{articuloBean.listaArticulos}" var="item">  
-                            <div>
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                <div>
+                                    <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$69.00</del></h4>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$69.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- /product widget -->
+                                    <!-- /product widget -->
 
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">										
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">										
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$110.00</del></h4>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$110.00</del></h4>
-                                    </div>
-                                </div>
-                                <!-- /product widget -->
+                                    <!-- /product widget -->
 
-                                <!-- product widget -->
-                                <div class="product-widget">
-                                    <div class="product-img">
-                                        <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                    <!-- product widget -->
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <h:graphicImage name="img/#{item.img1}" style="height: 90px"/>	
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Mujer</p>
+                                            <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
+                                            <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Mujer</p>
-                                        <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                        <h4 class="product-price"><h:outputText value="#{item.precio}"/> <del class="product-old-price">$80.00</del></h4>
-                                    </div>
+                                    <!-- product widget -->
                                 </div>
-                                <!-- product widget -->
-                            </div>
-                             </c:forEach>
+                            </c:forEach>
                         </div>
                     </div>
 

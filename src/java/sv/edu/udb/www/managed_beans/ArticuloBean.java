@@ -267,6 +267,7 @@ public class ArticuloBean {
         articulo = articuloModel.obtenerArticulo(codigo);
         return "/kleidung_detalle";
     }
+    
 
     public String obtenerArticuloV() {
         String codigo = JsfUtils.getRequest().getParameter("codigo");
@@ -319,6 +320,26 @@ public class ArticuloBean {
         carritoModel.eliminarCarrito(id);
                 
         return "/carrito?faces-redirect=true";
+    }
+    
+    public int contarCarrito(){
+        
+        int num=0;
+        HttpServletRequest request = JsfUtils.getRequest();
+        
+        String correo = (String) request.getSession().getAttribute("user");
+        
+        
+        
+        listaCarritos = carritoModel.listarCarritos(correo);
+        
+        num = listaCarritos.size();
+        
+        
+        
+        
+        return num;
+        
     }
 
 }
