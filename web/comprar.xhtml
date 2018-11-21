@@ -26,7 +26,7 @@
         <link href="resources/css/estilo.css" rel="stylesheet" type="text/css"/>
         <!-- Icono -->
         <link rel="icon" type="image/png" href="resources/estilos/img/icon.ico" />
-
+        <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <h:body>
         <!-- HEADER -->
@@ -47,25 +47,7 @@
                         </div>
                         <!-- /LOGO -->
 
-                        <!-- SEARCH BAR -->
-                        <div class="col-md-6">
-                            <div class="header-search">
-                                <h:form>
-                                    <select class="input-select">
-                                        <option value="0">Todo</option>
-                                        <option value="1">Hombre</option>
-                                        <option value="2">Mujer</option>
-                                        <option value="3">Accesorios</option>
-                                    </select>
-                                    <input class="input" placeholder="Search here"/>
-                                    <button class="search-btn">Search</button>
-                                </h:form>
-                            </div>
-                        </div>
-                        <!-- /SEARCH BAR -->
-
-                        <!-- ACCOUNT -->
-                        <div class="col-md-3 clearfix">
+                         <ul class="nav navbar-nav navbar-right main-nav">                 
                             <div class="header-ctn">
                                 <!-- Wishlist -->
                                 <div>
@@ -99,8 +81,9 @@
                                 </div>
                                 <!-- /Menu Toogle -->
                             </div>
-                        </div>
-                        <!-- /ACCOUNT -->
+                       </ul>    
+
+                        
                     </div>
                     <!-- row -->
                 </div>
@@ -137,56 +120,42 @@
                 <!-- row -->
 
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h2>Lista de Deseos</h2>
-                        </div>
-                    </div>
-                    <!-- Botones todo -->
-                    <h:form prependId="false">
-                        <h:commandLink  value="Agregar todo" class="btn btn-success moD" action="#{articuloBean.eliminarAllLista()}">                                        
-                            <f:param name="codigo" value="#{item.idDeseo}"/>
-                        </h:commandLink>
+                
+                
+                <div class="cartaAlv">                           
+                    
+                    <h2 class="text-center" style="color: #fff; margin-top: 3%; margin-bottom: 5%;">Comprar</h2>
+                    <div style=" float: left; margin-bottom: 3%; margin-left: 1.5%;">
                         
-                        <h:commandLink  value="Eliminar todo" class="btn btn-info" action="#{articuloBean.eliminarAllLista()}">                                        
-                            <f:param name="codigo" value="#{item.idDeseo}"/>
-                        </h:commandLink>                        
-                    </h:form>
-                    <!-- Botones todo -->
-                </div>
-
-                <h:form prependId="false">
-                   
-                    <c:forEach items="#{articuloBean.listaDeseos}" var="item">  
-
-                        <div class="product list-Deseos">
-                            <div class="product-img">
-                                <h:graphicImage name="img/#{item.img}" style="width:210px"/>                                
-                            </div>
-                            <div class="product-body">                                
-                                <h3 class="product-name"><a href="#"><h:outputText value="#{item.articulo}"/></a></h3>
-                                <h4 class="product-price">$<h:outputText value="#{item.precio}"/></h4>                              
-                                <div class="product-btns">
-                                    <h:commandLink  value="Carrito +" class="btn btn-success moD" action="#{articuloBean.alCarrito()}">                                      
-                                        <f:param name="id" value="#{item.idDeseo}"/>
-                                        <f:param name="producto" value="#{item.idProducto}"/>
-                                        <f:param name="img" value="#{item.img}"/>
-                                        <f:param name="precio" value="#{item.precio}"/>
-                                        <f:param name="nombre" value="#{item.articulo}"/>                                
-                                    </h:commandLink>
-                                    <h:commandLink  value="Eliminar" class="btn btn-info" action="#{articuloBean.eliminarLista()}">                                        
-                                        <f:param name="codigo" value="#{item.idDeseo}"/>
-                                    </h:commandLink>
+                        <h:form prependId="false">
+                            <c:forEach items="#{articuloBean.listaCarritos}" var="item" > 
+                                <div class="product list-Deseos nelsonM">                                    
+                                    <div class="product-body">                                
+                                        <h3 class="product-name"><h:outputText value="#{item.articulo}"/></h3>
+                                        <h4 class="product-price">$<h:outputText value="#{item.precio}"/></h4> 
+                                    </div>                            
                                 </div>
-                                                         
-                            </div>                            
-                        </div>
-                        <!-- /product -->
-                    </c:forEach>
+                                <!-- /product -->
+                            </c:forEach>
+                        </h:form>                        
+                    </div>
+                   
+                    <div class="FINAL text-center" >
+                         <h4 style="color: #fff;">Total: $#{articuloBean.obtenerPrecio()}</h4>
+                         <h4 style="color: #fff;">Cantidad de productos: #{articuloBean.contarCarrito()}</h4>
+                         
+                         <h:form prependId="false">
+                             <h:commandLink  value="Aceptar" class="btn btn-info moD MOMO" action="#{articuloBean.eliminarAllLista()}">                                        
+                                 <f:param name="codigo" value="#{item.idDeseo}"/>
+                             </h:commandLink>                                                
+                         </h:form>
+                         
+                    </div>                     
+                   
                     
                     
-                </h:form>
+                 </div>
+               
 
 
 

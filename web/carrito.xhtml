@@ -142,18 +142,9 @@
                             <h2>Lista del Carrito</h2>
                             <h3>Total: $#{articuloBean.obtenerPrecio()}</h3>
                         </div>
+                    <h:link outcome="comprar" class="btn btn-success">Comprar</h:link>	
                     </div>
-                    <!-- Botones todo -->
-                    <h:form prependId="false">
-                        <h:commandLink  value="Comprar todo" class="btn btn-primary moD" action="#{articuloBean.eliminarAllLista()}">                                        
-                            <f:param name="codigo" value="#{item.idDeseo}"/>
-                        </h:commandLink>
-                        
-                        <h:commandLink  value="Eliminar todo" class="btn btn-danger" action="#{articuloBean.eliminarAllLista()}">                                        
-                            <f:param name="codigo" value="#{item.idDeseo}"/>
-                        </h:commandLink>  
-                    </h:form>
-                    <!-- Botones todo -->
+                    
                 </div>
                 
                 <c:set var = "existencias" scope = "session" value = "#{articuloBean.listaCarritos}"/>

@@ -335,7 +335,7 @@ public class ArticuloBean {
 
             carritoModel.insertarCarrito(carrito);
 
-            return "/carrito?faces-redirect=true";
+            return "/kleidung?faces-redirect=true";
         }
 
     }
@@ -415,7 +415,15 @@ public class ArticuloBean {
 
         return "/carrito?faces-redirect=true";
     }
-    
+    //Eliminar artículo de compra
+     public String eliminarArticuloC() {
+
+        int id = Integer.parseInt(JsfUtils.getRequest().getParameter("codigo"));
+
+        carritoModel.eliminarCarrito(id);
+
+        return "/compra?faces-redirect=true";
+    }
     //Eliminar 1 deseo
      public String eliminarLista() {
 
@@ -473,5 +481,33 @@ public class ArticuloBean {
         return num;
 
     }
+    
+    //Comprar
+      public String aComprar() {
+
+        HttpServletRequest request = JsfUtils.getRequest();
+
+        String correo = (String) request.getSession().getAttribute("user");
+        String id = JsfUtils.getRequest().getParameter("producto");
+        String articulo = JsfUtils.getRequest().getParameter("nombre");
+        String img = JsfUtils.getRequest().getParameter("img");
+
+        double precio = Double.parseDouble(JsfUtils.getRequest().getParameter("precio"));
+
+        carrito.setCorreo(correo);
+        carrito.setIdProducto(id);
+        carrito.setArticulo(articulo);
+        carrito.setImg(img);
+        carrito.setPrecio(precio);
+
+        carritoModel.insertarCarrito(carrito);
+
+        int id1 = Integer.parseInt(JsfUtils.getRequest().getParameter("id"));
+
+        deseoModel.eliminarDeseo(id1);
+
+        return "/comprar?faces-redirect=true";
+    }
+    
 
 }
