@@ -66,11 +66,7 @@ public class DeseoModel {
     }
      
      
-    public int limpiarDeseo(String correo){
-        
-        
-        
-    }
+
     
 
 }
