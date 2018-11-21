@@ -433,6 +433,25 @@ public class ArticuloBean {
         return "/deseo?faces-redirect=true";
     }
      
+     public String limpiarLista() {
+
+        HttpServletRequest request = JsfUtils.getRequest();
+
+        String correo = (String) request.getSession().getAttribute("user");
+
+        List <DeseoEntity> lista = deseoModel.listarDeseos(correo);
+
+        
+        for(DeseoEntity d:lista){
+            
+            deseoModel.eliminarDeseo(d.getIdDeseo());
+            
+        }
+        
+        
+        return "/deseo?faces-redirect=true";
+    }
+     
     //Eliminar todo
     public String eliminarAllLista() {
         
