@@ -29,7 +29,7 @@
 
     </head>
     <h:body>
-        <!-- HEADER -->
+         <!-- HEADER -->
         <header>
             <!-- MAIN HEADER -->
             <div id="header">
@@ -50,6 +50,7 @@
                         <!-- SEARCH BAR -->
                         <div class="col-md-6">
                             <div class="header-search">
+                                <!-- 
                                 <h:form>
                                     <select class="input-select">
                                         <option value="0">Todo</option>
@@ -60,6 +61,7 @@
                                     <input class="input" placeholder="Search here"/>
                                     <button class="search-btn">Search</button>
                                 </h:form>
+                                -->
                             </div>
                         </div>
                         <!-- /SEARCH BAR -->
@@ -69,8 +71,6 @@
                             <div class="header-ctn">
                                 <!-- Wishlist -->
                                 <div>
-
-
                                     <h:link outcome="deseo"  class="dropdown-toggle" >
                                         <i class="fa fa-heart-o"></i>
                                         <span>Lista Deseos</span>
@@ -81,6 +81,8 @@
 
                                 <!-- Cart -->
                                 <div class="dropdown">
+
+
                                     <h:link outcome="carrito"  class="dropdown-toggle" >
                                         <i class="fa fa-shopping-cart"></i>
                                         <span>Tu Carrito</span>
@@ -144,11 +146,7 @@
                         </div>
                     </div>
                     <!-- Botones todo -->
-                    <h:form prependId="false">
-                        <h:commandLink  value="Agregar todo" class="btn btn-success moD" action="#{articuloBean.eliminarAllLista()}">                                        
-                            <f:param name="codigo" value="#{item.idDeseo}"/>
-                        </h:commandLink>
-                        
+                    <h:form prependId="false">                        
                         <h:commandLink  value="Limpiar todo" class="btn btn-info" action="#{articuloBean.limpiarLista()}">                                        
                             <f:param name="codigo" value="#{item.idDeseo}"/>
                         </h:commandLink>                        

@@ -446,20 +446,28 @@ public class ArticuloBean {
             
             deseoModel.eliminarDeseo(d.getIdDeseo());
             
-        }
-        
-        
+        }        
         return "/deseo?faces-redirect=true";
     }
      
-    //Eliminar todo
-    public String eliminarAllLista() {
+     //Finalizar compra
+    public String compraH() {
+
+        HttpServletRequest request = JsfUtils.getRequest();
+
+        String correo = (String) request.getSession().getAttribute("user");
+
+        List <CarritoEntity> lista = carritoModel.listarCarritos(correo);
+
         
-        //Codigo respectivo    
-
-        return "/deseo?faces-redirect=true";
+        for(CarritoEntity d:lista){
+            
+            carritoModel.eliminarCarrito(d.getIdCarrito());
+            
+        }        
+        return "/kleidung?faces-redirect=true";
     }
-
+    
     public String alCarrito() {
 
         HttpServletRequest request = JsfUtils.getRequest();
