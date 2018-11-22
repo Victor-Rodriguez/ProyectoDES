@@ -450,7 +450,7 @@ public class ArticuloBean {
         return "/deseo?faces-redirect=true";
     }
      
-     //Finalizar compra
+     //Finalizar compra carrito
     public String compraH() {
 
         HttpServletRequest request = JsfUtils.getRequest();
@@ -458,7 +458,6 @@ public class ArticuloBean {
         String correo = (String) request.getSession().getAttribute("user");
 
         List <CarritoEntity> lista = carritoModel.listarCarritos(correo);
-
         
         for(CarritoEntity d:lista){
             
